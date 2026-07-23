@@ -1,0 +1,742 @@
+[
+  {
+    "id": "d1",
+    "track": "development",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "The sort order that vanished",
+    "hook": "Your report worked for fifteen years. On HANA it returns the same rows in the wrong order.",
+    "summary": "Classic ABAP quietly relied on the database returning rows in a predictable sequence. HANA gives no such guarantee. Any SELECT without an explicit ORDER BY, and any control-break logic that assumed pre-sorted records, can now produce wrong results without throwing a single error.",
+    "tags": [
+      "HANA",
+      "ORDER BY",
+      "SELECT",
+      "silent bug",
+      "ECC to S/4"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "ABAP SELECT ORDER BY HANA result set order"
+  },
+  {
+    "id": "d2",
+    "track": "development",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "The tables that aren't there anymore",
+    "hook": "Half the tables your custom code reads don't exist in S/4HANA.",
+    "summary": "Secondary index tables were replaced by CDS compatibility views over the Universal Journal, KONV became PRCD_ELEMENTS, and cluster and pooled tables were converted to transparent. Compatibility views cover many reads but not direct writes or native SQL.",
+    "tags": [
+      "BSIS",
+      "BSAK",
+      "KONV",
+      "PRCD_ELEMENTS",
+      "compatibility views",
+      "custom code"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "S/4HANA compatibility views simplification list"
+  },
+  {
+    "id": "d3",
+    "track": "development",
+    "pillar": "business",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Code pushdown, or why your loop is the problem",
+    "hook": "You moved to the fastest database on earth and your report got slower.",
+    "summary": "The ECC habit was to pull data up into ABAP and process it in loops. HANA rewards the opposite: do the work in the database with CDS views and AMDP, and return a result rather than a dataset. This is where the actual migration performance case lives.",
+    "tags": [
+      "code pushdown",
+      "CDS",
+      "AMDP",
+      "performance",
+      "business case"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "developers",
+      "learning"
+    ],
+    "search": "ABAP code pushdown CDS AMDP"
+  },
+  {
+    "id": "d4",
+    "track": "development",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "When MATNR grew to 40 characters",
+    "hook": "One field got longer and three hundred programs broke.",
+    "summary": "Material number extended from 18 to 40 characters. Anything with a hardcoded length, an offset operation, a fixed-width structure, a flat-file interface, or a screen field sized for 18 characters becomes a candidate for failure.",
+    "tags": [
+      "MATNR",
+      "field length",
+      "offsets",
+      "interfaces",
+      "ECC to S/4"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "material number field length extension 40 characters"
+  },
+  {
+    "id": "d5",
+    "track": "development",
+    "pillar": "business",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "ATC, readiness checks, and the honest custom-code inventory",
+    "hook": "Before you argue about the migration date, run this.",
+    "summary": "ATC with S/4HANA readiness checks, the simplification item catalog, and remote analysis against a target release tell you what your custom code will actually cost. Most teams either skip it or can't read the output. Triaging noise from genuine blockers is the skill.",
+    "tags": [
+      "ATC",
+      "readiness check",
+      "simplification items",
+      "estimation",
+      "remediation"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "ABAP Test Cockpit S/4HANA readiness custom code migration"
+  },
+  {
+    "id": "c1",
+    "track": "configuration",
+    "pillar": "business",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "The Universal Journal, explained without the marketing",
+    "hook": "FI and CO stopped being separate. Here's what that actually means at month end.",
+    "summary": "ACDOCA merges general ledger, controlling, asset accounting and material ledger line items into one table. No reconciliation between FI and CO because there is nothing to reconcile. It also invalidates a lot of reporting and custom extracts built over decades.",
+    "tags": [
+      "ACDOCA",
+      "Universal Journal",
+      "FI",
+      "CO",
+      "month end",
+      "reporting"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "learning"
+    ],
+    "search": "Universal Journal ACDOCA S/4HANA Finance"
+  },
+  {
+    "id": "c2",
+    "track": "configuration",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Ledgers, accounting principles, and the mapping that breaks postings",
+    "hook": "The config was ninety-five percent complete. The missing five percent stopped every treasury posting.",
+    "summary": "S/4HANA enforces the universal journal far more strictly than classic G/L. If an accounting principle isn't mapped to a ledger for a company code, postings that used to slide through simply fail. A one-line configuration gap presenting as a system-wide outage.",
+    "tags": [
+      "ledger",
+      "accounting principle",
+      "company code",
+      "treasury",
+      "FINSC_LEDGER",
+      "posting failure"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "ledger accounting principle assignment company code"
+  },
+  {
+    "id": "c3",
+    "track": "configuration",
+    "pillar": "business",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Business Partner: the conversion nobody scoped properly",
+    "hook": "Customer and vendor masters are now one object, and it's not optional.",
+    "summary": "Customer/Vendor Integration and the mandatory move to Business Partner is consistently underestimated. Data quality problems that were survivable for twenty years become hard blockers: duplicates, incomplete records, inconsistent number ranges, all surfacing at once.",
+    "tags": [
+      "Business Partner",
+      "CVI",
+      "master data",
+      "data quality",
+      "conversion blocker"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "Business Partner customer vendor integration conversion"
+  },
+  {
+    "id": "c4",
+    "track": "configuration",
+    "pillar": "business",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "New Asset Accounting and mandatory Material Ledger",
+    "hook": "Two modules became mandatory. Did anyone tell your finance team?",
+    "summary": "New Asset Accounting is required in S/4HANA with real consequences for parallel valuation and depreciation areas. Material Ledger is likewise mandatory, changing inventory valuation and raising actual costing questions many organisations never had to answer.",
+    "tags": [
+      "New Asset Accounting",
+      "Material Ledger",
+      "parallel valuation",
+      "actual costing",
+      "finance"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "learning"
+    ],
+    "search": "New Asset Accounting Material Ledger S/4HANA"
+  },
+  {
+    "id": "c5",
+    "track": "configuration",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Everything that quietly became obsolete",
+    "hook": "SD credit management, classic output, and four other things that don't exist anymore.",
+    "summary": "A tour of the deprecations that catch teams out: SD credit management replaced by FSCM Credit Management, classic NAST and SAPscript output giving way to BRF+ driven output, foreign trade moving to GTS, and other simplification items. Each is small; collectively they're a project.",
+    "tags": [
+      "FSCM",
+      "credit management",
+      "output management",
+      "BRF+",
+      "NAST",
+      "simplification items"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "maintenance"
+    ],
+    "search": "S/4HANA simplification item list"
+  },
+  {
+    "id": "s1",
+    "track": "support",
+    "pillar": "business",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Brownfield, greenfield, or selective — and what each costs you afterwards",
+    "hook": "Choose the conversion path wrong and you'll support that decision for a decade.",
+    "summary": "System conversion, new implementation, or selective data transition. Most comparisons stop at project cost. The more useful angle is what each path does to support afterwards: how much history you carry, how much custom baggage survives, how clean the starting point is.",
+    "tags": [
+      "brownfield",
+      "greenfield",
+      "selective data transition",
+      "conversion path",
+      "TCO"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "roadmap",
+      "learning"
+    ],
+    "search": "system conversion new implementation selective data transition"
+  },
+  {
+    "id": "s2",
+    "track": "support",
+    "pillar": "business",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Sizing for in-memory: why your old rules don't apply",
+    "hook": "On HANA, the data you never deleted is now the data you're paying to keep in memory.",
+    "summary": "Row store to column store, disk to in-memory. Sizing works differently and data volume translates far more directly into cost, which is why archiving and housekeeping before conversion has a hard financial payback.",
+    "tags": [
+      "sizing",
+      "in-memory",
+      "archiving",
+      "data volume management",
+      "cost"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "HANA sizing data volume management archiving"
+  },
+  {
+    "id": "s3",
+    "track": "support",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "The conversion run itself — SUM, DMO, and downtime",
+    "hook": "What actually happens during the weekend everyone's afraid of.",
+    "summary": "Software Update Manager with the Database Migration Option in plain language: the phases, where things typically go wrong, how downtime-optimised approaches work, and what a realistic cutover weekend looks like. Most available material is vendor slides or dense documentation.",
+    "tags": [
+      "SUM",
+      "DMO",
+      "downtime",
+      "cutover",
+      "conversion"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "Software Update Manager database migration option downtime"
+  },
+  {
+    "id": "s4",
+    "track": "support",
+    "pillar": "career",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Fiori changed who calls you and why",
+    "hook": "Your users stopped asking for transaction codes. Now they ask why a tile is missing.",
+    "summary": "The launchpad, catalogs, groups, spaces and pages, and the shift from PFCG-centric thinking to business catalogs and roles. This changes the daily support workload: different tickets, different diagnostics, different skills.",
+    "tags": [
+      "Fiori",
+      "launchpad",
+      "catalogs",
+      "PFCG",
+      "roles",
+      "support workload"
+    ],
+    "url": "",
+    "sources": [
+      "fiori",
+      "help",
+      "community"
+    ],
+    "search": "Fiori launchpad catalog group spaces pages role"
+  },
+  {
+    "id": "s5",
+    "track": "support",
+    "pillar": "career",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Continuous change: from annual upgrades to a cadence that never stops",
+    "hook": "You used to upgrade every three years. Now something changes every quarter, forever.",
+    "summary": "Cloud-era release cadence and the maintenance horizons, and what continuous change does to regression testing, release monitoring and team planning. Test automation and release management stop being nice-to-haves and become core competencies.",
+    "tags": [
+      "release cadence",
+      "regression testing",
+      "test automation",
+      "maintenance",
+      "operating model"
+    ],
+    "url": "",
+    "sources": [
+      "maintenance",
+      "roadmap"
+    ],
+    "search": "SAP release and maintenance strategy"
+  },
+  {
+    "id": "x1",
+    "track": "development",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Why your ABAP report takes ten minutes",
+    "hook": "SELECT SINGLE inside a LOOP. A thousand rows means a thousand round trips.",
+    "summary": "The classic ABAP performance sin, why it scales so badly, and the fix: pull the data once before the loop and read from an internal table inside it. Includes the FOR ALL ENTRIES gotchas worth mentioning before the comments do.",
+    "tags": [
+      "SELECT",
+      "LOOP",
+      "performance",
+      "FOR ALL ENTRIES",
+      "internal tables"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "ABAP SELECT inside LOOP performance FOR ALL ENTRIES"
+  },
+  {
+    "id": "x2",
+    "track": "development",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "What Joule actually does for developers",
+    "hook": "SAP has an AI that writes ABAP now. Here's where it genuinely helps.",
+    "summary": "Joule for Developers inside ADT and VS Code: natural-language CDS generation, unit test generation, code explanation, and real-time flagging of deprecated APIs and Clean Core violations. Assistant, not autopilot.",
+    "tags": [
+      "Joule",
+      "AI",
+      "ADT",
+      "VS Code",
+      "Clean Core",
+      "CDS"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "roadmap",
+      "developers"
+    ],
+    "search": "Joule for developers ABAP"
+  },
+  {
+    "id": "x3",
+    "track": "development",
+    "pillar": "career",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Is ABAP dying? An honest answer",
+    "hook": "No. But the comfortable version of the job is ending.",
+    "summary": "What's genuinely at risk, what gets more valuable, and why. The shift from writing code to judging it, the Clean Core reckoning, and where durable value concentrates for people willing to move up the stack.",
+    "tags": [
+      "careers",
+      "ABAP",
+      "AI",
+      "Clean Core",
+      "skills"
+    ],
+    "url": "",
+    "sources": [
+      "community",
+      "roadmap",
+      "learning"
+    ],
+    "search": "ABAP Cloud clean core strategy"
+  },
+  {
+    "id": "x4",
+    "track": "integration",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Classic SAP workflow is being replaced",
+    "hook": "Your old workflow models don't automatically convert. You rebuild them.",
+    "summary": "Workflow Management gave way to SAP Build Process Automation, and the direction of travel is low-code authoring and AI agents that decide rather than just route. Near term it's a rebuild wave and a governance problem.",
+    "tags": [
+      "workflow",
+      "SBPA",
+      "Build Process Automation",
+      "agents",
+      "migration"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "hub",
+      "roadmap"
+    ],
+    "search": "SAP Build Process Automation workflow migration"
+  },
+  {
+    "id": "x5",
+    "track": "support",
+    "pillar": "career",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Claude vs Joule: which AI for which task",
+    "hook": "The question isn't which is better. It's which one for what.",
+    "summary": "SAP-native AI has system depth and stays inside your tenant; a general model has breadth for design, cross-stack work and communication. Think wide, build deep — and never paste proprietary code or regulated data into an external tool.",
+    "tags": [
+      "Joule",
+      "AI tooling",
+      "data governance",
+      "workflow",
+      "comparison"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "Joule data privacy tenant boundary"
+  },
+  {
+    "id": "i1",
+    "track": "integration",
+    "pillar": "career",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "PI/PO has an end date. What that means for your career",
+    "hook": "You built a career on a platform with a maintenance horizon. Nobody's talking to you about it.",
+    "summary": "Process Integration and Process Orchestration are on a defined maintenance path, with Integration Suite on BTP as the successor. This is the honest version: what transfers, what doesn't, roughly how long you have, and why integration people are better positioned than they think.",
+    "tags": [
+      "PI",
+      "PO",
+      "Process Orchestration",
+      "Integration Suite",
+      "maintenance",
+      "careers",
+      "migration"
+    ],
+    "verify": "Confirm current maintenance and extended-maintenance dates for Process Orchestration against SAP's published maintenance strategy before filming — these have been revised more than once.",
+    "url": "",
+    "sources": [
+      "maintenance",
+      "roadmap",
+      "community"
+    ],
+    "search": "Process Orchestration maintenance Integration Suite"
+  },
+  {
+    "id": "i2",
+    "track": "integration",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "What actually migrates from PI to Cloud Integration",
+    "hook": "Your interfaces don't lift and shift. Some convert, some get rebuilt, and you need to know which is which.",
+    "summary": "Mapping the old world onto the new: what the migration assessment tooling can convert, what has to be rebuilt as an iFlow by hand, and how to triage hundreds of interfaces into keep, rebuild, and retire before anyone commits to a date.",
+    "tags": [
+      "PI",
+      "Cloud Integration",
+      "iFlow",
+      "migration assessment",
+      "ESR",
+      "Integration Directory"
+    ],
+    "verify": "Check which conversion paths the current Integration Suite migration tooling supports — coverage has expanded over time.",
+    "url": "",
+    "sources": [
+      "help",
+      "hub",
+      "community"
+    ],
+    "search": "PI PO Cloud Integration migration assessment"
+  },
+  {
+    "id": "i3",
+    "track": "integration",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "From message mapping to Groovy",
+    "hook": "Graphical mapping was your bread and butter. Cloud Integration wants a script.",
+    "summary": "The practical skills transition: where graphical mapping still applies, where scripting takes over, and how a PI mapping specialist becomes productive in the new tooling without pretending it's the same job.",
+    "tags": [
+      "message mapping",
+      "Groovy",
+      "XSLT",
+      "Java mapping",
+      "iFlow",
+      "skills"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "developers",
+      "learning"
+    ],
+    "search": "Cloud Integration message mapping Groovy script"
+  },
+  {
+    "id": "i4",
+    "track": "integration",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Connectivity when half your landscape is cloud",
+    "hook": "The adapter was the easy part. Now there's a tunnel, a certificate, and a firewall team.",
+    "summary": "On-premise adapters gave way to cloud connectivity patterns — secure tunnels back to on-prem systems, certificate management, and network topology decisions that used to belong to someone else. Where the new complexity actually lives.",
+    "tags": [
+      "adapters",
+      "Cloud Connector",
+      "connectivity",
+      "certificates",
+      "hybrid landscape"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "developers"
+    ],
+    "search": "Cloud Connector connectivity Integration Suite"
+  },
+  {
+    "id": "i5",
+    "track": "integration",
+    "pillar": "business",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Point-to-point, ESB, or API-led — and who's paying",
+    "hook": "Every integration you build is a liability someone maintains for ten years.",
+    "summary": "The architectural choice framed as a business decision: what point-to-point actually costs at scale, when a broker earns its keep, and how API-led thinking changes what you agree to build in the first place.",
+    "tags": [
+      "architecture",
+      "API management",
+      "ESB",
+      "integration strategy",
+      "TCO",
+      "business case"
+    ],
+    "url": "",
+    "sources": [
+      "hub",
+      "roadmap",
+      "learning"
+    ],
+    "search": "SAP Integration Suite API management strategy"
+  },
+  {
+    "id": "i6",
+    "track": "integration",
+    "pillar": "career",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Monitoring moved, and so did your job",
+    "hook": "You knew exactly where to look when a message failed. That muscle memory is now worth less.",
+    "summary": "Message monitoring, error handling and reprocessing in the new world: where failures surface, what alerting looks like, and how the support routine changes when integration runs on a platform you don't administer.",
+    "tags": [
+      "monitoring",
+      "SXMB_MONI",
+      "error handling",
+      "reprocessing",
+      "alerting",
+      "operations"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "Cloud Integration monitoring message processing error"
+  },
+  {
+    "id": "w1",
+    "track": "integration",
+    "pillar": "technology",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Classic workflow, Flexible Workflow, and knowing which you're in",
+    "hook": "Two workflow engines, one system, and completely different skills.",
+    "summary": "S/4HANA runs Flexible Workflow for many standard processes while classic Business Workflow still exists underneath. Knowing which one a given process uses — and which one you should build in — is the first question, and plenty of teams get it wrong.",
+    "tags": [
+      "Business Workflow",
+      "Flexible Workflow",
+      "SWDD",
+      "S/4HANA",
+      "scenarios"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "Flexible Workflow versus classic Business Workflow"
+  },
+  {
+    "id": "w2",
+    "track": "integration",
+    "pillar": "career",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "When workflow stopped being development",
+    "hook": "You used to build approval flows in a graphical builder. Now a functional consultant configures a scenario.",
+    "summary": "Flexible Workflow moves common approval processes from developer-built definitions to configured scenarios with condition-based steps. What that means if workflow development was your niche, and where genuine development is still required.",
+    "tags": [
+      "Flexible Workflow",
+      "scenarios",
+      "approval",
+      "configuration",
+      "low-code"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "learning"
+    ],
+    "search": "Flexible Workflow scenario configuration"
+  },
+  {
+    "id": "w3",
+    "track": "integration",
+    "pillar": "career",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Agent determination: the thing that always breaks",
+    "hook": "The workflow works. It just went to the wrong person, or nobody at all.",
+    "summary": "Why agent determination causes more production incidents than any other part of workflow, how rules and org structure interact, and the diagnostic sequence that finds the cause quickly. Genuinely useful, rarely explained well.",
+    "tags": [
+      "agent determination",
+      "rules",
+      "org structure",
+      "work items",
+      "troubleshooting"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "workflow agent determination responsible rule"
+  },
+  {
+    "id": "w4",
+    "track": "integration",
+    "pillar": "career",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Stuck work items and the support playbook",
+    "hook": "Someone left the company and now three hundred approvals are in limbo.",
+    "summary": "The practical support routine for workflow: finding stuck and errored work items, understanding why they stopped, forwarding or restarting safely, and the housekeeping that stops the same thing happening every quarter.",
+    "tags": [
+      "work items",
+      "SWI1",
+      "restart",
+      "housekeeping",
+      "support",
+      "troubleshooting"
+    ],
+    "url": "",
+    "sources": [
+      "help",
+      "community"
+    ],
+    "search": "workflow work item error restart monitoring"
+  },
+  {
+    "id": "w5",
+    "track": "integration",
+    "pillar": "business",
+    "status": "idea",
+    "added": "2026-07-23",
+    "title": "Workflow is going agentic. Who signs off then?",
+    "hook": "An agent decided and acted. Now explain that to your auditor.",
+    "summary": "Process automation is moving from rules that route to agents that decide. The technology question is easy; the governance one isn't. Segregation of duties, audit trails, and where a human still has to stay in the loop — especially in regulated environments.",
+    "tags": [
+      "agentic",
+      "SBPA",
+      "governance",
+      "audit",
+      "segregation of duties",
+      "controls"
+    ],
+    "url": "",
+    "sources": [
+      "roadmap",
+      "hub",
+      "community"
+    ],
+    "search": "SAP Build Process Automation agents governance"
+  }
+]

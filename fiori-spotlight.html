@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spotlight: the Fiori frontend transition — SAPCodeMonkey</title>
+<link rel="canonical" href="https://sapcodemonkey.com/fiori-spotlight.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAPCodeMonkey">
+<meta property="og:url" content="https://sapcodemonkey.com/fiori-spotlight.html">
+<meta property="og:title" content="Spotlight: the Fiori frontend transition — SAPCodeMonkey">
+<meta property="og:description" content="What happens when transaction codes become tiles — for end users, and for the people who support them.">
+<meta property="og:image" content="https://sapcodemonkey.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Spotlight: the Fiori frontend transition — SAPCodeMonkey">
+<meta name="twitter:description" content="What happens when transaction codes become tiles — for end users, and for the people who support them.">
+<meta name="twitter:image" content="https://sapcodemonkey.com/og-image.png">
+<meta name="theme-color" content="#4A3AFF">
+<meta name="description" content="What happens when transaction codes become tiles — for end users, and for the people who support them.">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F8FD;--white:#FFFFFF;--lilac:#EEECFF;--mist:#E4E8F5;
+  --ink:#141330;--ink-2:#3B3E63;--muted:#6E7396;--line:#E1E4F0;
+  --indigo:#4A3AFF;--indigo-d:#3225D6;--green:#85B11E;--green-d:#6B9013;
+  --amber:#C77B14;--amber-l:#FCEEDE;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Inter Tight",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:inherit}img{max-width:100%;display:block}
+:focus-visible{outline:2.5px solid var(--indigo);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 30px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo);margin:0 0 16px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:60;background:rgba(247,248,253,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:26px;height:74px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.08rem;letter-spacing:-.025em;color:var(--ink)}
+.brand img{width:42px;height:42px;border-radius:50%;background:var(--lilac);flex:none}
+.nav .sp{flex:1}
+.nav nav{display:flex;gap:24px}
+.nav nav a{font-size:15px;font-weight:500;color:var(--ink-2);text-decoration:none}
+.nav nav a:hover{color:var(--indigo)}
+@media(max-width:860px){.nav nav{display:none}}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:var(--ink);color:#fff;font-weight:600;font-size:15px;padding:11px 20px;border-radius:100px;transition:.2s;white-space:nowrap;border:0;cursor:pointer;font-family:var(--body)}
+.btn:hover{background:var(--indigo);transform:translateY(-1px)}
+
+/* hero */
+.top{padding:62px 0 34px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,5.4vw,3.8rem);line-height:1.0;letter-spacing:-.036em;margin:0 0 18px;max-width:17ch}
+h1 .hl{background:linear-gradient(180deg,transparent 62%,var(--green) 62%);padding:0 .04em}
+.sub{color:var(--ink-2);max-width:60ch;margin:0;font-size:1.1rem}
+
+/* concept row */
+.concept{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:8px 0 60px}
+@media(max-width:900px){.concept{grid-template-columns:1fr}}
+.cbox{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px 24px 26px}
+.cbox .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
+.cbox h3{font-family:var(--display);font-weight:700;font-size:1.14rem;letter-spacing:-.018em;margin:0 0 9px;line-height:1.25}
+.cbox p{margin:0;font-size:15px;color:var(--ink-2);line-height:1.55}
+
+/* spotlight */
+.spot{background:var(--white);border-block:1px solid var(--line);padding:66px 0}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.85rem,3.6vw,2.6rem);line-height:1.07;letter-spacing:-.03em;margin:0 0 16px;max-width:20ch}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:30px}
+.sec-intro{color:var(--ink-2);max-width:56ch;font-size:1.04rem;margin:0}
+
+.modes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.mode{font-family:var(--body);font-size:14.5px;font-weight:600;cursor:pointer;background:var(--paper);color:var(--ink-2);border:1.5px solid var(--line);padding:10px 18px;border-radius:100px;transition:.16s}
+.mode:hover{border-color:var(--indigo);color:var(--indigo)}
+.mode[aria-pressed="true"]{background:var(--indigo);border-color:var(--indigo);color:#fff}
+
+.board{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start}
+@media(max-width:960px){.board{grid-template-columns:1fr}}
+
+.launchpad{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.lp-bar{display:flex;align-items:center;gap:9px;padding:0 4px 14px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.lp-bar span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.lp-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+@media(max-width:560px){.grid{grid-template-columns:repeat(2,1fr)}}
+.tile{
+  aspect-ratio:1/.86;border:1.5px solid var(--line);border-radius:11px;background:var(--white);
+  padding:13px;cursor:pointer;text-align:left;display:flex;flex-direction:column;
+  font-family:var(--body);transition:.16s;position:relative;
+}
+.tile:hover{border-color:var(--indigo);transform:translateY(-2px);box-shadow:0 8px 20px rgba(20,19,48,.08)}
+.tile[aria-pressed="true"]{border-color:var(--indigo);border-width:2px;background:var(--lilac)}
+.tile .ic{font-size:17px;line-height:1;margin-bottom:auto;color:var(--indigo)}
+.tile .nm{font-size:13.2px;font-weight:600;line-height:1.28;color:var(--ink)}
+.tile .kpi{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.03em;color:var(--indigo);line-height:1;margin-bottom:3px}
+.tile .kpi-l{font-size:11px;color:var(--muted);line-height:1.3}
+.tile.dyn{background:linear-gradient(160deg,#F4F2FF,#FFFFFF)}
+.tcode-chip{position:absolute;top:9px;right:9px;font-family:var(--mono);font-size:9.5px;letter-spacing:.03em;background:var(--mist);color:var(--muted);padding:3px 6px;border-radius:5px}
+
+/* detail */
+.detail{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 28px 30px;position:sticky;top:96px}
+@media(max-width:960px){.detail{position:static}}
+.detail .kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:9px}
+.detail h3{font-family:var(--display);font-weight:700;font-size:1.42rem;letter-spacing:-.022em;margin:0 0 16px;line-height:1.2}
+.was{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.was .t{font-family:var(--mono);font-size:12px;background:var(--mist);color:var(--ink-2);padding:6px 11px;border-radius:7px}
+.blk{border-left:2.5px solid var(--line);padding-left:18px;margin-bottom:18px}
+.blk:last-of-type{margin-bottom:0}
+.blk.user{border-left-color:var(--green)}
+.blk.sup{border-left-color:var(--amber)}
+.blk .h{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.blk p{margin:0;font-size:15.5px;line-height:1.56;color:var(--ink)}
+.hintline{font-size:14.5px;color:var(--muted);font-style:italic;margin:20px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+
+/* support section */
+.sec{padding:70px 0}
+.slist{display:grid;gap:13px}
+.srow{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
+@media(max-width:700px){.srow{grid-template-columns:1fr;gap:12px}}
+.srow .num{font-family:var(--display);font-weight:800;font-size:1.5rem;color:var(--indigo);letter-spacing:-.03em;line-height:1.1;min-width:34px}
+.srow h4{font-family:var(--display);font-weight:700;font-size:1.14rem;letter-spacing:-.018em;margin:0 0 8px;line-height:1.25}
+.srow p{margin:0;font-size:15.5px;color:var(--ink-2);line-height:1.56}
+
+.band{background:var(--ink);color:#fff;border-radius:var(--r);padding:48px 46px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin-bottom:20px}
+@media(max-width:820px){.band{grid-template-columns:1fr;padding:38px 26px}}
+.band h2{color:#fff;margin:0 0 10px;max-width:22ch}
+.band p{color:#B6BAD8;margin:0;max-width:54ch;font-size:1.03rem}
+.band .btn{background:var(--green);color:#fff}
+.band .btn:hover{background:#95C425}
+
+.caveat{background:var(--amber-l);border:1px solid #F0D9BE;border-radius:var(--r);padding:22px 26px;margin-top:26px}
+.caveat p{margin:0;font-size:15px;color:#7A4A12;line-height:1.55}
+.caveat b{color:#5E370C}
+
+footer{padding:40px 0 54px;border-top:1px solid var(--line)}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--indigo)}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAGkCAMAAABJkqEHAAAA/1BMVEUAAADztnaErx2iUhtaKxTUdTVmjBb6++nzzJNlWSM6Hgr9+/fquIahpFaga0uErx3OeUZxb21mmS/d0LBoFBCZmS+DOxRNMSKwxnBmYhBfSDajmmlyW0uxopTPs59vVkj//wBwWkudZVuLcmEwGAv/AADczbCMdWOzn4u5zIn2wX1zmhsrFAlhSTehi3aWwSxMNSX26NHKs5+Vl2XZgzn/f3+vnIn8++b//3/X2a99lkOZzGY6RxDRpHbGr5oAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANjuGlAAAAQHRSTlMA//7//v/+/v78+Qv//v2b/wYFIAYF/5/+CqEWmxcf3QFbEZqhAU5fXv//m19jXv9lT1CU/wKRngKY/wX/BYMBW+FqMwAAJEdJREFUeNrtnQt/o7bSh4VhWQkBNcUbx3ZsJ3HiXJpkk013257znnO+/7d6ESAQIEACHC7R/9emubqGhxmNRqMRAEpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkqfVNhT92AMmDbbbfzpaqduxwABAd8PPuL0O4vgnw1Wd2ZQ8n18vzQsy9pfPL2+vCWolBcclNbISGUZ7jv4gSNQyqCG4vDWRl4WMi4Wm/CnG3WDBqAFuDF4sozl8yq0pK26Sf1DejbKFAxT94TTQo1Pvfs7ZFQIXUQDlOLUr1aWUa3X0OMtLtWt6k0b8IPakh6Ii2n5TGa5K0+Fe33pGt8ZDKUSUuuXyO2Rj7fqpvWg1zwlPqcwjAArdb/60UWRkq6jEk67nfJ7PQR4W7znQOIa1P7ghak+Fe71ED5YJZQ4nJbP23R8Uvow7Y7/IKuMkn5WmOaun3cRIcXphA4u9/X2x18vRqktceOI9fNdmI5YLbCCdUJG5D/Xm2vP87Y+wIdKStx47+LKD+e5ngrKO9clWeq7LoTSyxpKXE7LwzVhHUR8ClSn+ukfw0wPvgbgx3/v3w+H9/dfv/573NdS4mckbu69N0JqpVY2OnR2xyPe3b8+7Q2rLG+nS3LaP99HKxurn+oGd0TJP9QkVSsp8RN8xsXrMQwlVGzeDaV1Xea7DlMxLI9BPcepI8WpnTzgGSLSdXlOAfzlu4dVyNdWK3BtGJ1gKnN8xjripJbeWwxJ2O2MUjmnF5Xia8kpR+KsDaUSUBa6OCpOzREF8yNLEkMzUPsrTFZ01S1vmBRad06Jb5AHkjm6VMGeLKMdBhs2CNe7FGd0UtsAZLUB+O1l3WjkEVVhSXe9wT74yZixUon8HcmrLgDYrQvZIKSfmNNFmC5XJSzVugVHP9rncmgTxjUdoCzjAof7ao6+YlGTasD42WgZbTcen9ALAFvf/1txqNB2AfBLgcsHYrKW99hXo1J1Mghs1xwkpzanzOh0oQjVhN6HEhon93vs7HYDtiqjVxJ3b8GPCg4fNzgFAcQbVh6vYEAkqsJvF9UUTssog2mv5rb8NNA1OjUECZ9nXWFwrbCkCguDwIth9c0og2mpCiFykDB+NQaAiMVkITUq5eZHSaWWcabrw6BkGM/kAVKKhyPPGogZ5eKHp2wnlk/s667Bf0+XRG2J6aAQham6Xbo7zNCHojR88I87ZUfHtydrcIwYSjdH3/M+tdf7e+PjpTFARgymm09e/YDB7m1tDZMRY0xvYENmcp/RlogDOeKboSJiKCEPfFZI5MLfbqzhMmI83qeN6nzfx0/GkBllKK0+oSFdAuz7w7ajDKVVEOV8Smu6MIbOiKG0232+Qelygd9HwCihZLlf/U83V1qBq1EwSikBfPvJIC2q2psMlNLr58o7kEnHfiyM0nHp+Ims6Bb4R4F+DAOkRJ6uz5Mkqu1sMkxKF/jzBA+rdNOyro+K0itY4MtPklb1x8YocXg/Pk/k8Do2RgmlPT5+ikzrBt8b44MUU7Le8WfYFnO5fUMjZJTY0uYznLmwGqOzYyAtP0fJgzVOSJTSHV5MPh+U1DTo+kgpTX7DhZfkVfXRQnqdfnR3I9YErfUddTQqp2NKaDf13NBTBSMtVat7SV4AZtQRqzgsvZi4s6MHIXHua3AvHx8fY0jkxjYE9BgxyStE1VUY7k3YlBbgjmtIwS3k3VZNnhCXD/uSWheU1lNO2nlbDiO36s7OZQjZNYg6cKVx3uF+yltiOIZU/fALW5MmrEeotabkTjYM541IWu3DL3RLRY2oPab4Kbuf6sGpnDmSJnBv6+/oXJNB1Gy4+zSjEk02yCASuKXSiFphip8zf5qHnXn5EUn85tpax4jaU7rC04zC8UVDRlV3tCmj5mEe3QE4xcW/W5CNv2XvLv+OwcfmjDS7DaV7PMFeHB6+asOIT6mFGTW3pTh0wFMblDDGSTlk49tbSMJqbRk1o5SEDhMclTbseXywgzvaAaNmHi9e/JuE9azAgqxhLhaeR3oHPTOMGt7fzhk1i/HoVGns/u5ykbmCne+x2YbG95fxdW4XjJpRipeVRp4a8iJLWvw6rNfrwy9ATtTbMC1Pmt7RR627mKE9JY+Ykgdoj2pyys94ulWHZxxeLfdJazTLQBc/DqkhzWH7O2prXQm2G5S8bFnK4nosZrS7MKrO4evgjkKtQzWEdAgAbY8kdA09x4/r5Ai6zfD9ID4YVmVjb9iaUpeImji8aBvtJrjW48vTgZwNaVnkgMj9xdN9fJz3oPMK+AXVMGr/3GsdqxkkhPHVnnck0zM9OmuYBvXzGlwYVs2pYW1vqaHBvinFQVDJRQZj8PN2qB4PB/Z/Y9Ud7eZ2fov7glSp9QvA/iCjPZw98Wg+J2UKc1dnew4OD5Fma2fdUzLWP3DYAXhYkbf/xrhoN7j4L5ECVHp33u4klE7AKGxbHUAaVMkKXuA9i+gLI23eTWx3KkkGeGWH0RROohvgFoykBaSeGlEMKbUkbYiQ5EalHJ956NW1+Rfywc382EJ3gwrGN+mROnrGivKQBinYjJGe8xjkUjVmDA70hIey6QzjRXrCsltg9EUb9pBUXUVRykifa8VLDcfgebZt9XCGJDo/crX5+CCJ+7uU0ZxzoSkmNDBKeHf0k/YZOu/h0gc9S5Lxd6kZ8a0ofS7dQVEKYu+jv6ti9Ofg4wbR+I4JX8vNiA5O7AkygxA95I37eP059LhB2N9VjLsppHnWyQfaDiDG87a0XMudjxWS3RUjTlBr3AzBlJK6R/6bHwMkKAHJzU0DS80psaUhbA7cVjm7kUDShBnptXY0py4voXTfu8NL6h61fCQazsS/zFNIcKiQHsUhifm6mFbSlKh3bxcn7eY5Qq5Lgu5MfhWOOHKoHHfrhqW7vo8I9Kkhzdl5AhOvoglB4js7jROSZ4YlhHvNh1/TPS1MzDPX9NMsy/YZOXDcRezT55HLmGuZGe484/BeQK/tbujmMJYRKlk7t8cOSZ/nLMity7jSzTJg1acpxcWpqR+YaycrcOgd0jyLqOgwCrkILWnC1utc1srNHjR9spB0blSQ1VzjmtIF7m8JcAPiTpBJOmTunqbm7sSQHElImlu2bj7P2hIdld783nr0r2jeTsvbt0HGUmZpRcSS7N4oQlcAkl5rRhxK9DdX/YUOC9rUKYT0J7MwEYWlWvLE1dcKQag5wYduoou091NHkBALSausRsmMS6m/62+hIp7KJnFD/J7SNTGatK+FBKNfdLqgZEOH3FRN+LWgSMZBL3iLyEUQl+EyhSjZydS87wPNcCG40wrPkmCJA3StuHwDdsAIRS+mi1ISybAmkDQjW7wW+jd22TyTJ9f63sF5S9vlRxOIefyWsvbuikCijIjNtaVk2+lNFKQkuDab93WZiJvBpHH83XOPmwMtJqU1j4akbBQqVNEF7bT61Wq7yg6ZybRgRCm6gJ5hpOcnRcn0g83wxeFur+voWUhkXSKX32ItCZY9+jAz8tp2u0iNfS0HdgkpwKQZFYsWlJJWHJT6PEm9CCmXwWIglZiIHUxTMhW6rUyJdXahw+u6PrJyYUkrpia0JMk6CEhhBO7m1igZSGW+x4a5bF8bU4K5aabTSTMw4cW/iBIbOmhJt+qhQPpyphVS9imkR7GHv80mpJznDN5at5BqGM1DJhb7Y+0sPhewt70wq7pF5Qyk0qRMgxtbWo6an1ueBJJWU3OnFTxgb5Bu6eb/lpDc3O6zFlF44bUsAbOsTzhILNBqZZB6Wqy49H1UC+lPBtJjbcwcD0qdDUlCYQiUNKTKapQQCgeS148lYbB729e+6z9ru6HAQvqreaq18FpCsaKsIbmRWyivPylCMt56O9cnXpgVhFTi7+xijrI7SEK+s9kOspJyY+LvilH5/q2vDenZLHgJJFQ3KHUIybYbQIINIXGSDpzJInV3vbUj8sCBX6HBr44UhmR/LKQWezE1HiRL/3M4gUNgSfEWP7e++qy85QxnTLK7gyQQg7fY01ygRB7XzO2I5wTW370n7yrCOzbloIsGDtoHWhJsA4lrS2e8tYr+V/0qBqV5BtKjUAgOO4RUG9218HaF8pSyeVOvtcbJCXDz2pLo8hZbHU5m7SYheMsWDppQRXiPWfDkeIOKObiW6WR84rRQEZLTOaSwYlV0wxL19v3uy6wblBKnXNo9FRYSrB1mHGqDECiZAQ/cW3xMBu0FpYlU7T/3uf+lWGdcGd7x/Z3eVeousEpLbnyTXaYgQ1A0DCWU5gJDEuov4UAih7tao89A4oUOULPkHJR45FA7JElCcsM19HCNVqcX5laOSXE1eL8n1O6sOlNyM014akOHdpUokguIttyibO5coHpINLY99FsMTtsKRaY0L3+Yqnp6292VOGiSMYgMpHzBQz0k6uuveoa0qQtFtezRSVxTsjvIgMcvtZeacTU+8YoMTQZvRww3auq7UQANHUpHpWzkwDclaJOCRstCWTuCxTNjZUYlS+twRCowEoHk0iEJ9CyvxpRykPSyan3XddkqY0LFJt+kcpzgt+pZpSvoXc6RWD5x8PBFr58jDsLbhaa0rjaluZs7zg+WF9kzX9mOa0QNnaM7Hn2GXMeuKesnVknMst5zwuZ29CWN7gS83ebYe1uUDX9vTknkIHQuZiELkZlIOdXWBEOr1GB3qVVevbFIVQrdjol3ffu7FW2KUvZ2NcnTS6sRhWX9dt0rCIxgj22ihi8iFQ+aMZijfJhDZDWBiVItpSCKtmob0Trtd188tjgYOIDk1pYOJdse8eUAmkDhX1VFg/nAoZKSnU+/lfBqXdfffECKYoe5gLeLf+N1IMctLTOU5uUZ1lpKafaBjP571yFRtU0ic8dx3fjbHVBqw0hPQ7sSQ5qzG2uH0YnVA7uKxL3LYVRe35VmSMM4jsThhJAdfR58EQZ94jsmTsOINnoRGZEOAzmXNumMwqHE83Z66SYLO3ZxLoHyGPq/3HyKkHLDk0uaJ5Aebb3dgCSw5KelxzQO5GAlD19Y/DqnOdfbkXbnvPkScXaWQcJnWB28BZyaO7wWsXduiba+bKDn3GoOU3qeSKa2U+N7u7JVWiM0ovpzfkOKzSDZzUNvvbburuDsghFpMGeLeGnwkNZ2zsvChtKiFJu4OTYRV+WzGh3ZDJvn69xibeRcoI/agPrsez5mzuZJS3DnJZDKKklIyif4EGV+WEi2Vhyh5BG1MaOsIVU2nqb+w1rjywEdp3R9xGBp5XbPZwtYxY6KjbZnurz83GNLQlBzuom7wxb7VctI9NE0duAnGJJWOMkP0c41mlYS21UNJ3EUDgtxnc12trEbxHZ6a83nxO2R9nYixXZhW/BBQcIkP/QrlyFI/Lj48fJ0QQhlKdlhJsKFzSO6s9aI4ko6ra75ahI0PINByl+WdukSY5ROZzMRdrL7ufHKLdS7gSTQfNVIWuQuhni+3wKAF166TeJ8+bTAi3VusH0NMvxoRjdDPcyUPDkHZFVCqp7fpAlWxpSY0rwWe9M/AlJ6TgXaDffI2WvSLHxdBQmK1jcmoxJb89jmXJKTQ5oz7Qp/gKGfs32/ZgvgUP0MiVffRVOobB1+q/pWrcUEyZ3XU2KPuHoZOKHQzPHLYbk3JJaSCqaUJOfYEle7l9x3NDWaC5uRZdyD4Svq30tXA8WdHTsqpZD0zsry2qQaaihp87OU0Q8wCmEvsKer4sq5xN6IBFIaSrRk1DQrVLvNRWM9nWFtwWi08p4KkMR6m2kspGRI0to3/2w4LFVng7Rck3C0ASMSLkASzL+FFa202iTOQeiwi3bHsGVi9Sxp6ZkAyh5calgXePBxHTtnwm4jQwqToW4ayIV1D05HnY61ltnvuDlu+FLz3AnAoRm9kGPP8YggoWaGFOVTEyo2dF27K0bi7Z4kzzuP1yZ84A3tbPpqbfPeDsqN8tH6QlTZoHWmE0La/wCj07V0gXEeUmA/XTfel44dzoQZ3eFwjnh5OSZICysHSX4ltZNi1XamJOjo9i8RotHJEtlPUbO70u3ZlIQIoYstQYTB6CE126d8guO45SBlt+HeLNm1GIvsfLs5hHTGiag1pDCN1727g20M6Q6vXn6tb2ItD1fxwp4HxiqrdrtsfX7oFGemt4DEi98WtxiATwfpkUna2XafkArDTzD2LLzVgsoDYMyAyBNWv6W5PoUHTwDJbRx+v44cSd08SbpuLtoGc5IDyhob0nO/x5F2rtvkqOCmcYPbxVk9bSAVg23/1psUpHyCVT5uME4TgQexfVNIazA5xSWtDSGFs6QTJBzEg3CyNGHQD1FHhskNSUlL6opdY3WQjNNA0mQM6ewsmdDugDcxSCvwWtOQsGYqa5xomiQIiVlCot4O307Nkq7pYcENIbntDq5oGzmwK3lxEuhlct4u8Ax+e0iwL0hnzFCEkvPE/gbTk9UWEuoNEifXfcCryRFKTwseHCQoxWi6YUOI6bX2ZJ4aSO2mSdAu2WwGmyzHrifJCIDnNpD0tpBgWNBiN4HEFHEln93vFpfTQ5QeKNcUUqu5bFwK1sSSeMuvS+yDy0maUho5zGGhFKje3TWFZKeV/zaUh5Qps6OfbCYJKM3eGU3SQiGkFqeS2RUbmqD4gESjhgvsTdOOVmzJfr76sa6WLoTUeMkv6ZDcYEziFpvsJho2ZKezucQcIv0f7brorimkpEE4kh+TuIyep8qIaJ2eUP/IIIJxK1u7pgwFNuqEAtMNnCX+UpYRwovLyTLCLymkTKuMZE+YXT74N8wKBWG3nu4WtCUh8Qvr7qdsSEmv42zkQPcc2TVtN2JnZUuaEdMF1OYXukjWQh7AlLWgJ2jmwjvaPKOifbQNkRVBkhmYgtdDLCNbbqmCDeyYz/0FnjIlnG6tYA0i2RiLig28aZO0YDLqhqOWOCQIbeawCqeEUXncwC/Ot8DEyk8KpkQPs8jlHGCmGXv+ZkbbXuxwmiRBCNpMUzpUsadJztldYA9M3N95iSnZhcVx+sjbPK9nQwk/R1rlOWzZdrg10JaCVLLJZY/BxCFlTOmRN9sM697DzriQu49MjBDUMp0d3TQksYWHpJItE5vJMwpMaZU0VoP5fbEFTrYtFyfEDY4dN9N3CqUb1XlrFVBqs9gL2IDJa4XXVty9puDOcqe76VEvcAFKdkqItAq3cohqapNlNiK9Y/AJ5NG9s0ahrMtm4uXEUbnxOUl2xQzKjru5a0kvd54VlaYy6hmhZKcy+BT6H8bvaXfZYsyc7xJMrMJ1HNpUH8KsZ6Ot9jV3z3nuXRs2O5K+ZDxaTjz4ZuTT57O40GpzMNGTRJBOz6qgZMJDK1wdlRw1ItRJgNe7hi0Nyrxg4OsmnLTLrivdJ6Zk8xM5bv15PMmRZPzvh435RUIOW2aD+TIqLP4cnA6lDo/6sfzwL6fw6ATBbKxcEwB0sQNg+kE4yQ3h2qNf46lOA1B7V6obB2c4Oqs0XWMZZu68qaPyEodXVdwdHYiJyn0ax4Ki2VWbMvAqPEli6OozBOJJNpyEyFXLE1Hw7bgIRRvwObis8PaRgzJtKN/QRpSRhRDz/7bQwQf4+J9JD05JNWswLNU993E0F/yHnD62R0Qx4EB6eOJs3VRKtHT1rJyRaZqICWcs42KDJ54Ox2CTHLEkdnNtG5aq6bEVdq7RfkWPExOFmNj+2dbyHk97YAquTfzc+JNJMKoL7cgMOWUxITI4raZsTO8spT5AQUFXFzOKhVBmQJwyJuz/g5+sXm0pG9nVmVEZJsN43kwWk3+8Tg/C0mHPzq5iaoRmZlGo0HPDnyamn8fUlnRofzChTM6uMsdgcoUymasr/DbJEOJv0tR9yZQg9GZH1RNks0yZiRPpE7ma4hQXex5OD5X74NhBtF8nMsuVmeAictYBniAnD/zlMJTsj2dUQIQkIGUjctICfIrBg+8f/0ptya2q6DkNo/p0YDWkLKZg2oTBblL2dBlEeP5/FswxmnU7K7pmJJKzNWvFhBAWOfNgg6dmSsG/+JlJY3+Ay6PzI6G8OjJNKUwG8XljaqovkMGLdM/MHO1TY4oKT0TbewtBykxvgwBid/QnZE04/rBg14QgPLkZCa8gijHKTG8tYkyTmzNhcMRMKG5V7a3ohJEQnZKUULlmic+z9lOsn/S3AFxZ2XrGXhHJGlLwe7MZU3tuBVPb6S01kVRyrqax+wbg6XayjiGhABGRk4bjawy205s2LUAQ5Vky1cGSmzI55bGlbs6QdHYRI3N2bqZ/+wMDMMXZ7TZzIi2yO8NkC1pR1hdaUogCRsGnjDHF1So/8cRcHr7LVkU6dhdeL4jqpR2doCFRR5eQms1SSgeMt9OzJNKg/sIqljm2HIo0VwLNmURkhxg2qZzkQbt5wwAf/Yl5PbLR8YdMOaodq6J0z9HlECXDkrijy1OixmTtj2Dzjz+lBpPR87bdcyohXUf6jLioStLVZYaiM4aRgCHxEQVjE+Pyria3ZvsT4KuyAvwAlCa6pQxKAErgSA5Isyo56Rj4hHfTcXeXwN/R/u5hwShvYwVytHTfS4l/i3YrIaOdUAtEmYHJ+oWnAwkDH9NNzwEj4jZQsag4qih2Hc3mFEsSbFFFsrTO8v002iHKDEx30xmQgpjhjQ5HhBHJsziocp8S2rupdNTWeESd3UxM6YzpCZC2mdMIGu6TZ4+9VtRim5JIXuFMghESR0QomfR6nvBEBiS8MHiMiDkh4wScuOFCJSM5RIHOZ6nHm8CsFh+TsC52dYy+z5wZMjoxqLMzLpkzAUbSiELRi3p9Gz+kDX5NGDn8mDY0KKsFKiRoUmQHRcOhyCy+bXpZzxPIgN+xYV3ZLTARszlJQrpeYkG8PEMJo1kzOdSWjBfgBV59vIOTl6SCqhjN0iVQo3GQXWtmHF+HGiMK3nNiS8gnxV4j1jUSYDSLn/DgSbeq3ZchaWzsMcwdWlHOlm48Umc4WlPyb9jxyKw1pcyehsCR6aEzO6sP2+qgWjxGs5ZKKC3x0T+O05qwR3NBJTFDARLKbTzJe7KzpiGFdQJETIxngRGHeE+CjBhTauTVSgjqVa6uE0bn8Szduhtpz8kNuLMExqO8vzvF7BaVrLp2oPj9onEW5P0EPt3vP5OAZKKTI+rKjOI8Hh2WVpcjLD15o1WRzkyKUtPxR5zRrEs5yfEJ46ubTI4YsZyZKTChTz1RFw7v7MMYBe/dGuuJPj8BTiZIYrflJA7PQujEiNJh6QaPrS5lRVf50Gwmdl8yW1ZH4upi0TM1R1Z/7IGXxNkJuw2Ox2tgVKgLMzKbzJYMf1QRHgY7SWeXt6WRmJGZWakdWYP+pPm0I/FQmp1S+ojRiF4cjfAWIzKlJPdtSV5yaccL2Zj8lAGDWXjuzMThjal8iFYUI9nrR2XhAyrfZYmQnq/kC5tunT5gYJYt4jc7nr6T3uWdzDS2zJayvc2Y1Hj1gnmICH0korD8KX5gsHc9FkxRroFEDbM2tsTHJDAUfSgidkprXYzGkFZJ1NDgYit7m0kPReiDEJlRDs8KwvCfozIkR37CUaSUa/NT1eu9SEgQUSccnVGF4fjOElxEEqQkYk8IdVvB0Dx22I4gDL8FOCoptto4Dx4nXjWRZYWNj9tVDXcUPIzIlBZgERvS9+behF/AmLBiJFDYbX6wKY3gWG56aJzVdiRuqVkPsuL9tEOHtIqPX7RQ6ycTjYtQumaxux36Ros4a2d14D/GRSgxJet18Fm7a6NRQqgzTrM+FZsS9oZtSnGlndXZcCzNp1dMyZbnYVcIdTQiSYOK+fRrSTNE67sGnWh97taQhEjNhqJkyeJuuFG4h2n1CTrhjegMjXkCRrEpDfY41Etw9OPNSNbJHtRBi6wG0tBhsGlW/z9xRkhq0Xywd7xd6DDcwqH7irDBHBW3pu+WVh0PNnC4pbV2Du+xNEdnSGYLU7oHw1yh9eI6Lgs5vMtDYxqVWpg9oj1AL4cZ3F1RQzoVpI+b77SAZMX7aC8HGd1trYqJrPl/IwrpWm1gGvZUqTL+Rv83phGpxZv9juL9SoOM76KwoWzVHA3O3VVss0ZNl/6Z0GGYvfCuK+u4rBGNSQGk72ZLSNYgp0p0p7kzekhmK0jmbLD+zqM7ZPnxN6kdHBOkFgGLSatZr4fn7/Cv6K3xL49MxEfk7axWeS2HzmeHp3XVxr4AEhoTpFZ/H5cNrYfm77zFddUkaUSWZJKwoW0an85nh5UKX8SGVLaPwjE+BJLZjSGFVt/mtaLheWBjEr5NVvv410aqO8fj7TqCtB5abHeXhA1mmQMYGaRWo1JcgDek9B0GOA0bxg6JDEmoncM1HdokZTWobEM0y9arUsOScxWz80UEYUNqa0nxfNa6wIv/DciUnmu2XyKZwME0Hcc5d3igohKUyjoUsxNIZitLolOlQUUOONPWziyBJNgZZebAr5HguRMX1JkRIOf8PDoW4bww22TPDTNns+b1RB1YUrKKfvQvLwcTf6+smu4n4pZknlNEESfHTNmxPyEAWbDn9BsBSfJ78MFphMlsZ0nZ+ezrcExpkYYNVQ+W2D3KIGIwnRd+8PU8vZPRDyEpqoJFwB8PKd7nPKAgHG+rJ0kSkMyHAorwXhfZET1QKzuPv+GYDuT9gqS3M/T28Uc0AAzmFKwFeLaqFiloylHkDjk8FudlkIjpRK9PITnlxiaeuCvLEsutz1pRknUYXfCCSdK+rrZYGBKXBWsrfAiJJcEyY5OzJBZSQ1zDGpQWdJI0aw9plpjIw3kSJoT3ucSUvlYYYMytGaT2IX14U/aD2V8RNxKqGqZrIUVBtpNwIRF0bBcMvyCCc8hZHjBrSlWQYFtI7QalgZStAizQo0bMkujNhg59iAMaD9QaoZOkG1IqsGhJ8OHhgbE7yRCvI0h0Ef1lEJVdC3xX3yISyUFKfVQw6eH6nTQKDBk4rOWEWYnU2GBPkKJFpZuBRHfxTooqQwp7nZnikGDtRPRfGQbnxXAuHcTkTCmE1MUqskM3/Q2oANysW1+xRBpPp1EZH1O6fQxyIcXBXMa65MJws7NNcChuJjkEvQq0tquHFOfoYDbvU8jPzZzz83MnzMGygxKFBP/F8YgPvUIaxCZnXLWTIvN+TYlBiXJifajJJu8eHniQMm/CYW3NlIFktU8LkReIyu8GsI4Ud1utrNwwo/JooSMrcpNWmMYNTvlMKU0LZV4MsnMpSUvqYtUqrpHsfXuFB5b1O5klIBVTC3AWb/0vmwixfzRrDwl1Bynyd17fy7Me9XZOpUORgDQz8xYDs4HCCSGZXUOyoprw3g3pINIR97vUlecxkejMLGVU7u7o38AGlvS9k0X6eLmi3wAPM0uyZnc+JAjd2JQByT+kGYYguCOC4mMSlH/8O4IUnzPSdxS+SXZSmJ06ejZl8PWcjdQKiaFMCG5ysrVyKYcOIcVr6Nue9zjH211qb38TR59ieuANL1xIGVNyZCezZsfRXbxc0fOIdIlRHH/XZHFkAgezmCRKhxezBtIDZ23K6Q1SNCgdes4MpdkGszYfJnTlgfmcF/JzkBMDpJFEBlJKxDyXXlHqHlJ0e3pFtMoWgJdbkylsScTFkTxDWJWV+qvUKgqMYBbS1yiXxNajmD1BojkHC6/661Ho4Wt2A2ZVvSIyBNcqHuiSUBDAPaSBQ8IkTI9nooo8pOBX2L+VSd2lkIyOIEWDUr/dAm7idk916wosJFO6DuVrJg8BswjySxVtVma7h6SHN+ipv5kSTrpESkGSr0MhplC+Pg5zi35fm9cLsZC6kUMLHXovAOcd+9QlpNmsKuNQAwmajQb7WSeGNIRCh6Xo+TvCYxIv0x3FawUMDuRAgu0ZzTrtqhhNUXaXPdkSPf9S5HqEIRVHJVoqnP+B8y+eJeWLI2GD1rndQrJ6blG4tERPGxOHxO6pyE2MnBw6yATlDrfMGJ43Gf4NwQVKsUl5HDn0VclFC8CTc0O+l+XAE0jfq68r+XG8wSVcKKc/+T5Lsq7wgXwJk0XB70l0R76Kfw0ys+Ka/x1vTPrekM3379yFv0VP3u5+SXTz/lusP34r0x9/rMPf/U1QfyTKf/8d/PMPeI++/8f7+/tv9NO/IoE/oj//7Z3z54IK3yv4rdkfFxRe+HIwdftKA1Qwi14sFuBbrN8DMZ9GX5EPvwcfV2HNePpL4X9/zyn+w2/f2G99+z15zeDjv/1A/46/twkUffr7v3Gkf9P/6Sb6i+I7it7PN/pv+jaSr8KrAiD3Pn5n3/K37Nv8VrgUepnfvsWvpqSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkNHn9PwnBZZnX6S9sAAAAAElFTkSuQmCC" alt="">SAPCodeMonkey</a>
+    <div class="sp"></div>
+    <nav>
+      <a href="index.html#shifts">What's changing</a>
+      <a href="archive.html">Archive</a>
+      <a href="fiori-spotlight.html" aria-current="page">Fiori spotlight</a>
+    </nav>
+    <a class="btn" href="https://www.youtube.com/@SAPCodeMonkey-803?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Spotlight · The frontend transition</p>
+    <h1>Transaction codes became <span class="hl">tiles</span>. That changed more than the screen.</h1>
+    <p class="sub">Users stopped memorising codes and started scanning a launchpad. Support stopped fielding "what's the t-code for…" and started fielding "why is my tile missing." Click any tile below to see what it replaced and what it did to both jobs.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="concept">
+    <div class="cbox">
+      <span class="n">Before</span>
+      <h3>You had to know the code</h3>
+      <p>Access was memory-based. Power users were fast because they'd learned dozens of codes; occasional users were slow, and they asked you. Expertise lived in people's heads.</p>
+    </div>
+    <div class="cbox">
+      <span class="n">After</span>
+      <h3>You have to be given the tile</h3>
+      <p>Access is assignment-based. If a tile isn't on someone's launchpad, the app effectively doesn't exist for them — even when their underlying authorisation is fine. Expertise moved into configuration.</p>
+    </div>
+    <div class="cbox">
+      <span class="n">The real change</span>
+      <h3>The screen now tells you first</h3>
+      <p>A dynamic tile shows a number before anyone opens anything. Users shift from "run a report to find out" to "glance, then act." That reshapes the working day more than the visual redesign did.</p>
+    </div>
+  </div>
+</div>
+
+<section class="spot">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Interactive</p>
+        <h2>A launchpad, and what sits behind each tile</h2>
+      </div>
+      <p class="sec-intro">A representative launchpad — not a real system. Pick a lens, then choose a tile.</p>
+    </div>
+
+    <div class="modes" role="group" aria-label="Choose a lens">
+      <button class="mode" data-m="replaced" aria-pressed="true">What it replaced</button>
+      <button class="mode" data-m="user" aria-pressed="false">Impact on users</button>
+      <button class="mode" data-m="support" aria-pressed="false">Impact on support</button>
+    </div>
+
+    <div class="board">
+      <div class="launchpad">
+        <div class="lp-bar"><span class="lp-dot"></span><span>My Home · Finance &amp; Operations</span></div>
+        <div class="grid" id="grid"></div>
+      </div>
+      <aside class="detail" id="detail" aria-live="polite"></aside>
+    </div>
+
+    <div class="caveat">
+      <p><b>Before you film or quote this:</b> app names, tile catalogues and which classic transactions an app actually supersedes all shift between S/4HANA releases, and some transactions still exist alongside their Fiori equivalent rather than being replaced by them. Check the Fiori apps reference library and the simplification item list for your target release. The mappings here are illustrative of the pattern, not a substitute for that check.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">For support &amp; Basis</p>
+        <h2>Five things that land on your desk instead</h2>
+      </div>
+      <p class="sec-intro">The frontend moved, and the support workload moved with it — into configuration you now own.</p>
+    </div>
+
+    <div class="slist">
+      <div class="srow">
+        <div class="num">01</div>
+        <div>
+          <h4>"My tile is missing" replaces "what's the t-code"</h4>
+          <p>The diagnosis path is new: is the app assigned to a catalogue, is the catalogue in a group or space, is the group assigned to the role, and does the underlying authorisation still hold? Four places to look where there used to be one.</p>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="num">02</div>
+        <div>
+          <h4>Role design becomes front-end design</h4>
+          <p>Classic role building was about what someone could execute. Now it also determines what they can <em>see</em> and how their day is laid out. Business catalogues and role assignment quietly became a user-experience decision made by IT.</p>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="num">03</div>
+        <div>
+          <h4>A whole new layer can break</h4>
+          <p>Gateway services, OData activation, caching, browser behaviour and theming sit between the user and the data now. "The app is blank" has causes that never existed in a GUI-only landscape.</p>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="num">04</div>
+        <div>
+          <h4>Adoption becomes a support metric</h4>
+          <p>If the launchpad is badly organised, people quietly fall back to whatever classic access still works — and the business concludes the migration failed. How tiles are grouped genuinely affects whether the project is judged a success.</p>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="num">05</div>
+        <div>
+          <h4>Content updates arrive continuously</h4>
+          <p>New and changed apps ship with releases, so the launchpad is never finished. Reviewing what changed, and deciding what to expose to whom, becomes a recurring task rather than a one-off project activity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <h2>This one's worth a series, not a video</h2>
+        <p>Tile troubleshooting, catalogue and space design, role migration, and how to run an adoption review. Practical, learnable, and immediately useful to anyone supporting S/4HANA today.</p>
+      </div>
+      <a class="btn" href="https://www.youtube.com/@SAPCodeMonkey-803?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr">2026</span> SAPCodeMonkey</span>
+    <span><a href="mailto:tmoore@sapcodemonkey.com?subject=Fiori%20spotlight">Suggest a tile</a> · Not affiliated with SAP SE</span>
+  </div>
+</footer>
+
+<script id="tiles" type="application/json">
+[
+{"id":"t1","name":"Manage Journal Entries","icon":"▤","dyn":false,
+ "was":["FB03","FBL3N"],
+ "replaced":"Document display and G/L line item browsing, previously spread across several transactions with different selection screens, are consolidated behind one list-report app with filtering built in.",
+ "user":"No more choosing between transactions that each showed part of the picture. Filtering and personalising a variant happens in the list itself rather than on a separate selection screen.",
+ "support":"Questions shift from 'which transaction shows me this' to 'why can't I filter on that field'. Answering them means understanding the underlying CDS view, not just the transaction."},
+
+{"id":"t2","name":"Post General Journal Entries","icon":"✎","dyn":false,
+ "was":["FB50","FB01"],
+ "replaced":"Manual journal entry posting moves to a guided app with validation surfaced as you type rather than after you press enter.",
+ "user":"Errors appear next to the field that caused them instead of in a status bar at the bottom. Fewer round trips to post a correct document.",
+ "support":"Users report problems in terms of the message they saw on screen, which is usually more precise than a remembered error number. Reproducing an issue is easier; explaining validation logic is harder."},
+
+{"id":"t3","name":"Overdue Receivables","icon":"◔","dyn":true,"kpi":"142","kpiLabel":"items overdue",
+ "was":["FBL5N"],
+ "replaced":"Rather than running a customer line item report and filtering for overdue items, the number is calculated and shown on the tile before anyone opens anything.",
+ "user":"This is the genuine behavioural change. People stop running a report to find out whether there's a problem and start reacting to a number that's already there. Work becomes exception-driven.",
+ "support":"Dynamic tiles need their underlying service working and their refresh behaving. A tile showing a stale or wrong number damages trust in the whole launchpad far more than a broken link would."},
+
+{"id":"t4","name":"Manage Purchase Orders","icon":"▣","dyn":false,
+ "was":["ME21N","ME22N","ME23N"],
+ "replaced":"Create, change and display collapse into a single app where what you can do is governed by authorisation rather than by which transaction you opened.",
+ "user":"One entry point instead of three near-identical ones. The old habit of opening display mode to be safe stops being necessary.",
+ "support":"Authorisation problems now present as missing buttons rather than as a refused transaction. Diagnosing 'I can see it but can't change it' becomes a common ticket shape."},
+
+{"id":"t5","name":"Manage Supplier Invoices","icon":"⊞","dyn":false,
+ "was":["MIRO","MIR4"],
+ "replaced":"Invoice entry and the surrounding verification steps are presented as one workflow rather than a set of transactions users had to know the order of.",
+ "user":"Less institutional knowledge required. The path through the process is visible instead of remembered.",
+ "support":"Process knowledge moves out of user's heads and into configuration you maintain. When the flow is wrong, it's now your problem rather than a training gap."},
+
+{"id":"t6","name":"Supplier Invoices To Approve","icon":"◑","dyn":true,"kpi":"18","kpiLabel":"awaiting you",
+ "was":["SBWP"],
+ "replaced":"Approval items that lived in a generic inbox surface on the launchpad as a count, with the relevant items one click away.",
+ "user":"Approvals stop being something you remember to go and check. Throughput usually improves simply because the work is visible.",
+ "support":"Workflow, tile, and inbox configuration are now linked. An approval that doesn't appear could be a workflow issue, a tile issue, or a role issue — and users can't tell you which."},
+
+{"id":"t7","name":"Manage Business Partner","icon":"◎","dyn":false,
+ "was":["BP","XD01","XK01"],
+ "replaced":"Separate customer and vendor master maintenance is consolidated, reflecting the underlying Business Partner model rather than the old split.",
+ "user":"One place to maintain a party that is both customer and supplier, which previously meant maintaining two records and hoping they agreed.",
+ "support":"Master data tickets now start with a question about roles and relationships rather than about which transaction to use. The mental model has to change before the tickets get easier."},
+
+{"id":"t8","name":"Manage Material Master","icon":"▥","dyn":false,
+ "was":["MM01","MM02","MM03"],
+ "replaced":"The create, change and display split gives way to a single maintenance app, with views presented as sections rather than a sequence of pop-ups.",
+ "user":"The old dance of selecting views and organisational levels through dialog boxes is replaced by navigating a page. Considerably less training required.",
+ "support":"Field-level authorisation questions become more visible because users can see fields they can't edit. Expect more 'why is this greyed out' than before."},
+
+{"id":"t9","name":"Track Sales Orders","icon":"◈","dyn":true,"kpi":"7","kpiLabel":"blocked",
+ "was":["VA05"],
+ "replaced":"A list report you had to run becomes a monitored figure, with blocked or at-risk orders promoted to the surface.",
+ "user":"Problems find the user rather than the user going looking for problems. This is the single clearest example of what the launchpad is actually for.",
+ "support":"Expect questions about why a figure differs between two people's launchpads. The answer is almost always selection scope or authorisation, and explaining it clearly is a real skill."}
+]
+</script>
+
+<script>
+(function(){
+  var TILES = JSON.parse(document.getElementById("tiles").textContent);
+  var grid = document.getElementById("grid");
+  var detail = document.getElementById("detail");
+  var mode = "replaced";
+  var current = TILES[0].id;
+
+  var MODE_KICKER = {
+    replaced: "What this replaced",
+    user:     "What changed for users",
+    support:  "What changed for support"
+  };
+
+  function esc(s){
+    return String(s).replace(/[&<>"]/g,function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
+    });
+  }
+
+  function drawGrid(){
+    grid.innerHTML = TILES.map(function(t){
+      var body = t.dyn
+        ? '<div class="kpi">' + esc(t.kpi) + '</div><div class="kpi-l">' + esc(t.kpiLabel) + '</div><div class="nm">' + esc(t.name) + '</div>'
+        : '<div class="ic">' + t.icon + '</div><div class="nm">' + esc(t.name) + '</div>';
+      var chip = (mode === "replaced")
+        ? '<span class="tcode-chip">' + esc(t.was[0]) + '</span>' : '';
+      return '<button class="tile' + (t.dyn ? ' dyn' : '') + '" data-id="' + t.id + '" ' +
+             'aria-pressed="' + (t.id === current) + '">' + chip + body + '</button>';
+    }).join("");
+  }
+
+  function drawDetail(){
+    var t = TILES.filter(function(x){ return x.id === current; })[0];
+    var cls = mode === "user" ? "user" : (mode === "support" ? "sup" : "");
+    detail.innerHTML =
+      '<span class="kicker">' + esc(MODE_KICKER[mode]) + '</span>' +
+      '<h3>' + esc(t.name) + '</h3>' +
+      '<div class="was">' + t.was.map(function(w){
+          return '<span class="t">' + esc(w) + '</span>';
+        }).join("") + '</div>' +
+      '<div class="blk ' + cls + '"><p>' + esc(t[mode]) + '</p></div>' +
+      (t.dyn ? '<p class="hintline">This is a dynamic tile — it calculates and displays a figure before anyone opens the app.</p>' : '');
+  }
+
+  grid.addEventListener("click", function(e){
+    var b = e.target.closest(".tile");
+    if (!b) return;
+    current = b.getAttribute("data-id");
+    drawGrid(); drawDetail();
+  });
+
+  document.querySelectorAll(".mode").forEach(function(m){
+    m.addEventListener("click", function(){
+      document.querySelectorAll(".mode").forEach(function(o){ o.setAttribute("aria-pressed","false"); });
+      m.setAttribute("aria-pressed","true");
+      mode = m.getAttribute("data-m");
+      drawGrid(); drawDetail();
+    });
+  });
+
+  drawGrid(); drawDetail();
+  document.getElementById("yr").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
