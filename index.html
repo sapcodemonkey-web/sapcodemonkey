@@ -82,7 +82,7 @@ img{max-width:100%;display:block}
 .btn-lg{padding:15px 28px;font-size:16.5px}
 .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--mist)}
 .btn-ghost:hover{background:var(--white);border-color:var(--indigo);color:var(--indigo)}
-@media(max-width:900px){.nav nav{display:none}}
+@media(max-width:1060px){.nav nav{display:none}}
 
 /* ---------------- hero ---------------- */
 .hero{padding:78px 0 58px}
@@ -177,6 +177,39 @@ h2{
 .fade{animation:rise .34s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
+/* ---------------- explainers ---------------- */
+.expl{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:860px){.expl{grid-template-columns:1fr}}
+.ex{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:.2s;
+}
+.ex:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(20,19,48,.09);border-color:#C9CFEA}
+.ex-art{height:132px;display:flex;align-items:center;justify-content:center;gap:10px}
+.ex-cc{background:linear-gradient(135deg,#F2F5E9,#FBF0E3)}
+.ex-cc .lv{
+  width:44px;height:44px;border-radius:11px;display:grid;place-items:center;
+  font-family:var(--display);font-weight:800;font-size:1.15rem;color:#fff;letter-spacing:-.02em;
+}
+.ex-cc .lv.a{background:#85B11E}.ex-cc .lv.b{background:#C77B14}
+.ex-cc .lv.c{background:#C4551D}.ex-cc .lv.d{background:#A6322C}
+.ex-fi{background:linear-gradient(135deg,#EEECFF,#E6F2F5);display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:0 34%}
+.ex-fi .tl{background:#fff;border:1.5px solid #D8D4F7;border-radius:8px;aspect-ratio:1/.88}
+.ex-fi .tl.on{background:#4A3AFF;border-color:#4A3AFF}
+.ex-meta{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
+.ex-meta .k{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--indigo);display:block;margin-bottom:9px}
+.ex-meta h3{font-family:var(--display);font-weight:700;font-size:1.22rem;letter-spacing:-.02em;margin:0 0 9px;line-height:1.24;color:var(--ink)}
+.ex-meta p{margin:0 0 16px;font-size:15.5px;color:var(--ink-2);line-height:1.55}
+.ex-meta .go{margin-top:auto;font-weight:600;font-size:15px;color:var(--indigo)}
+
+.deep{
+  font-family:var(--body);font-size:13px;font-weight:600;text-decoration:none;
+  color:var(--indigo-d);background:var(--lilac);border:1px solid #DAD6FA;
+  padding:5px 11px;border-radius:100px;transition:.16s;white-space:nowrap;
+}
+.deep:hover{background:var(--indigo);border-color:var(--indigo);color:#fff}
+
+
 /* ---------------- videos ---------------- */
 .vids{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:900px){.vids{grid-template-columns:1fr}}
@@ -246,6 +279,7 @@ footer{padding:44px 0 54px}
       <a href="#shifts">What's changing</a>
       <a href="archive.html">Archive</a>
       <a href="fiori-spotlight.html">Fiori spotlight</a>
+      <a href="clean-core.html">Clean Core</a>
       <a href="#collaborate">Collaborate</a>
     </nav>
     <a class="btn" href="https://www.youtube.com/@SAPCodeMonkey-803?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
@@ -365,6 +399,7 @@ footer{padding:44px 0 54px}
           <span class="tag">Custom code in the core</span>
           <span class="arrow" aria-hidden="true">→</span>
           <span class="tag-new">Governed extensions</span>
+          <a class="deep" href="clean-core.html">Explainer →</a>
         </div>
         <div class="impact"><span class="who" data-who></span><p data-i="0"></p></div>
       </article>
@@ -389,6 +424,7 @@ footer{padding:44px 0 54px}
           <span class="tag">Knowing the transactions</span>
           <span class="arrow" aria-hidden="true">→</span>
           <span class="tag-new">Knowing the business</span>
+          <a class="deep" href="fiori-spotlight.html">Explainer →</a>
         </div>
         <div class="impact"><span class="who" data-who></span><p data-i="3"></p></div>
       </article>
@@ -412,7 +448,44 @@ footer{padding:44px 0 54px}
   </div>
 </section>
 
-<section class="sec sec-alt" id="videos">
+<section class="sec sec-alt" id="explainers">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Go deeper</p>
+        <h2>Two things worth understanding properly</h2>
+      </div>
+      <p class="sec-intro">Interactive explainers rather than another wall of text. Both take about five minutes and answer questions you'll otherwise get asked in a meeting.</p>
+    </div>
+    <div class="expl">
+      <a class="ex" href="clean-core.html">
+        <div class="ex-art ex-cc" aria-hidden="true">
+          <span class="lv a">A</span><span class="lv b">B</span><span class="lv c">C</span><span class="lv d">D</span>
+        </div>
+        <div class="ex-meta">
+          <span class="k">Clean Core &amp; ABAP Cloud</span>
+          <h3>Where does your custom code land?</h3>
+          <p>The A–D extensibility levels that replaced the three-tier model in 2025 — what qualifies for each, and the grading rule that catches most teams out.</p>
+          <span class="go">Explore the levels →</span>
+        </div>
+      </a>
+      <a class="ex" href="fiori-spotlight.html">
+        <div class="ex-art ex-fi" aria-hidden="true">
+          <span class="tl"></span><span class="tl"></span><span class="tl"></span>
+          <span class="tl"></span><span class="tl on"></span><span class="tl"></span>
+        </div>
+        <div class="ex-meta">
+          <span class="k">The frontend transition</span>
+          <h3>What happened when t-codes became tiles</h3>
+          <p>A working launchpad you can click through, showing what each app replaced and what it changed — for end users, and for the people supporting them.</p>
+          <span class="go">Open the spotlight →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="videos">
   <div class="wrap">
     <div class="sec-head">
       <div>
@@ -450,7 +523,7 @@ footer{padding:44px 0 54px}
   </div>
 </section>
 
-<section class="sec" id="collaborate">
+<section class="sec sec-alt" id="collaborate">
   <div class="wrap">
     <div class="sec-head">
       <div>

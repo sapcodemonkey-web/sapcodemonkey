@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clean Core &amp; ABAP Cloud, explained — SAPCodeMonkey</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="canonical" href="https://sapcodemonkey.com/clean-core.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAPCodeMonkey">
+<meta property="og:url" content="https://sapcodemonkey.com/clean-core.html">
+<meta property="og:title" content="Clean Core &amp; ABAP Cloud, explained — SAPCodeMonkey">
+<meta property="og:description" content="What clean core actually means, the A–D extensibility levels that replaced the three-tier model, and where your custom code lands.">
+<meta property="og:image" content="https://sapcodemonkey.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Clean Core &amp; ABAP Cloud, explained — SAPCodeMonkey">
+<meta name="twitter:description" content="What clean core actually means, the A–D extensibility levels that replaced the three-tier model, and where your custom code lands.">
+<meta name="twitter:image" content="https://sapcodemonkey.com/og-image.png">
+<meta name="theme-color" content="#4A3AFF">
+<meta name="description" content="What clean core actually means, the A–D extensibility levels that replaced the three-tier model, and where your custom code lands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F8FD;--white:#FFFFFF;--lilac:#EEECFF;--mist:#E4E8F5;
+  --ink:#141330;--ink-2:#3B3E63;--muted:#6E7396;--line:#E1E4F0;
+  --indigo:#4A3AFF;--indigo-d:#3225D6;--green:#85B11E;--green-d:#5F8210;
+  --amber:#C77B14;--orange:#C4551D;--red:#A6322C;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Inter Tight",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:inherit}img{max-width:100%;display:block}
+:focus-visible{outline:2.5px solid var(--indigo);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 30px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo);margin:0 0 16px}
+
+.nav{position:sticky;top:0;z-index:60;background:rgba(247,248,253,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:74px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.08rem;letter-spacing:-.025em;color:var(--ink)}
+.brand img{width:42px;height:42px;border-radius:50%;background:var(--lilac);flex:none}
+.nav .sp{flex:1}
+.nav nav{display:flex;gap:22px}
+.nav nav a{font-size:15px;font-weight:500;color:var(--ink-2);text-decoration:none}
+.nav nav a:hover{color:var(--indigo)}
+@media(max-width:1060px){.nav nav{display:none}}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:var(--ink);color:#fff;font-weight:600;font-size:15px;padding:11px 20px;border-radius:100px;transition:.2s;white-space:nowrap;border:0;cursor:pointer;font-family:var(--body)}
+.btn:hover{background:var(--indigo);transform:translateY(-1px)}
+
+.top{padding:62px 0 30px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,5.4vw,3.7rem);line-height:1.0;letter-spacing:-.036em;margin:0 0 18px;max-width:18ch}
+h1 .hl{background:linear-gradient(180deg,transparent 62%,var(--green) 62%);padding:0 .04em}
+.sub{color:var(--ink-2);max-width:62ch;margin:0;font-size:1.1rem}
+
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.85rem,3.6vw,2.55rem);line-height:1.07;letter-spacing:-.03em;margin:0 0 16px;max-width:21ch}
+.sec{padding:66px 0}
+.sec-alt{background:var(--white);border-block:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.sec-intro{color:var(--ink-2);max-width:56ch;font-size:1.04rem;margin:0}
+
+/* premise */
+.premise{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:880px){.premise{grid-template-columns:1fr}}
+.pbox{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px 26px 28px}
+.pbox.bad{border-left:3px solid var(--red)}
+.pbox.good{border-left:3px solid var(--green)}
+.pbox .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
+.pbox h3{font-family:var(--display);font-weight:700;font-size:1.2rem;letter-spacing:-.018em;margin:0 0 10px;line-height:1.25}
+.pbox p{margin:0;font-size:15.5px;color:var(--ink-2);line-height:1.56}
+
+/* dimensions */
+.dims{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.dims{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.dims{grid-template-columns:1fr}}
+.dim{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:18px 20px 20px}
+.dim b{display:block;font-family:var(--display);font-weight:700;font-size:1.02rem;letter-spacing:-.015em;margin-bottom:6px}
+.dim span{font-size:14.5px;color:var(--muted);line-height:1.5;display:block}
+.dim.hi{background:var(--lilac);border-color:#D6D1FB}
+.dim.hi b{color:var(--indigo-d)}
+
+/* levels ladder */
+.ladder{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:26px;align-items:start}
+@media(max-width:960px){.ladder{grid-template-columns:1fr}}
+.rungs{display:flex;flex-direction:column;gap:11px}
+.rung{
+  display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;
+  background:var(--white);border:1.5px solid var(--line);border-radius:var(--r);
+  padding:19px 22px;cursor:pointer;text-align:left;font-family:var(--body);transition:.17s;width:100%;
+}
+.rung:hover{transform:translateX(3px);border-color:#C9CFEA}
+.rung[aria-pressed="true"]{border-width:2px;box-shadow:0 8px 24px rgba(20,19,48,.08)}
+.rung .lv{
+  width:46px;height:46px;border-radius:12px;display:grid;place-items:center;flex:none;
+  font-family:var(--display);font-weight:800;font-size:1.35rem;color:#fff;letter-spacing:-.02em;
+}
+.rung .ttl{font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:-.018em;line-height:1.24;margin-bottom:3px}
+.rung .sml{font-size:14px;color:var(--muted);line-height:1.45}
+.rung.a .lv{background:var(--green)}   .rung.a[aria-pressed="true"]{border-color:var(--green)}
+.rung.b .lv{background:var(--amber)}   .rung.b[aria-pressed="true"]{border-color:var(--amber)}
+.rung.c .lv{background:var(--orange)}  .rung.c[aria-pressed="true"]{border-color:var(--orange)}
+.rung.d .lv{background:var(--red)}     .rung.d[aria-pressed="true"]{border-color:var(--red)}
+
+.panel{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:28px 28px 30px;position:sticky;top:96px}
+@media(max-width:960px){.panel{position:static}}
+.panel .kick{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:9px}
+.panel h3{font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.024em;margin:0 0 8px;line-height:1.16}
+.risk{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;padding:5px 11px;border-radius:7px;margin-bottom:18px;font-weight:500}
+.blk{margin-bottom:17px}
+.blk:last-child{margin-bottom:0}
+.blk .h{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.blk p{margin:0;font-size:15.5px;line-height:1.56;color:var(--ink)}
+.blk ul{margin:0;padding-left:18px;font-size:15px;color:var(--ink);line-height:1.55}
+.blk li{margin-bottom:5px}
+.verdict{border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.5;margin-top:18px}
+
+/* rule callout */
+.rule{background:var(--ink);color:#fff;border-radius:var(--r);padding:34px 38px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center}
+@media(max-width:760px){.rule{grid-template-columns:1fr;padding:28px 24px;gap:16px}}
+.rule .big{font-family:var(--display);font-weight:800;font-size:3.1rem;letter-spacing:-.04em;color:var(--green);line-height:1}
+.rule h3{font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:-.02em;margin:0 0 8px;color:#fff}
+.rule p{margin:0;color:#B6BAD8;font-size:15.5px;line-height:1.56}
+
+/* history */
+.hist{display:grid;grid-template-columns:1fr auto 1fr;gap:22px;align-items:center}
+@media(max-width:820px){.hist{grid-template-columns:1fr;gap:14px}}
+.hcard{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px}
+.hcard.old{opacity:.72}
+.hcard .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px}
+.hcard b{display:block;font-family:var(--display);font-weight:700;font-size:1.06rem;margin-bottom:8px;letter-spacing:-.015em}
+.hcard p{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.52}
+.harrow{font-size:26px;color:var(--indigo)}
+@media(max-width:820px){.harrow{transform:rotate(90deg)}}
+
+/* steps */
+.steps{display:grid;gap:12px}
+.step{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px 26px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+@media(max-width:640px){.step{grid-template-columns:1fr;gap:10px}}
+.step .num{font-family:var(--display);font-weight:800;font-size:1.35rem;color:var(--indigo);letter-spacing:-.03em;min-width:30px;line-height:1.2}
+.step h4{font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:-.018em;margin:0 0 7px;line-height:1.25}
+.step p{margin:0;font-size:15.5px;color:var(--ink-2);line-height:1.55}
+
+.caveat{background:#FCEEDE;border:1px solid #F0D9BE;border-radius:var(--r);padding:22px 26px;margin-top:28px}
+.caveat p{margin:0;font-size:15px;color:#7A4A12;line-height:1.55}
+.caveat b{color:#5E370C}
+
+.band{background:var(--ink);color:#fff;border-radius:var(--r);padding:46px 44px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+@media(max-width:820px){.band{grid-template-columns:1fr;padding:36px 26px}}
+.band h2{color:#fff;margin:0 0 10px;max-width:22ch}
+.band p{color:#B6BAD8;margin:0;max-width:54ch;font-size:1.03rem}
+.band .btn{background:var(--green);color:#fff}
+.band .btn:hover{background:#95C425}
+
+footer{padding:40px 0 54px;border-top:1px solid var(--line)}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--indigo)}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAGkCAMAAABJkqEHAAAA/1BMVEUAAADztnaErx2iUhtaKxTUdTVmjBb6++nzzJNlWSM6Hgr9+/fquIahpFaga0uErx3OeUZxb21mmS/d0LBoFBCZmS+DOxRNMSKwxnBmYhBfSDajmmlyW0uxopTPs59vVkj//wBwWkudZVuLcmEwGAv/AADczbCMdWOzn4u5zIn2wX1zmhsrFAlhSTehi3aWwSxMNSX26NHKs5+Vl2XZgzn/f3+vnIn8++b//3/X2a99lkOZzGY6RxDRpHbGr5oAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANjuGlAAAAQHRSTlMA//7//v/+/v78+Qv//v2b/wYFIAYF/5/+CqEWmxcf3QFbEZqhAU5fXv//m19jXv9lT1CU/wKRngKY/wX/BYMBW+FqMwAAJEdJREFUeNrtnQt/o7bSh4VhWQkBNcUbx3ZsJ3HiXJpkk013257znnO+/7d6ESAQIEACHC7R/9emubqGhxmNRqMRAEpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkqfVNhT92AMmDbbbfzpaqduxwABAd8PPuL0O4vgnw1Wd2ZQ8n18vzQsy9pfPL2+vCWolBcclNbISGUZ7jv4gSNQyqCG4vDWRl4WMi4Wm/CnG3WDBqAFuDF4sozl8yq0pK26Sf1DejbKFAxT94TTQo1Pvfs7ZFQIXUQDlOLUr1aWUa3X0OMtLtWt6k0b8IPakh6Ii2n5TGa5K0+Fe33pGt8ZDKUSUuuXyO2Rj7fqpvWg1zwlPqcwjAArdb/60UWRkq6jEk67nfJ7PQR4W7znQOIa1P7ghak+Fe71ED5YJZQ4nJbP23R8Uvow7Y7/IKuMkn5WmOaun3cRIcXphA4u9/X2x18vRqktceOI9fNdmI5YLbCCdUJG5D/Xm2vP87Y+wIdKStx47+LKD+e5ngrKO9clWeq7LoTSyxpKXE7LwzVhHUR8ClSn+ukfw0wPvgbgx3/v3w+H9/dfv/573NdS4mckbu69N0JqpVY2OnR2xyPe3b8+7Q2rLG+nS3LaP99HKxurn+oGd0TJP9QkVSsp8RN8xsXrMQwlVGzeDaV1Xea7DlMxLI9BPcepI8WpnTzgGSLSdXlOAfzlu4dVyNdWK3BtGJ1gKnN8xjripJbeWwxJ2O2MUjmnF5Xia8kpR+KsDaUSUBa6OCpOzREF8yNLEkMzUPsrTFZ01S1vmBRad06Jb5AHkjm6VMGeLKMdBhs2CNe7FGd0UtsAZLUB+O1l3WjkEVVhSXe9wT74yZixUon8HcmrLgDYrQvZIKSfmNNFmC5XJSzVugVHP9rncmgTxjUdoCzjAof7ao6+YlGTasD42WgZbTcen9ALAFvf/1txqNB2AfBLgcsHYrKW99hXo1J1Mghs1xwkpzanzOh0oQjVhN6HEhon93vs7HYDtiqjVxJ3b8GPCg4fNzgFAcQbVh6vYEAkqsJvF9UUTssog2mv5rb8NNA1OjUECZ9nXWFwrbCkCguDwIth9c0og2mpCiFykDB+NQaAiMVkITUq5eZHSaWWcabrw6BkGM/kAVKKhyPPGogZ5eKHp2wnlk/s667Bf0+XRG2J6aAQham6Xbo7zNCHojR88I87ZUfHtydrcIwYSjdH3/M+tdf7e+PjpTFARgymm09e/YDB7m1tDZMRY0xvYENmcp/RlogDOeKboSJiKCEPfFZI5MLfbqzhMmI83qeN6nzfx0/GkBllKK0+oSFdAuz7w7ajDKVVEOV8Smu6MIbOiKG0232+Qelygd9HwCihZLlf/U83V1qBq1EwSikBfPvJIC2q2psMlNLr58o7kEnHfiyM0nHp+Ims6Bb4R4F+DAOkRJ6uz5Mkqu1sMkxKF/jzBA+rdNOyro+K0itY4MtPklb1x8YocXg/Pk/k8Do2RgmlPT5+ikzrBt8b44MUU7Le8WfYFnO5fUMjZJTY0uYznLmwGqOzYyAtP0fJgzVOSJTSHV5MPh+U1DTo+kgpTX7DhZfkVfXRQnqdfnR3I9YErfUddTQqp2NKaDf13NBTBSMtVat7SV4AZtQRqzgsvZi4s6MHIXHua3AvHx8fY0jkxjYE9BgxyStE1VUY7k3YlBbgjmtIwS3k3VZNnhCXD/uSWheU1lNO2nlbDiO36s7OZQjZNYg6cKVx3uF+yltiOIZU/fALW5MmrEeotabkTjYM541IWu3DL3RLRY2oPab4Kbuf6sGpnDmSJnBv6+/oXJNB1Gy4+zSjEk02yCASuKXSiFphip8zf5qHnXn5EUn85tpax4jaU7rC04zC8UVDRlV3tCmj5mEe3QE4xcW/W5CNv2XvLv+OwcfmjDS7DaV7PMFeHB6+asOIT6mFGTW3pTh0wFMblDDGSTlk49tbSMJqbRk1o5SEDhMclTbseXywgzvaAaNmHi9e/JuE9azAgqxhLhaeR3oHPTOMGt7fzhk1i/HoVGns/u5ykbmCne+x2YbG95fxdW4XjJpRipeVRp4a8iJLWvw6rNfrwy9ATtTbMC1Pmt7RR627mKE9JY+Ykgdoj2pyys94ulWHZxxeLfdJazTLQBc/DqkhzWH7O2prXQm2G5S8bFnK4nosZrS7MKrO4evgjkKtQzWEdAgAbY8kdA09x4/r5Ai6zfD9ID4YVmVjb9iaUpeImji8aBvtJrjW48vTgZwNaVnkgMj9xdN9fJz3oPMK+AXVMGr/3GsdqxkkhPHVnnck0zM9OmuYBvXzGlwYVs2pYW1vqaHBvinFQVDJRQZj8PN2qB4PB/Z/Y9Ud7eZ2fov7glSp9QvA/iCjPZw98Wg+J2UKc1dnew4OD5Fma2fdUzLWP3DYAXhYkbf/xrhoN7j4L5ECVHp33u4klE7AKGxbHUAaVMkKXuA9i+gLI23eTWx3KkkGeGWH0RROohvgFoykBaSeGlEMKbUkbYiQ5EalHJ956NW1+Rfywc382EJ3gwrGN+mROnrGivKQBinYjJGe8xjkUjVmDA70hIey6QzjRXrCsltg9EUb9pBUXUVRykifa8VLDcfgebZt9XCGJDo/crX5+CCJ+7uU0ZxzoSkmNDBKeHf0k/YZOu/h0gc9S5Lxd6kZ8a0ofS7dQVEKYu+jv6ti9Ofg4wbR+I4JX8vNiA5O7AkygxA95I37eP059LhB2N9VjLsppHnWyQfaDiDG87a0XMudjxWS3RUjTlBr3AzBlJK6R/6bHwMkKAHJzU0DS80psaUhbA7cVjm7kUDShBnptXY0py4voXTfu8NL6h61fCQazsS/zFNIcKiQHsUhifm6mFbSlKh3bxcn7eY5Qq5Lgu5MfhWOOHKoHHfrhqW7vo8I9Kkhzdl5AhOvoglB4js7jROSZ4YlhHvNh1/TPS1MzDPX9NMsy/YZOXDcRezT55HLmGuZGe484/BeQK/tbujmMJYRKlk7t8cOSZ/nLMity7jSzTJg1acpxcWpqR+YaycrcOgd0jyLqOgwCrkILWnC1utc1srNHjR9spB0blSQ1VzjmtIF7m8JcAPiTpBJOmTunqbm7sSQHElImlu2bj7P2hIdld783nr0r2jeTsvbt0HGUmZpRcSS7N4oQlcAkl5rRhxK9DdX/YUOC9rUKYT0J7MwEYWlWvLE1dcKQag5wYduoou091NHkBALSausRsmMS6m/62+hIp7KJnFD/J7SNTGatK+FBKNfdLqgZEOH3FRN+LWgSMZBL3iLyEUQl+EyhSjZydS87wPNcCG40wrPkmCJA3StuHwDdsAIRS+mi1ISybAmkDQjW7wW+jd22TyTJ9f63sF5S9vlRxOIefyWsvbuikCijIjNtaVk2+lNFKQkuDab93WZiJvBpHH83XOPmwMtJqU1j4akbBQqVNEF7bT61Wq7yg6ZybRgRCm6gJ5hpOcnRcn0g83wxeFur+voWUhkXSKX32ItCZY9+jAz8tp2u0iNfS0HdgkpwKQZFYsWlJJWHJT6PEm9CCmXwWIglZiIHUxTMhW6rUyJdXahw+u6PrJyYUkrpia0JMk6CEhhBO7m1igZSGW+x4a5bF8bU4K5aabTSTMw4cW/iBIbOmhJt+qhQPpyphVS9imkR7GHv80mpJznDN5at5BqGM1DJhb7Y+0sPhewt70wq7pF5Qyk0qRMgxtbWo6an1ueBJJWU3OnFTxgb5Bu6eb/lpDc3O6zFlF44bUsAbOsTzhILNBqZZB6Wqy49H1UC+lPBtJjbcwcD0qdDUlCYQiUNKTKapQQCgeS148lYbB729e+6z9ru6HAQvqreaq18FpCsaKsIbmRWyivPylCMt56O9cnXpgVhFTi7+xijrI7SEK+s9kOspJyY+LvilH5/q2vDenZLHgJJFQ3KHUIybYbQIINIXGSDpzJInV3vbUj8sCBX6HBr44UhmR/LKQWezE1HiRL/3M4gUNgSfEWP7e++qy85QxnTLK7gyQQg7fY01ygRB7XzO2I5wTW370n7yrCOzbloIsGDtoHWhJsA4lrS2e8tYr+V/0qBqV5BtKjUAgOO4RUG9218HaF8pSyeVOvtcbJCXDz2pLo8hZbHU5m7SYheMsWDppQRXiPWfDkeIOKObiW6WR84rRQEZLTOaSwYlV0wxL19v3uy6wblBKnXNo9FRYSrB1mHGqDECiZAQ/cW3xMBu0FpYlU7T/3uf+lWGdcGd7x/Z3eVeousEpLbnyTXaYgQ1A0DCWU5gJDEuov4UAih7tao89A4oUOULPkHJR45FA7JElCcsM19HCNVqcX5laOSXE1eL8n1O6sOlNyM014akOHdpUokguIttyibO5coHpINLY99FsMTtsKRaY0L3+Yqnp6292VOGiSMYgMpHzBQz0k6uuveoa0qQtFtezRSVxTsjvIgMcvtZeacTU+8YoMTQZvRww3auq7UQANHUpHpWzkwDclaJOCRstCWTuCxTNjZUYlS+twRCowEoHk0iEJ9CyvxpRykPSyan3XddkqY0LFJt+kcpzgt+pZpSvoXc6RWD5x8PBFr58jDsLbhaa0rjaluZs7zg+WF9kzX9mOa0QNnaM7Hn2GXMeuKesnVknMst5zwuZ29CWN7gS83ebYe1uUDX9vTknkIHQuZiELkZlIOdXWBEOr1GB3qVVevbFIVQrdjol3ffu7FW2KUvZ2NcnTS6sRhWX9dt0rCIxgj22ihi8iFQ+aMZijfJhDZDWBiVItpSCKtmob0Trtd188tjgYOIDk1pYOJdse8eUAmkDhX1VFg/nAoZKSnU+/lfBqXdfffECKYoe5gLeLf+N1IMctLTOU5uUZ1lpKafaBjP571yFRtU0ic8dx3fjbHVBqw0hPQ7sSQ5qzG2uH0YnVA7uKxL3LYVRe35VmSMM4jsThhJAdfR58EQZ94jsmTsOINnoRGZEOAzmXNumMwqHE83Z66SYLO3ZxLoHyGPq/3HyKkHLDk0uaJ5Aebb3dgCSw5KelxzQO5GAlD19Y/DqnOdfbkXbnvPkScXaWQcJnWB28BZyaO7wWsXduiba+bKDn3GoOU3qeSKa2U+N7u7JVWiM0ovpzfkOKzSDZzUNvvbburuDsghFpMGeLeGnwkNZ2zsvChtKiFJu4OTYRV+WzGh3ZDJvn69xibeRcoI/agPrsez5mzuZJS3DnJZDKKklIyif4EGV+WEi2Vhyh5BG1MaOsIVU2nqb+w1rjywEdp3R9xGBp5XbPZwtYxY6KjbZnurz83GNLQlBzuom7wxb7VctI9NE0duAnGJJWOMkP0c41mlYS21UNJ3EUDgtxnc12trEbxHZ6a83nxO2R9nYixXZhW/BBQcIkP/QrlyFI/Lj48fJ0QQhlKdlhJsKFzSO6s9aI4ko6ra75ahI0PINByl+WdukSY5ROZzMRdrL7ufHKLdS7gSTQfNVIWuQuhni+3wKAF166TeJ8+bTAi3VusH0NMvxoRjdDPcyUPDkHZFVCqp7fpAlWxpSY0rwWe9M/AlJ6TgXaDffI2WvSLHxdBQmK1jcmoxJb89jmXJKTQ5oz7Qp/gKGfs32/ZgvgUP0MiVffRVOobB1+q/pWrcUEyZ3XU2KPuHoZOKHQzPHLYbk3JJaSCqaUJOfYEle7l9x3NDWaC5uRZdyD4Svq30tXA8WdHTsqpZD0zsry2qQaaihp87OU0Q8wCmEvsKer4sq5xN6IBFIaSrRk1DQrVLvNRWM9nWFtwWi08p4KkMR6m2kspGRI0to3/2w4LFVng7Rck3C0ASMSLkASzL+FFa202iTOQeiwi3bHsGVi9Sxp6ZkAyh5calgXePBxHTtnwm4jQwqToW4ayIV1D05HnY61ltnvuDlu+FLz3AnAoRm9kGPP8YggoWaGFOVTEyo2dF27K0bi7Z4kzzuP1yZ84A3tbPpqbfPeDsqN8tH6QlTZoHWmE0La/wCj07V0gXEeUmA/XTfel44dzoQZ3eFwjnh5OSZICysHSX4ltZNi1XamJOjo9i8RotHJEtlPUbO70u3ZlIQIoYstQYTB6CE126d8guO45SBlt+HeLNm1GIvsfLs5hHTGiag1pDCN1727g20M6Q6vXn6tb2ItD1fxwp4HxiqrdrtsfX7oFGemt4DEi98WtxiATwfpkUna2XafkArDTzD2LLzVgsoDYMyAyBNWv6W5PoUHTwDJbRx+v44cSd08SbpuLtoGc5IDyhob0nO/x5F2rtvkqOCmcYPbxVk9bSAVg23/1psUpHyCVT5uME4TgQexfVNIazA5xSWtDSGFs6QTJBzEg3CyNGHQD1FHhskNSUlL6opdY3WQjNNA0mQM6ewsmdDugDcxSCvwWtOQsGYqa5xomiQIiVlCot4O307Nkq7pYcENIbntDq5oGzmwK3lxEuhlct4u8Ax+e0iwL0hnzFCEkvPE/gbTk9UWEuoNEifXfcCryRFKTwseHCQoxWi6YUOI6bX2ZJ4aSO2mSdAu2WwGmyzHrifJCIDnNpD0tpBgWNBiN4HEFHEln93vFpfTQ5QeKNcUUqu5bFwK1sSSeMuvS+yDy0maUho5zGGhFKje3TWFZKeV/zaUh5Qps6OfbCYJKM3eGU3SQiGkFqeS2RUbmqD4gESjhgvsTdOOVmzJfr76sa6WLoTUeMkv6ZDcYEziFpvsJho2ZKezucQcIv0f7brorimkpEE4kh+TuIyep8qIaJ2eUP/IIIJxK1u7pgwFNuqEAtMNnCX+UpYRwovLyTLCLymkTKuMZE+YXT74N8wKBWG3nu4WtCUh8Qvr7qdsSEmv42zkQPcc2TVtN2JnZUuaEdMF1OYXukjWQh7AlLWgJ2jmwjvaPKOifbQNkRVBkhmYgtdDLCNbbqmCDeyYz/0FnjIlnG6tYA0i2RiLig28aZO0YDLqhqOWOCQIbeawCqeEUXncwC/Ot8DEyk8KpkQPs8jlHGCmGXv+ZkbbXuxwmiRBCNpMUzpUsadJztldYA9M3N95iSnZhcVx+sjbPK9nQwk/R1rlOWzZdrg10JaCVLLJZY/BxCFlTOmRN9sM697DzriQu49MjBDUMp0d3TQksYWHpJItE5vJMwpMaZU0VoP5fbEFTrYtFyfEDY4dN9N3CqUb1XlrFVBqs9gL2IDJa4XXVty9puDOcqe76VEvcAFKdkqItAq3cohqapNlNiK9Y/AJ5NG9s0ahrMtm4uXEUbnxOUl2xQzKjru5a0kvd54VlaYy6hmhZKcy+BT6H8bvaXfZYsyc7xJMrMJ1HNpUH8KsZ6Ot9jV3z3nuXRs2O5K+ZDxaTjz4ZuTT57O40GpzMNGTRJBOz6qgZMJDK1wdlRw1ItRJgNe7hi0Nyrxg4OsmnLTLrivdJ6Zk8xM5bv15PMmRZPzvh435RUIOW2aD+TIqLP4cnA6lDo/6sfzwL6fw6ATBbKxcEwB0sQNg+kE4yQ3h2qNf46lOA1B7V6obB2c4Oqs0XWMZZu68qaPyEodXVdwdHYiJyn0ax4Ki2VWbMvAqPEli6OozBOJJNpyEyFXLE1Hw7bgIRRvwObis8PaRgzJtKN/QRpSRhRDz/7bQwQf4+J9JD05JNWswLNU993E0F/yHnD62R0Qx4EB6eOJs3VRKtHT1rJyRaZqICWcs42KDJ54Ox2CTHLEkdnNtG5aq6bEVdq7RfkWPExOFmNj+2dbyHk97YAquTfzc+JNJMKoL7cgMOWUxITI4raZsTO8spT5AQUFXFzOKhVBmQJwyJuz/g5+sXm0pG9nVmVEZJsN43kwWk3+8Tg/C0mHPzq5iaoRmZlGo0HPDnyamn8fUlnRofzChTM6uMsdgcoUymasr/DbJEOJv0tR9yZQg9GZH1RNks0yZiRPpE7ma4hQXex5OD5X74NhBtF8nMsuVmeAictYBniAnD/zlMJTsj2dUQIQkIGUjctICfIrBg+8f/0ptya2q6DkNo/p0YDWkLKZg2oTBblL2dBlEeP5/FswxmnU7K7pmJJKzNWvFhBAWOfNgg6dmSsG/+JlJY3+Ay6PzI6G8OjJNKUwG8XljaqovkMGLdM/MHO1TY4oKT0TbewtBykxvgwBid/QnZE04/rBg14QgPLkZCa8gijHKTG8tYkyTmzNhcMRMKG5V7a3ohJEQnZKUULlmic+z9lOsn/S3AFxZ2XrGXhHJGlLwe7MZU3tuBVPb6S01kVRyrqax+wbg6XayjiGhABGRk4bjawy205s2LUAQ5Vky1cGSmzI55bGlbs6QdHYRI3N2bqZ/+wMDMMXZ7TZzIi2yO8NkC1pR1hdaUogCRsGnjDHF1So/8cRcHr7LVkU6dhdeL4jqpR2doCFRR5eQms1SSgeMt9OzJNKg/sIqljm2HIo0VwLNmURkhxg2qZzkQbt5wwAf/Yl5PbLR8YdMOaodq6J0z9HlECXDkrijy1OixmTtj2Dzjz+lBpPR87bdcyohXUf6jLioStLVZYaiM4aRgCHxEQVjE+Pyria3ZvsT4KuyAvwAlCa6pQxKAErgSA5Isyo56Rj4hHfTcXeXwN/R/u5hwShvYwVytHTfS4l/i3YrIaOdUAtEmYHJ+oWnAwkDH9NNzwEj4jZQsag4qih2Hc3mFEsSbFFFsrTO8v002iHKDEx30xmQgpjhjQ5HhBHJsziocp8S2rupdNTWeESd3UxM6YzpCZC2mdMIGu6TZ4+9VtRim5JIXuFMghESR0QomfR6nvBEBiS8MHiMiDkh4wScuOFCJSM5RIHOZ6nHm8CsFh+TsC52dYy+z5wZMjoxqLMzLpkzAUbSiELRi3p9Gz+kDX5NGDn8mDY0KKsFKiRoUmQHRcOhyCy+bXpZzxPIgN+xYV3ZLTARszlJQrpeYkG8PEMJo1kzOdSWjBfgBV59vIOTl6SCqhjN0iVQo3GQXWtmHF+HGiMK3nNiS8gnxV4j1jUSYDSLn/DgSbeq3ZchaWzsMcwdWlHOlm48Umc4WlPyb9jxyKw1pcyehsCR6aEzO6sP2+qgWjxGs5ZKKC3x0T+O05qwR3NBJTFDARLKbTzJe7KzpiGFdQJETIxngRGHeE+CjBhTauTVSgjqVa6uE0bn8Szduhtpz8kNuLMExqO8vzvF7BaVrLp2oPj9onEW5P0EPt3vP5OAZKKTI+rKjOI8Hh2WVpcjLD15o1WRzkyKUtPxR5zRrEs5yfEJ46ubTI4YsZyZKTChTz1RFw7v7MMYBe/dGuuJPj8BTiZIYrflJA7PQujEiNJh6QaPrS5lRVf50Gwmdl8yW1ZH4upi0TM1R1Z/7IGXxNkJuw2Ox2tgVKgLMzKbzJYMf1QRHgY7SWeXt6WRmJGZWakdWYP+pPm0I/FQmp1S+ojRiF4cjfAWIzKlJPdtSV5yaccL2Zj8lAGDWXjuzMThjal8iFYUI9nrR2XhAyrfZYmQnq/kC5tunT5gYJYt4jc7nr6T3uWdzDS2zJayvc2Y1Hj1gnmICH0korD8KX5gsHc9FkxRroFEDbM2tsTHJDAUfSgidkprXYzGkFZJ1NDgYit7m0kPReiDEJlRDs8KwvCfozIkR37CUaSUa/NT1eu9SEgQUSccnVGF4fjOElxEEqQkYk8IdVvB0Dx22I4gDL8FOCoptto4Dx4nXjWRZYWNj9tVDXcUPIzIlBZgERvS9+behF/AmLBiJFDYbX6wKY3gWG56aJzVdiRuqVkPsuL9tEOHtIqPX7RQ6ycTjYtQumaxux36Ros4a2d14D/GRSgxJet18Fm7a6NRQqgzTrM+FZsS9oZtSnGlndXZcCzNp1dMyZbnYVcIdTQiSYOK+fRrSTNE67sGnWh97taQhEjNhqJkyeJuuFG4h2n1CTrhjegMjXkCRrEpDfY41Etw9OPNSNbJHtRBi6wG0tBhsGlW/z9xRkhq0Xywd7xd6DDcwqH7irDBHBW3pu+WVh0PNnC4pbV2Du+xNEdnSGYLU7oHw1yh9eI6Lgs5vMtDYxqVWpg9oj1AL4cZ3F1RQzoVpI+b77SAZMX7aC8HGd1trYqJrPl/IwrpWm1gGvZUqTL+Rv83phGpxZv9juL9SoOM76KwoWzVHA3O3VVss0ZNl/6Z0GGYvfCuK+u4rBGNSQGk72ZLSNYgp0p0p7kzekhmK0jmbLD+zqM7ZPnxN6kdHBOkFgGLSatZr4fn7/Cv6K3xL49MxEfk7axWeS2HzmeHp3XVxr4AEhoTpFZ/H5cNrYfm77zFddUkaUSWZJKwoW0an85nh5UKX8SGVLaPwjE+BJLZjSGFVt/mtaLheWBjEr5NVvv410aqO8fj7TqCtB5abHeXhA1mmQMYGaRWo1JcgDek9B0GOA0bxg6JDEmoncM1HdokZTWobEM0y9arUsOScxWz80UEYUNqa0nxfNa6wIv/DciUnmu2XyKZwME0Hcc5d3igohKUyjoUsxNIZitLolOlQUUOONPWziyBJNgZZebAr5HguRMX1JkRIOf8PDoW4bww22TPDTNns+b1RB1YUrKKfvQvLwcTf6+smu4n4pZknlNEESfHTNmxPyEAWbDn9BsBSfJ78MFphMlsZ0nZ+ezrcExpkYYNVQ+W2D3KIGIwnRd+8PU8vZPRDyEpqoJFwB8PKd7nPKAgHG+rJ0kSkMyHAorwXhfZET1QKzuPv+GYDuT9gqS3M/T28Uc0AAzmFKwFeLaqFiloylHkDjk8FudlkIjpRK9PITnlxiaeuCvLEsutz1pRknUYXfCCSdK+rrZYGBKXBWsrfAiJJcEyY5OzJBZSQ1zDGpQWdJI0aw9plpjIw3kSJoT3ucSUvlYYYMytGaT2IX14U/aD2V8RNxKqGqZrIUVBtpNwIRF0bBcMvyCCc8hZHjBrSlWQYFtI7QalgZStAizQo0bMkujNhg59iAMaD9QaoZOkG1IqsGhJ8OHhgbE7yRCvI0h0Ef1lEJVdC3xX3yISyUFKfVQw6eH6nTQKDBk4rOWEWYnU2GBPkKJFpZuBRHfxTooqQwp7nZnikGDtRPRfGQbnxXAuHcTkTCmE1MUqskM3/Q2oANysW1+xRBpPp1EZH1O6fQxyIcXBXMa65MJws7NNcChuJjkEvQq0tquHFOfoYDbvU8jPzZzz83MnzMGygxKFBP/F8YgPvUIaxCZnXLWTIvN+TYlBiXJifajJJu8eHniQMm/CYW3NlIFktU8LkReIyu8GsI4Ud1utrNwwo/JooSMrcpNWmMYNTvlMKU0LZV4MsnMpSUvqYtUqrpHsfXuFB5b1O5klIBVTC3AWb/0vmwixfzRrDwl1Bynyd17fy7Me9XZOpUORgDQz8xYDs4HCCSGZXUOyoprw3g3pINIR97vUlecxkejMLGVU7u7o38AGlvS9k0X6eLmi3wAPM0uyZnc+JAjd2JQByT+kGYYguCOC4mMSlH/8O4IUnzPSdxS+SXZSmJ06ejZl8PWcjdQKiaFMCG5ysrVyKYcOIcVr6Nue9zjH211qb38TR59ieuANL1xIGVNyZCezZsfRXbxc0fOIdIlRHH/XZHFkAgezmCRKhxezBtIDZ23K6Q1SNCgdes4MpdkGszYfJnTlgfmcF/JzkBMDpJFEBlJKxDyXXlHqHlJ0e3pFtMoWgJdbkylsScTFkTxDWJWV+qvUKgqMYBbS1yiXxNajmD1BojkHC6/661Ho4Wt2A2ZVvSIyBNcqHuiSUBDAPaSBQ8IkTI9nooo8pOBX2L+VSd2lkIyOIEWDUr/dAm7idk916wosJFO6DuVrJg8BswjySxVtVma7h6SHN+ipv5kSTrpESkGSr0MhplC+Pg5zi35fm9cLsZC6kUMLHXovAOcd+9QlpNmsKuNQAwmajQb7WSeGNIRCh6Xo+TvCYxIv0x3FawUMDuRAgu0ZzTrtqhhNUXaXPdkSPf9S5HqEIRVHJVoqnP+B8y+eJeWLI2GD1rndQrJ6blG4tERPGxOHxO6pyE2MnBw6yATlDrfMGJ43Gf4NwQVKsUl5HDn0VclFC8CTc0O+l+XAE0jfq68r+XG8wSVcKKc/+T5Lsq7wgXwJk0XB70l0R76Kfw0ys+Ka/x1vTPrekM3379yFv0VP3u5+SXTz/lusP34r0x9/rMPf/U1QfyTKf/8d/PMPeI++/8f7+/tv9NO/IoE/oj//7Z3z54IK3yv4rdkfFxRe+HIwdftKA1Qwi14sFuBbrN8DMZ9GX5EPvwcfV2HNePpL4X9/zyn+w2/f2G99+z15zeDjv/1A/46/twkUffr7v3Gkf9P/6Sb6i+I7it7PN/pv+jaSr8KrAiD3Pn5n3/K37Nv8VrgUepnfvsWvpqSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkNHn9PwnBZZnX6S9sAAAAAElFTkSuQmCC" alt="">SAPCodeMonkey</a>
+    <div class="sp"></div>
+    <nav>
+      <a href="index.html#shifts">What's changing</a>
+      <a href="archive.html">Archive</a>
+      <a href="fiori-spotlight.html">Fiori spotlight</a>
+      <a href="clean-core.html" aria-current="page">Clean Core</a>
+    </nav>
+    <a class="btn" href="https://www.youtube.com/@SAPCodeMonkey-803?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Explainer · Clean Core &amp; ABAP Cloud</p>
+    <h1>Clean core isn't <span class="hl">no customisation</span>. It's customisation that survives the upgrade.</h1>
+    <p class="sub">The phrase gets used as if it means "stop building things." It doesn't. It means building them where the next release can't break them — and SAP now has a four-level scale for telling the difference. Here's the whole model, including the part most explainers haven't caught up with.</p>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="premise">
+      <div class="pbox bad">
+        <span class="n">The problem it solves</span>
+        <h3>Twenty years of "just add an exit"</h3>
+        <p>Every modification, implicit enhancement and direct table write was individually reasonable and collectively fatal. Upgrades became archaeology projects. Systems got frozen because nobody could predict what a patch would break. The core stopped being standard, so standard innovation stopped arriving.</p>
+      </div>
+      <div class="pbox good">
+        <span class="n">What changes</span>
+        <h3>Extensions that hold a contract</h3>
+        <p>Build against interfaces SAP has formally committed to keeping stable, and your extension keeps working across releases. Build against internal objects, and you own the risk every time SAP ships. The difference isn't whether you customise — it's what you customise against.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Wider than code</p>
+        <h2>Six dimensions, not one</h2>
+      </div>
+      <p class="sec-intro">Developers hear "clean core" and think custom code. That's one dimension of six — and often not the one holding a project back.</p>
+    </div>
+    <div class="dims">
+      <div class="dim"><b>Software stack</b><span>Stay on supported releases, no modifications to the standard.</span></div>
+      <div class="dim hi"><b>Extensibility</b><span>How and where you build custom logic. The A–D levels below live here.</span></div>
+      <div class="dim"><b>Integrations</b><span>Released APIs and governed interfaces rather than point-to-point improvisation.</span></div>
+      <div class="dim"><b>Processes</b><span>Standard where standard works. Divergence is a cost, not a default.</span></div>
+      <div class="dim"><b>Data</b><span>Quality and volume under control. Archive what you don't need.</span></div>
+      <div class="dim"><b>Operations</b><span>Predictable, monitored, upgrade-ready as routine rather than as a project.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Interactive</p>
+        <h2>The four levels, A to D</h2>
+      </div>
+      <p class="sec-intro">A maturity scale rather than a pass/fail. Pick a level to see what qualifies, what it costs you, and what to do about it.</p>
+    </div>
+
+    <div class="ladder">
+      <div class="rungs" id="rungs"></div>
+      <aside class="panel" id="panel" aria-live="polite"></aside>
+    </div>
+
+    <div class="rule" style="margin-top:26px">
+      <div class="big">↓</div>
+      <div>
+        <h3>The rule that catches people out</h3>
+        <p>An extension is graded by the <strong style="color:#fff">lowest-ranked thing inside it</strong>. One direct table write in an otherwise immaculate ABAP Cloud application drags the whole thing to Level D. There is no averaging, and no partial credit — which is exactly why "mostly clean" isn't a status anyone should be reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">If you learned this before 2026</p>
+        <h2>The model you know was replaced</h2>
+      </div>
+      <p class="sec-intro">Plenty of training material, blog posts and consultants still teach three tiers. It isn't wrong exactly — it's superseded.</p>
+    </div>
+    <div class="hist">
+      <div class="hcard old">
+        <span class="n">Until August 2025</span>
+        <b>The three-tier model</b>
+        <p>Tier 1 was ABAP Cloud and BTP. Tier 2 was wrappers around SAP objects not yet released. Tier 3 was classic ABAP. Tier 1 and some of Tier 2 counted as clean; Tier 3 was simply "not clean."</p>
+      </div>
+      <div class="harrow" aria-hidden="true">→</div>
+      <div class="hcard">
+        <span class="n">Current</span>
+        <b>Clean core levels A–D</b>
+        <p>A four-point maturity scale graded on upgrade safety rather than a binary verdict. Classic ABAP is no longer uniformly condemned, more released APIs mean fewer wrappers, and every extension gets a specific grade you can track and improve.</p>
+      </div>
+    </div>
+    <div class="caveat">
+      <p><b>Why the change matters practically:</b> the old model told you your Tier 3 estate was "not clean" and left you there. The level scale tells you whether a given object is a documented-API dependency you can live with (B), an internal-object dependency needing a roadmap (C), or a modification that needs a retirement date (D). Same estate, far more actionable — and a remediation backlog you can actually sequence.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Practical</p>
+        <h2>What to do about it</h2>
+      </div>
+      <p class="sec-intro">Not a transformation programme. Five things that move the needle.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <div>
+          <h4>Grade what you already have</h4>
+          <p>Run ATC with the clean core and ABAP Cloud readiness checks against your custom code. You'll get an inventory graded by level. Most teams discover their estate is less uniformly bad than feared and more concentrated in a handful of objects than expected.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div>
+          <h4>Stop the bleeding before you fix the backlog</h4>
+          <p>New development goes to Level A. Set ATC to block Level D patterns outright in new code. Remediation is slow; preventing additions is immediate, and it stops the backlog growing while you work on it.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div>
+          <h4>Triage by risk, not by count</h4>
+          <p>Level D objects touching processes you run monthly matter far more than Level C objects in a report nobody opens. Retire the dead code first — that's usually a surprising share of the estate and the cheapest win available.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <div>
+          <h4>Wrap what you can't yet replace</h4>
+          <p>Where a released API doesn't exist, isolate the dependency behind your own interface. Your code calls the wrapper; the wrapper calls the internal object. When SAP releases a proper API, you change one thing rather than fifty. Retire the wrapper at that point.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">05</div>
+        <div>
+          <h4>Decide on-stack versus side-by-side deliberately</h4>
+          <p>ABAP Cloud on-stack when the logic genuinely needs transactional proximity to the data. BTP side-by-side when it doesn't. Both reach Level A — the choice is architectural, not compliance-driven, and treating it as compliance leads to things running in the wrong place.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="caveat">
+      <p><b>Before you quote any of this:</b> clean core guidance is revised regularly — the A–D model itself replaced the three-tier framing in August 2025, and the certification and tooling around it moved again during 2026. Check the current ABAP extensibility guide and SAP's clean core documentation for your release before making commitments in a project plan.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <h2>The migration wave behind all this</h2>
+        <p>Custom code remediation is years of work for a lot of organisations, and it's the most reliably paid SAP skill of the next few years. The channel covers the practical end of it — what to grade, what to fix, what to delete.</p>
+      </div>
+      <a class="btn" href="https://www.youtube.com/@SAPCodeMonkey-803?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr">2026</span> SAPCodeMonkey</span>
+    <span><a href="mailto:tmoore@sapcodemonkey.com?subject=Clean%20Core">Ask a question</a> · Not affiliated with SAP SE</span>
+  </div>
+</footer>
+
+<script id="levels" type="application/json">
+[
+{"id":"a","letter":"A","cls":"a","title":"Released APIs only","sml":"Fully upgrade-safe. The target for all new work.",
+ "risk":"Upgrade risk: none","riskbg":"#EEF6DC","riskfg":"#5F8210",
+ "what":"Extensions built exclusively on interfaces SAP has formally released with a stability contract. Deployment-agnostic — this is about what you call, not where you run.",
+ "how":["On-stack: ABAP Cloud in S/4HANA, using RAP, CDS views and released APIs, in the ABAP for Cloud Development language version","Side-by-side: SAP BTP — ABAP environment, CAP, or SAP Build for low-code","Key user extensibility for in-app adaptations"],
+ "verdict":"Where all new development belongs. Tightly coupled logic is entirely legitimate here — proximity to the data isn't the problem, unstable dependencies are.",
+ "vbg":"#EEF6DC","vfg":"#3F5A0B"},
+
+{"id":"b","letter":"B","cls":"b","title":"Classic but documented APIs","sml":"Stable in practice. Acceptable with governance.",
+ "risk":"Upgrade risk: low","riskbg":"#FDF3E3","riskfg":"#8A5410",
+ "what":"Extensions using classic SAP APIs that are documented and generally stable, but without the formal release contract that Level A interfaces carry.",
+ "how":["Documented classic APIs and interfaces","Recognised extension points with stated behaviour","Recorded as a governance decision, not an accident"],
+ "verdict":"Workable with sign-off and monitoring. The important discipline is that it's a decision someone made and recorded, rather than a default nobody noticed — otherwise B quietly becomes the whole estate.",
+ "vbg":"#FDF3E3","vfg":"#7A4A12"},
+
+{"id":"c","letter":"C","cls":"c","title":"Internal SAP objects","sml":"Real risk. Needs a remediation roadmap.",
+ "risk":"Upgrade risk: meaningful","riskbg":"#FBEDE4","riskfg":"#A0491A",
+ "what":"Extensions reaching into SAP objects never intended for external consumption. They work, they may have worked for years, and SAP has made no commitment to keeping them as they are.",
+ "how":["Calls into unreleased classes, function modules or internal CDS views","Reads from tables with no released equivalent","Dependencies on behaviour that isn't contractual"],
+ "verdict":"Belongs on a documented remediation roadmap, not in the permanent architecture. Isolate behind a wrapper so the dependency sits in one place, and track SAP's object changelogs so incompatible changes surface before an upgrade does.",
+ "vbg":"#FBEDE4","vfg":"#8A3D14"},
+
+{"id":"d","letter":"D","cls":"d","title":"Modifications and direct writes","sml":"Severe exposure. Needs a retirement date.",
+ "risk":"Upgrade risk: severe","riskbg":"#FBEAE8","riskfg":"#8E2A24",
+ "what":"Changes to SAP's own objects, or writes that bypass SAP's logic entirely. The category the whole clean core effort exists to eliminate.",
+ "how":["Modifications to standard SAP objects","Implicit enhancements","Direct writes to SAP tables, bypassing application logic","Anything requiring an access key to create"],
+ "verdict":"Every Level D object should carry a retirement timeline. Block the patterns in new code with ATC and work the existing ones down. This is where upgrade projects turn into archaeology — and where the cost is genuinely unbounded, because you can't estimate what you can't predict.",
+ "vbg":"#FBEAE8","vfg":"#7C221D"}
+]
+</script>
+
+<script>
+(function(){
+  var L = JSON.parse(document.getElementById("levels").textContent);
+  var rungs = document.getElementById("rungs");
+  var panel = document.getElementById("panel");
+  var cur = "a";
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+  function drawRungs(){
+    rungs.innerHTML = L.map(function(l){
+      return '<button class="rung ' + l.cls + '" data-id="' + l.id + '" aria-pressed="' + (l.id===cur) + '">' +
+        '<span class="lv">' + l.letter + '</span>' +
+        '<span><span class="ttl">' + esc(l.title) + '</span><span class="sml">' + esc(l.sml) + '</span></span>' +
+      '</button>';
+    }).join("");
+  }
+
+  function drawPanel(){
+    var l = L.filter(function(x){return x.id===cur;})[0];
+    panel.innerHTML =
+      '<span class="kick">Level ' + l.letter + '</span>' +
+      '<h3>' + esc(l.title) + '</h3>' +
+      '<span class="risk" style="background:' + l.riskbg + ';color:' + l.riskfg + '">' + esc(l.risk) + '</span>' +
+      '<div class="blk"><span class="h">What qualifies</span><p>' + esc(l.what) + '</p></div>' +
+      '<div class="blk"><span class="h">In practice</span><ul>' +
+        l.how.map(function(h){return '<li>' + esc(h) + '</li>';}).join("") +
+      '</ul></div>' +
+      '<div class="verdict" style="background:' + l.vbg + ';color:' + l.vfg + '">' + esc(l.verdict) + '</div>';
+  }
+
+  rungs.addEventListener("click", function(e){
+    var b = e.target.closest(".rung");
+    if(!b) return;
+    cur = b.getAttribute("data-id");
+    drawRungs(); drawPanel();
+  });
+
+  drawRungs(); drawPanel();
+  document.getElementById("yr").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
