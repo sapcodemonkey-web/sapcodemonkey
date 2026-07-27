@@ -7,7 +7,7 @@
 
 ## What changed in this update
 
-**New: Articles section (12 pages).** Fifteen long-form articles plus an index hub at `articles.html`. Each article has a brand hero banner, an inline diagram, verified source links, and cards linking to its deck and video. This is the "read it" layer that sits alongside watching the video and downloading the deck — and it's what search engines index.
+**New: Articles section (12 pages).** Sixteen long-form articles plus an index hub at `articles.html`. Each article has a brand hero banner, an inline diagram, verified source links, and cards linking to its deck and video. This is the "read it" layer that sits alongside watching the video and downloading the deck — and it's what search engines index.
 
 **New: Decks & guides page (`resources.html`).** A filterable download page for all eleven slide decks, reading from `resources.json`.
 
