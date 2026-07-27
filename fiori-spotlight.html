@@ -154,6 +154,8 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
     <nav>
       <a href="index.html#shifts">What's changing</a>
       <a href="archive.html">Archive</a>
+      <a href="articles.html">Articles</a>
+      <a href="resources.html">Decks &amp; guides</a>
       <a href="fiori-spotlight.html" aria-current="page">Fiori spotlight</a>
       <a href="clean-core.html">Clean Core</a>
     </nav>
@@ -214,7 +216,7 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
     </div>
 
     <div class="caveat">
-      <p><b>Before you film or quote this:</b> app names, tile catalogues and which classic transactions an app actually supersedes all shift between S/4HANA releases, and some transactions still exist alongside their Fiori equivalent rather than being replaced by them. Check the Fiori apps reference library and the simplification item list for your target release. The mappings here are illustrative of the pattern, not a substitute for that check.</p>
+      <p><b>Before you film or quote this:</b> app names, tile catalogs and which classic transactions an app actually supersedes all shift between S/4HANA releases, and some transactions still exist alongside their Fiori equivalent rather than being replaced by them. Check the Fiori apps reference library and the simplification item list for your target release. The mappings here are illustrative of the pattern, not a substitute for that check.</p>
     </div>
   </div>
 </section>
@@ -234,28 +236,28 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
         <div class="num">01</div>
         <div>
           <h4>"My tile is missing" replaces "what's the t-code"</h4>
-          <p>The diagnosis path is new: is the app assigned to a catalogue, is the catalogue in a group or space, is the group assigned to the role, and does the underlying authorisation still hold? Four places to look where there used to be one.</p>
+          <p>The diagnosis path is new: is the app assigned to a catalog, is the catalog in a group or space, is the group assigned to the role, and does the underlying authorisation still hold? Four places to look where there used to be one.</p>
         </div>
       </div>
       <div class="srow">
         <div class="num">02</div>
         <div>
           <h4>Role design becomes front-end design</h4>
-          <p>Classic role building was about what someone could execute. Now it also determines what they can <em>see</em> and how their day is laid out. Business catalogues and role assignment quietly became a user-experience decision made by IT.</p>
+          <p>Classic role building was about what someone could execute. Now it also determines what they can <em>see</em> and how their day is laid out. Business catalogs and role assignment quietly became a user-experience decision made by IT.</p>
         </div>
       </div>
       <div class="srow">
         <div class="num">03</div>
         <div>
           <h4>A whole new layer can break</h4>
-          <p>Gateway services, OData activation, caching, browser behaviour and theming sit between the user and the data now. "The app is blank" has causes that never existed in a GUI-only landscape.</p>
+          <p>Gateway services, OData activation, caching, browser behavior and theming sit between the user and the data now. "The app is blank" has causes that never existed in a GUI-only landscape.</p>
         </div>
       </div>
       <div class="srow">
         <div class="num">04</div>
         <div>
           <h4>Adoption becomes a support metric</h4>
-          <p>If the launchpad is badly organised, people quietly fall back to whatever classic access still works — and the business concludes the migration failed. How tiles are grouped genuinely affects whether the project is judged a success.</p>
+          <p>If the launchpad is badly organized, people quietly fall back to whatever classic access still works — and the business concludes the migration failed. How tiles are grouped genuinely affects whether the project is judged a success.</p>
         </div>
       </div>
       <div class="srow">
@@ -274,7 +276,7 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
     <div class="band">
       <div>
         <h2>This one's worth a series, not a video</h2>
-        <p>Tile troubleshooting, catalogue and space design, role migration, and how to run an adoption review. Practical, learnable, and immediately useful to anyone supporting S/4HANA today.</p>
+        <p>Tile troubleshooting, catalog and space design, role migration, and how to run an adoption review. Practical, learnable, and immediately useful to anyone supporting S/4HANA today.</p>
       </div>
       <a class="btn" href="https://www.youtube.com/@SAPCodeMonkey-803?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
     </div>
@@ -305,7 +307,7 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
 {"id":"t3","name":"Overdue Receivables","icon":"◔","dyn":true,"kpi":"142","kpiLabel":"items overdue",
  "was":["FBL5N"],
  "replaced":"Rather than running a customer line item report and filtering for overdue items, the number is calculated and shown on the tile before anyone opens anything.",
- "user":"This is the genuine behavioural change. People stop running a report to find out whether there's a problem and start reacting to a number that's already there. Work becomes exception-driven.",
+ "user":"This is the genuine behavioral change. People stop running a report to find out whether there's a problem and start reacting to a number that's already there. Work becomes exception-driven.",
  "support":"Dynamic tiles need their underlying service working and their refresh behaving. A tile showing a stale or wrong number damages trust in the whole launchpad far more than a broken link would."},
 
 {"id":"t4","name":"Manage Purchase Orders","icon":"▣","dyn":false,
@@ -335,7 +337,7 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
 {"id":"t8","name":"Manage Material Master","icon":"▥","dyn":false,
  "was":["MM01","MM02","MM03"],
  "replaced":"The create, change and display split gives way to a single maintenance app, with views presented as sections rather than a sequence of pop-ups.",
- "user":"The old dance of selecting views and organisational levels through dialog boxes is replaced by navigating a page. Considerably less training required.",
+ "user":"The old dance of selecting views and organizational levels through dialog boxes is replaced by navigating a page. Considerably less training required.",
  "support":"Field-level authorisation questions become more visible because users can see fields they can't edit. Expect more 'why is this greyed out' than before."},
 
 {"id":"t9","name":"Track Sales Orders","icon":"◈","dyn":true,"kpi":"7","kpiLabel":"blocked",

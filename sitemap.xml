@@ -2,6 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://sapcodemonkey.com/</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://sapcodemonkey.com/archive.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/articles.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/resources.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://sapcodemonkey.com/fiori-spotlight.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://sapcodemonkey.com/clean-core.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-btp-governance.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-claude-vs-joule.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-clean-core.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-f110-payment-run.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-hcm-deadlines.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-security-admin.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-skills-by-role.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-srm-ivalua.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-treasury.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-workflow-admin.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-workflow-future.html</loc><changefreq>monthly</changefreq></url>
 </urlset>

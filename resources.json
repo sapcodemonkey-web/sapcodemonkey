@@ -1,0 +1,100 @@
+{
+  "updated": "2026-07",
+  "note": "Metadata for the resource library. file = path relative to site root once decks are uploaded. Decks are not yet in the repo; upload the .pptx files to a /decks/ folder (or wherever you prefer) and adjust the file paths to match.",
+  "tracks": {
+    "career": "Career & strategy",
+    "config": "Configuration & functional",
+    "tech": "Technology & development",
+    "arch": "Architecture & governance"
+  },
+  "decks": [
+    {
+      "title": "Regearing: SAP Skills by Role",
+      "file": "decks/sap-skills-by-role-deck.pptx",
+      "slides": 14,
+      "track": "career",
+      "blurb": "How the job changes for developers, functional consultants, and support & Basis \u2014 with a twelve-month path for each seat.",
+      "video": ""
+    },
+    {
+      "title": "Clean Core & ABAP Cloud",
+      "file": "decks/clean-core-abap-cloud-deck.pptx",
+      "slides": 10,
+      "track": "config",
+      "blurb": "What clean core actually means, the A\u2013D extensibility levels that replaced the three-tier model, and the grading rule that catches people out.",
+      "video": ""
+    },
+    {
+      "title": "Claude vs Joule for ABAP",
+      "file": "decks/claude-vs-joule-abap-deck.pptx",
+      "slides": 10,
+      "track": "tech",
+      "blurb": "Which AI for which task, and the data-governance line you shouldn't cross. Using both correctly beats either alone.",
+      "video": ""
+    },
+    {
+      "title": "The Future of SAP Workflow",
+      "file": "decks/sap-workflow-future-deck.pptx",
+      "slides": 9,
+      "track": "config",
+      "blurb": "What was actually deprecated, why three workflow worlds now coexist, and what \u201cagentic\u201d really means when you read SAP's own wording.",
+      "video": ""
+    },
+    {
+      "title": "Workflow Administrator Transition",
+      "file": "decks/workflow-admin-transition-deck.pptx",
+      "slides": 10,
+      "track": "config",
+      "blurb": "Your transactions still work. A five-phase plan to move from operating one engine to governing several \u2014 plus the SAP_WFRT upgrade gotcha.",
+      "video": ""
+    },
+    {
+      "title": "What Changed in Treasury on S/4HANA",
+      "file": "decks/s4hana-treasury-changes-deck.pptx",
+      "slides": 10,
+      "track": "config",
+      "blurb": "The data model moved, ownership moved, and the posting rules got stricter. Why one missing ledger assignment stops the whole treasury close.",
+      "video": ""
+    },
+    {
+      "title": "BTP Governance After Clean Core",
+      "file": "decks/btp-governance-deck.pptx",
+      "slides": 11,
+      "track": "arch",
+      "blurb": "Your account model is your governance model. Why subaccount sprawl happens, and the four decisions that prevent it \u2014 cheap to make, expensive to change.",
+      "video": ""
+    },
+    {
+      "title": "Your SRM Skills Have an Expiry Date",
+      "file": "decks/srm-to-ivalua-deck.pptx",
+      "slides": 9,
+      "track": "career",
+      "blurb": "SRM maintenance ends 2027/2030. Three successor paths, an honest look at Ivalua, and which of your skills survive the move.",
+      "video": ""
+    },
+    {
+      "title": "One SAP HCM Deadline Already Passed",
+      "file": "decks/sap-hcm-deadlines-deck.pptx",
+      "slides": 10,
+      "track": "career",
+      "blurb": "Four dates, three paths, and the trap hiding inside a runway that runs to 2040. Why payroll sets the timeline for everything else.",
+      "video": ""
+    },
+    {
+      "title": "Security Admin in S/4HANA",
+      "file": "decks/s4hana-security-admin-deck.pptx",
+      "slides": 10,
+      "track": "config",
+      "blurb": "Your legacy roles aren't outdated \u2014 they're structurally invalid. Two-layer authorization, the 500-role SoD trap, and why SU24 discipline now compounds.",
+      "video": ""
+    },
+    {
+      "title": "The Payment Run in S/4HANA (F110)",
+      "file": "decks/f110-payment-run-deck.pptx",
+      "slides": 9,
+      "track": "config",
+      "blurb": "F110 barely changed \u2014 almost everything around it did. The Fiori gaps, the payment-advice trap, and the Payment Medium Workbench underneath.",
+      "video": ""
+    }
+  ]
+}

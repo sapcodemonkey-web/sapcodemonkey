@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free decks &amp; guides — SAPCodeMonkey</title>
+<link rel="canonical" href="https://sapcodemonkey.com/resources.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAPCodeMonkey">
+<meta property="og:url" content="https://sapcodemonkey.com/resources.html">
+<meta property="og:title" content="Free decks & guides — SAPCodeMonkey">
+<meta property="og:description" content="Every slide deck from the SAPCodeMonkey channel, free to download. Clean core, treasury, workflow, security, careers and more. No email required.">
+<meta property="og:image" content="https://sapcodemonkey.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free decks & guides — SAPCodeMonkey">
+<meta name="twitter:description" content="Every slide deck from the SAPCodeMonkey channel, free to download. Clean core, treasury, workflow, security, careers and more. No email required.">
+<meta name="twitter:image" content="https://sapcodemonkey.com/og-image.png">
+<meta name="theme-color" content="#4A3AFF">
+<meta name="description" content="Every slide deck from the SAPCodeMonkey channel, free to download. Clean core, treasury, workflow, security, careers and more. No email required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F8FD;
+  --white:#FFFFFF;
+  --mist:#EDEFF8;
+  --ink:#141330;
+  --ink-2:#3B3E63;
+  --muted:#6E7396;
+  --line:#E1E4F0;
+  --indigo:#4A3AFF;
+  --indigo-d:#3225D6;
+  --lilac:#EEECFF;
+  --green:#85B11E;
+  --green-d:#6B9013;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Inter Tight",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--indigo);outline-offset:3px;border-radius:4px}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--indigo);margin:0 0 18px;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav — copied from the site */
+.nav{position:sticky;top:0;z-index:60;background:rgba(247,248,253,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.08rem;letter-spacing:-.025em;color:var(--ink)}
+.brand img{width:34px;height:34px;border-radius:9px}
+.nav nav{display:flex;gap:26px;align-items:center}
+.nav nav a{font-size:15px;font-weight:500;color:var(--ink-2);text-decoration:none}
+.nav nav a:hover{color:var(--indigo)}
+.nav nav a.active{color:var(--indigo)}
+.menu-btn{display:none;background:none;border:0;font-size:26px;color:var(--ink);cursor:pointer}
+
+/* hero */
+.hero{padding:72px 0 40px}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.04;letter-spacing:-.03em;margin:0 0 18px}
+.hero p{font-size:1.18rem;color:var(--ink-2);max-width:620px;margin:0 0 8px}
+.hero .sub{font-size:.98rem;color:var(--muted);max-width:620px}
+
+/* filter bar */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 8px;align-items:center}
+.filters .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.chip{
+  font-family:var(--body);font-size:14px;font-weight:500;
+  padding:7px 15px;border-radius:999px;border:1.5px solid var(--line);
+  background:var(--white);color:var(--ink-2);cursor:pointer;transition:.15s;
+}
+.chip:hover{border-color:var(--indigo);color:var(--indigo)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.count{margin-left:auto;font-size:14px;color:var(--muted)}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px;margin:26px 0 40px}
+.card{
+  background:var(--white);border:1px solid var(--line);border-radius:16px;
+  padding:22px 22px 20px;display:flex;flex-direction:column;transition:.18s;
+}
+.card:hover{border-color:var(--indigo);transform:translateY(-2px);box-shadow:0 12px 30px rgba(20,19,48,.07)}
+.card .top{display:flex;align-items:center;gap:9px;margin-bottom:13px}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:6px;font-weight:500}
+.t-career{background:var(--lilac);color:var(--indigo-d)}
+.t-config{background:#EFF6DE;color:var(--green-d)}
+.t-tech{background:#E5F7F4;color:#0A5E5D}
+.t-arch{background:#F0ECFF;color:#4A34A6}
+.slides{margin-left:auto;font-size:12px;color:var(--muted);font-family:var(--mono)}
+.card h3{font-family:var(--display);font-weight:700;font-size:1.24rem;line-height:1.18;letter-spacing:-.02em;margin:0 0 9px}
+.card p{font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:0 0 18px;flex:1}
+.actions{display:flex;gap:10px;align-items:center}
+.dl{
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  background:var(--ink);color:#fff;font-weight:600;font-size:14.5px;
+  padding:10px 17px;border-radius:10px;transition:.15s;
+}
+.dl:hover{background:var(--indigo);transform:translateY(-1px)}
+.dl svg{width:15px;height:15px}
+.watch{font-size:14px;font-weight:500;color:var(--indigo);text-decoration:none}
+.watch:hover{text-decoration:underline}
+
+.empty{grid-column:1/-1;text-align:center;padding:50px 0;color:var(--muted)}
+
+/* how-to strip */
+.howto{background:var(--ink);color:#fff;border-radius:20px;padding:40px 38px;margin:20px 0 60px}
+.howto .eyebrow{color:#8F8AB8}
+.howto h2{font-family:var(--display);font-weight:800;font-size:1.7rem;letter-spacing:-.02em;margin:0 0 12px}
+.howto p{color:#C9C5E8;max-width:640px;margin:0 0 6px}
+.howto a{color:#fff;font-weight:600}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:34px 0 60px;color:var(--muted);font-size:14px}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:8px 26px;align-items:center;justify-content:space-between}
+.foot a{color:var(--ink-2);text-decoration:none}
+.foot a:hover{color:var(--indigo)}
+
+@media(max-width:720px){
+  .nav nav{display:none}
+  .menu-btn{display:block}
+  .nav nav.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 16px}
+  .nav nav.open a{padding:10px 0}
+  .grid{grid-template-columns:1fr}
+  .count{width:100%;margin:6px 0 0}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="mascot-avatar.png" alt="">SAPCodeMonkey</a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="archive.html">Archive</a>
+      <a href="articles.html">Articles</a>
+      <a href="resources.html" class="active">Decks &amp; guides</a>
+      <a href="fiori-spotlight.html">Fiori spotlight</a>
+      <a href="clean-core.html">Clean Core</a>
+      <a href="index.html#collaborate">Collaborate</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Free resources</p>
+    <h1>Every deck, free to download</h1>
+    <p>The slide decks behind the videos — clean core, treasury, workflow, security, careers and more. Built to stand on their own, with speaker notes on every slide.</p>
+    <p class="sub">No email required. Use them for a lunch-and-learn, a user-group talk, or your own reference. A verification note on every deck reminds you to check specifics against SAP Help for your release.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="filters" id="filters">
+    <span class="lbl">Filter</span>
+    <button class="chip on" data-f="all">All</button>
+    <button class="chip" data-f="career">Career &amp; strategy</button>
+    <button class="chip" data-f="config">Configuration &amp; functional</button>
+    <button class="chip" data-f="tech">Technology &amp; development</button>
+    <button class="chip" data-f="arch">Architecture &amp; governance</button>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="howto">
+    <p class="eyebrow">Using these</p>
+    <h2>Yours to present, adapt and share</h2>
+    <p>Every deck is a standard PowerPoint file with editable shapes and text — not flattened images. Swap the footer for your own branding, drop in your organization's findings, and present it as your own. Speaker notes are on every slide, so they work as a talk, not just a download.</p>
+    <p style="margin-top:14px">New videos land daily on <a href="https://www.youtube.com/@SAPCodeMonkey-803">the channel</a>. Decks are added here as they go live.</p>
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© <span id="yr"></span> SAPCodeMonkey · Independent SAP commentary</span>
+    <span>
+      <a href="archive.html">Topic archive</a> ·
+      <a href="https://www.youtube.com/@SAPCodeMonkey-803">YouTube</a> ·
+      <a href="mailto:tmoore@sapcodemonkey.com">tmoore@sapcodemonkey.com</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const TRACK_LABEL = {career:'Career', config:'Config', tech:'Tech', arch:'Architecture'};
+
+let DECKS = [];
+const grid = document.getElementById('grid');
+const countEl = document.getElementById('count');
+let active = 'all';
+
+function render(){
+  const list = active === 'all' ? DECKS : DECKS.filter(d => d.track === active);
+  countEl.textContent = list.length + (list.length === 1 ? ' deck' : ' decks');
+  if(!list.length){
+    grid.innerHTML = '<div class="empty">No decks in this track yet — check back soon.</div>';
+    return;
+  }
+  grid.innerHTML = list.map(d => {
+    const watch = d.video ? '<a class="watch" href="'+d.video+'">Watch →</a>' : '';
+    return '<article class="card">'
+      + '<div class="top">'
+        + '<span class="tag t-'+d.track+'">'+(TRACK_LABEL[d.track]||d.track)+'</span>'
+        + '<span class="slides">'+d.slides+' slides</span>'
+      + '</div>'
+      + '<h3>'+d.title+'</h3>'
+      + '<p>'+d.blurb+'</p>'
+      + '<div class="actions">'
+        + '<a class="dl" href="'+d.file+'" download onclick="track(\''+d.title.replace(/'/g,"\\'")+'\')">'
+          + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>'
+          + 'Download</a>'
+        + watch
+      + '</div>'
+    + '</article>';
+  }).join('');
+}
+
+// download tracking hook — see comment block below for wiring this up
+function track(title){
+  try{
+    // Plausible / Fathom / Simple Analytics style custom event (privacy-friendly, no cookie banner):
+    if(window.plausible) window.plausible('Deck download', {props:{deck:title}});
+    // Google Analytics 4 style event, if you use GA:
+    if(window.gtag) window.gtag('event','deck_download',{deck_title:title});
+  }catch(e){}
+}
+
+document.getElementById('filters').addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if(!b) return;
+  active = b.dataset.f;
+  document.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c === b));
+  render();
+});
+
+fetch('resources.json')
+  .then(r => r.json())
+  .then(data => { DECKS = data.decks || []; render(); })
+  .catch(() => { grid.innerHTML = '<div class="empty">Could not load the deck list. Please refresh.</div>'; });
+</script>
+
+</body>
+</html>

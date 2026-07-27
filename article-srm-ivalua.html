@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your SRM Skills Have an Expiry Date — SAPCodeMonkey</title>
+<meta name="description" content="SAP SRM maintenance ends in 2027, with extended support to 2030. The three successor paths, an honest assessment of Ivalua, and which of your skills actually transfer.">
+<link rel="canonical" href="https://sapcodemonkey.com/article-srm-ivalua.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SAPCodeMonkey">
+<meta property="og:url" content="https://sapcodemonkey.com/article-srm-ivalua.html">
+<meta property="og:title" content="Your SRM Skills Have an Expiry Date">
+<meta property="og:description" content="SAP SRM maintenance ends in 2027, with extended support to 2030. The three successor paths, an honest assessment of Ivalua, and which of your skills actually transfer.">
+<meta property="og:image" content="https://sapcodemonkey.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your SRM Skills Have an Expiry Date">
+<meta name="twitter:description" content="SAP SRM maintenance ends in 2027, with extended support to 2030. The three successor paths, an honest assessment of Ivalua, and which of your skills actually transfer.">
+<meta name="twitter:image" content="https://sapcodemonkey.com/og-image.png">
+<meta name="theme-color" content="#4A3AFF">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Your SRM Skills Have an Expiry Date","description":"SAP SRM maintenance ends in 2027, with extended support to 2030. The three successor paths, an honest assessment of Ivalua, and which of your skills actually transfer.","author":{"@type":"Person","name":"Tim Moore"},"publisher":{"@type":"Organization","name":"SAPCodeMonkey"},"mainEntityOfPage":"https://sapcodemonkey.com/article-srm-ivalua.html","image":"https://sapcodemonkey.com/og-image.png"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F8FD;--white:#FFFFFF;--mist:#EDEFF8;--ink:#141330;--ink-2:#3B3E63;
+  --muted:#6E7396;--line:#E1E4F0;--indigo:#4A3AFF;--indigo-d:#3225D6;--lilac:#EEECFF;
+  --green:#85B11E;--green-d:#6B9013;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.68;-webkit-font-smoothing:antialiased}
+a{color:var(--indigo-d)}
+:focus-visible{outline:2.5px solid var(--indigo);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.rd{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:60;background:rgba(247,248,253,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.08rem;letter-spacing:-.025em;color:var(--ink)}
+.brand img{width:34px;height:34px;border-radius:9px}
+.nav nav{display:flex;gap:26px;align-items:center}
+.nav nav a{font-size:15px;font-weight:500;color:var(--ink-2);text-decoration:none}
+.nav nav a:hover,.nav nav a.active{color:var(--indigo)}
+.menu-btn{display:none;background:none;border:0;font-size:26px;color:var(--ink);cursor:pointer}
+
+/* article head */
+.ahead{padding:54px 0 26px}
+.crumbs{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted);margin-bottom:22px}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--indigo)}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:6px;font-weight:500;margin-bottom:18px}
+.t-career{background:var(--lilac);color:var(--indigo-d)}
+.t-config{background:#EFF6DE;color:var(--green-d)}
+.t-tech{background:#E5F7F4;color:#0A5E5D}
+.t-arch{background:#F0ECFF;color:#4A34A6}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3rem);line-height:1.05;letter-spacing:-.03em;margin:0 0 18px}
+.standfirst{font-size:1.24rem;line-height:1.5;color:var(--ink-2);margin:0 0 22px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:14px;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 0}
+.meta .read{font-family:var(--mono);font-size:12px}
+
+/* article body */
+.body{padding:34px 0 20px}
+.body h2{font-family:var(--display);font-weight:800;font-size:1.62rem;letter-spacing:-.02em;line-height:1.2;margin:44px 0 4px}
+.body h3{font-family:var(--display);font-weight:700;font-size:1.24rem;letter-spacing:-.015em;margin:30px 0 2px}
+.body p{margin:16px 0}
+.body ul,.body ol{margin:16px 0;padding-left:24px}
+.body li{margin:8px 0}
+.body strong{font-weight:600;color:var(--ink)}
+.body a{text-decoration:underline;text-underline-offset:2px}
+.body blockquote{margin:26px 0;padding:4px 0 4px 22px;border-left:3px solid var(--indigo);font-size:1.16rem;line-height:1.5;color:var(--ink);font-family:var(--display);font-weight:500}
+.callout{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--indigo);border-radius:10px;padding:18px 22px;margin:26px 0}
+.callout .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo);margin:0 0 6px}
+.callout.warn{border-left-color:#B5651D}
+.callout.warn .k{color:#B5651D}
+.callout p{margin:0}
+.body code{font-family:var(--mono);font-size:.86em;background:var(--mist);padding:2px 6px;border-radius:5px}
+
+/* CTA blocks: deck + video */
+.assets{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:40px 0 10px}
+.asset{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px 22px;text-decoration:none;transition:.16s}
+.asset:hover{border-color:var(--indigo);transform:translateY(-2px);box-shadow:0 12px 30px rgba(20,19,48,.07)}
+.asset .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.asset .h{font-family:var(--display);font-weight:700;font-size:1.12rem;color:var(--ink);letter-spacing:-.015em;margin-bottom:5px}
+.asset .s{font-size:14px;color:var(--ink-2)}
+.asset.disabled{opacity:.55;pointer-events:none}
+
+.hero-fig{margin:8px 0 34px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--ink);line-height:0}
+.hero-fig svg{width:100%;height:auto;display:block}
+.fig{margin:32px 0;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+.fig svg{width:100%;height:auto;display:block}
+.fig figcaption{font-size:13.5px;color:var(--muted);margin-top:14px;text-align:center;font-family:var(--body)}
+.stat{display:flex;align-items:baseline;gap:18px;background:var(--ink);color:#fff;border-radius:14px;padding:26px 28px;margin:30px 0}
+.stat .n{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,7vw,3.4rem);line-height:1;letter-spacing:-.03em;color:#9FE1CB;white-space:nowrap}
+.stat .t{font-size:1.05rem;line-height:1.4;color:#C9C5E8}
+.stat.indigo .n{color:#B7AEFF}
+.stat.amber .n{color:#F0C27A}
+.sources{margin-top:14px;border-top:1px solid var(--line);padding-top:26px}
+.sources h2{font-family:var(--display);font-weight:800;font-size:1.4rem;letter-spacing:-.02em;margin:0 0 14px}
+.sources ul{list-style:none;margin:0;padding:0}
+.sources li{padding:11px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5}
+.sources li:last-child{border-bottom:0}
+.sources a{font-weight:500}
+.sources .src-note{color:var(--muted);display:block;font-size:13.5px;margin-top:2px}
+.verify{font-size:14.5px;color:var(--muted);border-top:1px solid var(--line);margin-top:40px;padding-top:22px}
+
+/* related */
+.related{background:var(--ink);color:#fff;border-radius:20px;padding:34px 32px;margin:44px 0 0}
+.related .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8F8AB8;margin:0 0 14px}
+.related a{display:block;color:#fff;text-decoration:none;font-family:var(--display);font-weight:600;font-size:1.08rem;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.related a:last-child{border-bottom:0}
+.related a:hover{color:#C9C5E8}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:34px 0 60px;color:var(--muted);font-size:14px;margin-top:50px}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:8px 26px;align-items:center;justify-content:space-between}
+.foot a{color:var(--ink-2);text-decoration:none}
+.foot a:hover{color:var(--indigo)}
+
+@media(max-width:720px){
+  .nav nav{display:none}
+  .menu-btn{display:block}
+  .nav nav.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 16px}
+  .nav nav.open a{padding:10px 0}
+  .assets{grid-template-columns:1fr}
+  body{font-size:17px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="data:image/png;base64,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" alt="">SAPCodeMonkey</a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="archive.html">Archive</a>
+      <a href="articles.html" class="active">Articles</a>
+      <a href="resources.html">Decks &amp; guides</a>
+      <a href="index.html#collaborate">Collaborate</a>
+    </nav>
+  </div>
+</header>
+
+<article>
+  <div class="rd ahead">
+    <div class="crumbs"><a href="index.html">Home</a> → <a href="articles.html">Articles</a> → SRM &amp; Ivalua</div>
+    <span class="tag t-career">Career &amp; strategy</span>
+    <h1>Your SRM Skills Have an Expiry Date</h1>
+    <p class="standfirst">SAP SRM is on a maintenance clock, and the guidance aimed at the people who run it is either Ariba marketing or a vendor pitch. Here is the neutral version — the dates, the options, and what happens to a decade of expertise.</p>
+    <div class="meta">
+      <span class="read">8 min read</span>
+      <span>By Tim Moore · Independent SAP consultant</span>
+    </div>
+  </div>
+
+  <div class="rd">
+    <div class="hero-fig"><svg viewBox="0 0 1120 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Your SRM skills have an expiry date">
+  <defs>
+    <linearGradient id="srmg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141330"/>
+      <stop offset="1" stop-color="#241f45"/>
+    </linearGradient>
+  </defs>
+  <rect width="1120" height="340" fill="url(#srmg)"/>
+  <!-- SRM struck through -->
+  <text x="64" y="150" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="88" fill="#FFFFFF" letter-spacing="-3">SRM</text>
+  <rect x="56" y="118" width="228" height="7" rx="3" fill="#E24B4A" transform="rotate(-6 170 121)"/>
+  <text x="64" y="205" font-family="Inter Tight, sans-serif" font-weight="600" font-size="27" fill="#C9C5E8">skills have an expiry date</text>
+  <!-- timeline chips -->
+  <g font-family="Bricolage Grotesque, sans-serif" font-weight="800">
+    <rect x="592" y="96" width="118" height="70" rx="12" fill="#3A1F1D" stroke="#B33A2E" stroke-width="1.5"/>
+    <text x="651" y="132" font-size="30" fill="#F0A9A3" text-anchor="middle">2027</text>
+    <text x="651" y="152" font-family="JetBrains Mono, monospace" font-weight="400" font-size="10.5" fill="#C98A84" text-anchor="middle">mainstream</text>
+
+    <rect x="726" y="96" width="118" height="70" rx="12" fill="#3A2A14" stroke="#B8860F" stroke-width="1.5"/>
+    <text x="785" y="132" font-size="30" fill="#F5C97A" text-anchor="middle">2030</text>
+    <text x="785" y="152" font-family="JetBrains Mono, monospace" font-weight="400" font-size="10.5" fill="#C9A661" text-anchor="middle">extended</text>
+
+    <rect x="860" y="96" width="196" height="70" rx="12" fill="#12281f" stroke="#1D9E75" stroke-width="1.5"/>
+    <text x="958" y="128" font-size="21" fill="#9FE1CB" text-anchor="middle">3 paths out</text>
+    <text x="958" y="150" font-family="JetBrains Mono, monospace" font-weight="400" font-size="10.5" fill="#7BC4A6" text-anchor="middle">central proc · ariba · ivalua</text>
+  </g>
+  <text x="592" y="224" font-family="Inter Tight, sans-serif" font-weight="500" font-size="15" fill="#7E79A8">what transfers, what doesn't</text>
+  <!-- baseline accent -->
+  <rect x="0" y="332" width="1120" height="8" fill="#85B11E"/>
+</svg></div>
+  </div>
+
+  <div class="rd body">
+<p>If you administer SAP SRM, you already know a change is coming. What has been communicated far less clearly is what that change means for the people who run the system, rather than for the system itself. The available guidance tends to fall into two camps — marketing for SAP Ariba, or sales material from third-party vendors — and neither is written for the specialist trying to understand what happens to a decade of accumulated expertise.</p>
+
+<p>This article sets out the dates that matter, the three genuine successor options, an honest assessment of whether Ivalua can replace SRM in an SAP environment, and, most importantly, which skills transfer and which expire.</p>
+
+<h2>The dates, and why they arrive sooner than they appear</h2>
+
+<p>SAP SRM is part of Business Suite 7 and follows its maintenance timeline. Mainstream maintenance ends in 2027. Optional extended maintenance runs to 2030, with customer-specific maintenance available beyond that at additional cost. SAP has confirmed no planned innovations for SRM, which means the product is effectively frozen: there is no improved version to wait for.</p>
+
+<p>The cost of the extended-maintenance option is frequently misunderstood as a free way to buy time. It is not.</p>
+
+<div class="stat amber"><span class="n">+2%</span><span class="t">Extended maintenance is charged on top of the standard maintenance fee \u2014 more each year, for a product receiving no innovation.</span></div>
+
+<p>An organization taking that route pays more while competitors' procurement functions gain capabilities it cannot access.</p>
+
+<p>The more important point concerns timing. A procurement transformation — properly scoped to include data migration, supplier onboarding, integration and change management — is comfortably a two-year program. Add the time required to secure budget and select an implementation partner, and the effective decision window is not 2030. It is now. For a specialist, raising this internally is worth doing, and being the person who raised it early is worth more still.</p>
+
+<h2>Three successor paths, not two</h2>
+
+<p>The replacement decision is often framed as a binary choice. In practice there are three distinct paths.</p>
+
+<h3>SAP S/4HANA for Central Procurement</h3>
+
+<p>This is SAP's own successor, and it is architecturally distinct from the others. Rather than being installed as a separate system, it is integrated directly into the core of S/4HANA as a procurement module, activated through configuration. In the multi-backend scenario, an S/4HANA system acts as a central hub connecting other systems — SAP and non-SAP, cloud and on-premise. For organizations whose procurement is largely internal and who do not have heavy supplier-collaboration requirements, Central Procurement covers a great deal of ground without introducing a new vendor.</p>
+
+<h3>SAP Ariba</h3>
+
+<p>Ariba is the cloud path, and the one SAP markets most heavily. Its strength is the external side of procurement: the supplier network, collaboration and sourcing. A separate variant exists for public sector organizations.</p>
+
+<h3>Leaving the SAP stack</h3>
+
+<p>The third path — moving to a third-party platform such as Ivalua or Coupa — is discussed least often within SAP circles, which is precisely why it deserves careful examination. It is a genuine option rather than an outlier, and the remainder of this article examines Ivalua specifically, because it is the one most often raised in SRM replacement conversations.</p>
+
+<p>These paths are not mutually exclusive. Hybrid architectures are common, with one system handling the internal process and another managing supplier-facing work.</p>
+
+<figure class="fig"><svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three successor paths compared">
+  <g font-family="Bricolage Grotesque, sans-serif">
+    <!-- Central Procurement -->
+    <rect x="8" y="8" width="212" height="284" rx="12" fill="#EDEBFB" stroke="#5B4FCF" stroke-width="1.5"/>
+    <rect x="28" y="30" width="172" height="34" rx="9" fill="#5B4FCF"/>
+    <text x="114" y="53" font-weight="700" font-size="15" fill="#fff" text-anchor="middle">Central Procurement</text>
+    <text x="28" y="92" font-family="Inter Tight, sans-serif" font-size="12.5" fill="#3E33A8" font-weight="600">SAP's own successor</text>
+    <g font-family="Inter Tight, sans-serif" font-size="12" fill="#2B2A33">
+      <text x="28" y="118">In the S/4HANA core</text>
+      <text x="28" y="140">Activated by config</text>
+      <text x="28" y="162">Multi-backend hub</text>
+    </g>
+    <text x="28" y="212" font-family="Inter Tight, sans-serif" font-size="11.5" font-style="italic" fill="#5B4FCF" font-weight="600">Best when procurement</text>
+    <text x="28" y="228" font-family="Inter Tight, sans-serif" font-size="11.5" font-style="italic" fill="#5B4FCF" font-weight="600">is mostly internal.</text>
+
+    <!-- Ariba -->
+    <rect x="234" y="8" width="212" height="284" rx="12" fill="#EDEBFB" stroke="#5B4FCF" stroke-width="1.5"/>
+    <rect x="254" y="30" width="172" height="34" rx="9" fill="#5B4FCF"/>
+    <text x="340" y="53" font-weight="700" font-size="15" fill="#fff" text-anchor="middle">SAP Ariba</text>
+    <text x="254" y="92" font-family="Inter Tight, sans-serif" font-size="12.5" fill="#3E33A8" font-weight="600">The cloud path</text>
+    <g font-family="Inter Tight, sans-serif" font-size="12" fill="#2B2A33">
+      <text x="254" y="118">Supplier network</text>
+      <text x="254" y="140">Collaboration, sourcing</text>
+      <text x="254" y="162">Public-sector variant</text>
+    </g>
+    <text x="254" y="212" font-family="Inter Tight, sans-serif" font-size="11.5" font-style="italic" fill="#5B4FCF" font-weight="600">Best when supplier</text>
+    <text x="254" y="228" font-family="Inter Tight, sans-serif" font-size="11.5" font-style="italic" fill="#5B4FCF" font-weight="600">collaboration is the driver.</text>
+
+    <!-- Third party -->
+    <rect x="460" y="8" width="212" height="284" rx="12" fill="#E3F2ED" stroke="#1D7A5A" stroke-width="1.5"/>
+    <rect x="480" y="30" width="172" height="34" rx="9" fill="#1D7A5A"/>
+    <text x="566" y="53" font-weight="700" font-size="15" fill="#fff" text-anchor="middle">Third party</text>
+    <text x="480" y="92" font-family="Inter Tight, sans-serif" font-size="12.5" fill="#145C43" font-weight="600">Leave the SAP stack</text>
+    <g font-family="Inter Tight, sans-serif" font-size="12" fill="#2B2A33">
+      <text x="480" y="118">Ivalua, Coupa</text>
+      <text x="480" y="140">ERP-independent</text>
+      <text x="480" y="162">You own integration</text>
+    </g>
+    <text x="480" y="212" font-family="Inter Tight, sans-serif" font-size="11.5" font-style="italic" fill="#145C43" font-weight="600">Best when ERP</text>
+    <text x="480" y="228" font-family="Inter Tight, sans-serif" font-size="11.5" font-style="italic" fill="#145C43" font-weight="600">independence has value.</text>
+
+    <!-- footer note -->
+    <text x="340" y="272" font-family="Inter Tight, sans-serif" font-size="11.5" fill="#6E7396" text-anchor="middle" font-style="italic">Not mutually exclusive — hybrid architectures are common.</text>
+  </g>
+</svg><figcaption>The three successor paths, and the trade-off each optimizes for.</figcaption></figure>
+
+<h2>Can Ivalua actually replace SRM in an SAP environment?</h2>
+
+<p>The short answer is yes. This is an established pattern rather than a theoretical possibility, and implementation partners offer SRM-to-Ivalua replacement as a standard service.</p>
+
+<div class="stat"><span class="n">80%+</span><span class="t">of Ivalua's own clients run SAP as their ERP. The product assumes an SAP back end — this is not an occasional pairing.</span></div>
+
+<p>The figure that surprises people is that over eighty percent of Ivalua's own clients use SAP as their ERP. This is not a vendor that occasionally encounters SAP; it is one whose entire product assumes an SAP back end on the other side of the connection. A plug-and-play connector exists for ECC and S/4HANA on-premise, and for S/4HANA Cloud the integration workplace covers the same adaptors over web services.</p>
+
+<p>The honest case for Ivalua over the SAP options rests on independence and configurability. An organization running more than one ERP — a common situation after acquisitions — gains real value from a procurement layer that is indifferent to what sits beneath it. Ivalua is also highly configurable in a way that SAP procurement historically has not been.</p>
+
+<h2>Where the third-party path hurts</h2>
+
+<p>The case against Ivalua is the part that does not come up in a sales meeting, and it is essential to understand before committing.</p>
+
+<p><strong>You own the integration permanently.</strong> With Central Procurement, the seam between procurement and the ERP is largely SAP's responsibility, because both belong to the same product family. Choosing a third-party platform makes that seam something your organization maintains, tests and troubleshoots through every release on both sides, indefinitely.</p>
+
+<p><strong>The standard interfaces are IDoc-based.</strong> Implementation partners are candid that IDoc-based integration proves too rigid and costly to adapt in practice. This is why a market of certified third-party connectors exists at all — and the existence of that market is itself informative. When a product's standard interfaces are surrounded by an ecosystem of connectors built to replace them, it indicates the standard interfaces are not sufficient. The connector should therefore be budgeted as a first-class workstream, not treated as a line item in the technical design.</p>
+
+<p><strong>Two data models create two sources of truth.</strong> The failure mode is specific enough that partners describe it directly: suppliers blocked in one system while orders continue to be placed in the other. Consistency between the two systems has to be engineered deliberately; it cannot be assumed. None of this rules Ivalua out. It does mean the person scoping the project must understand that data consistency across two systems is the project itself, not a phase within it.</p>
+
+<h2>What actually happens to your skills</h2>
+
+<p>This is the question the available content consistently avoids, and it deserves a direct answer in both directions.</p>
+
+<h3>What expires</h3>
+
+<p>SRM-specific technical knowledge does not transfer. This includes the SRM organizational structure, the SRM workflow engine, the design distinctions between classic, extended-classic and standalone scenarios, SRM-side enhancements, catalog integration as implemented in SRM, and the middleware connecting SRM to the back end. For many specialists this represents a decade or more of hard-won expertise, and it carries an expiry date. Stating that plainly is more useful than softening it.</p>
+
+<h3>What transfers, and gains value</h3>
+
+<p>Everything relating to the ERP back end transfers directly. Purchase orders, goods receipt, invoice verification, account assignment, material master and supplier master are unaffected by the change of procurement platform. Ivalua does not replace any of this; it sits on top of it and must communicate with it correctly. In an SRM-to-Ivalua project, the hardest question is what a requisition in Ivalua becomes in the back end, and whether that is correct. The person best placed to answer it is the one who spent years watching SRM documents flow into the ERP.</p>
+
+<p>Procurement process knowledge transfers in the same way. Sourcing, contracting, approval logic, supplier qualification and the three-way match are properties of the process, not the system. Systems knowledge expires; process knowledge compounds.</p>
+
+<h3>The position worth aiming for</h3>
+
+<p>Pure Ivalua consultants do not know SAP. Pure SAP consultants do not know Ivalua. The scarce and valuable person is the one who can sit between the two and own both the process and the integration. This is not a lesser role than SRM configurator — it is a larger one, and it is the role that survives whichever path the organization ultimately chooses. The same seat exists under Ariba and under Central Procurement. The bet is not on a particular vendor; it is on the integration seam, and there is always a seam.</p>
+
+<h2>What to learn</h2>
+
+<p>Four areas of focus, none of which depend on the path the organization selects.</p>
+
+<p><strong>Deepen the back end rather than the front end.</strong> If procurement knowledge currently stops at the SRM boundary, extend it properly into Materials Management — how purchase orders behave, how account assignment works, what happens at goods receipt and invoice verification. This knowledge is required in every scenario.</p>
+
+<p><strong>Move from IDoc thinking to API thinking.</strong> The new landscape runs on web services and APIs. Becoming a developer is not necessary; being able to read an interface specification and identify that a field mapping is wrong, and what it will break, is.</p>
+
+<p><strong>Learn the Business Partner model</strong> if coming from ECC vendor master. It is mandatory in S/4HANA and consistently underestimated in scope.</p>
+
+<p><strong>Get into the selection conversation.</strong> Whatever the organization chooses, the person who understood the options early tends to lead the resulting workstream. This is the highest-leverage action on the list, and it costs nothing but attention.</p>
+
+<h2>The bottom line</h2>
+
+<p>SRM's mainstream maintenance ends in 2027, extended maintenance runs to 2030 at additional cost, and no new features are coming. There are three real successor paths, and Ivalua is a genuine option rather than an outsider — with the significant caveat that the integration becomes a permanent responsibility. For the specialist, the SRM-specific skills expire, but the back-end and process knowledge do not. They become more valuable, because they are what make the integration correct. Systems expire; the domain does not.</p>
+
+
+    <section class="sources">
+      <h2>Sources &amp; further reading</h2>
+      <ul>
+        <li><a href="https://support.sap.com/en/release-upgrade-maintenance.html">SAP Support — Release, Upgrade &amp; Maintenance</a><span class="src-note">SAP's official maintenance-strategy hub. The Business Suite 7 dates trace to SAP Note 2881788 (end of mainstream maintenance) and Note 1648480 (maintenance details). Verified live.</span></li>
+        <li><a href="https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/faq-cvi-customer-vendor-integration-for-system-conversion-to-sap-s-4hana/ba-p/13740757">SAP Community — FAQ: Customer/Vendor Integration for S/4HANA</a><span class="src-note">SAP's own guidance on the Business Partner migration that any procurement move must handle. Verified live.</span></li>
+        <li><a href="https://community.sap.com/t5/technology-blog-posts-by-members/customer-amp-vendor-integration-cvi/ba-p/14240954">SAP Community — Customer/Vendor Integration explained</a><span class="src-note">A practitioner walkthrough of the CVI process and why classic vendor transactions no longer exist. Verified live.</span></li>
+        <li><a href="https://www.ivalua.com/">Ivalua</a><span class="src-note">Vendor site for the ECC and S/4HANA connectors referenced here. Read alongside the integration caveats in this article — it is a vendor source, not a neutral one.</span></li>
+      </ul>
+    </section>
+
+    <div class="assets">
+      <a class="asset" href="decks/srm-to-ivalua-deck.pptx" download>
+        <span class="k">Companion deck</span>
+        <span class="h">Your SRM Skills Have an Expiry Date</span>
+        <span class="s">9 slides · free PowerPoint download</span>
+      </a>
+      <a class="asset" href="https://www.youtube.com/@SAPCodeMonkey-803">
+        <span class="k">Watch instead</span>
+        <span class="h">Your SRM Skills Have an Expiry Date</span>
+        <span class="s">The video version on YouTube</span>
+      </a>
+    </div>
+
+    <p class="verify">Maintenance dates and successor guidance have been revised before. Verify against SAP's published maintenance strategy for your own situation before making commitments. This article is independent commentary and is not affiliated with SAP, Ivalua, Ariba or any implementation partner.</p>
+
+    <div class="related">
+      <p class="k">Keep reading</p>
+      <a href="article-hcm-deadlines.html">One SAP HCM deadline already passed →</a>
+      <a href="article-skills-by-role.html">How SAP skills change by role →</a>
+      <a href="article-btp-governance.html">BTP governance after Clean Core →</a>
+    </div>
+  </div>
+</article>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© <span id="yr"></span> SAPCodeMonkey · Independent SAP commentary</span>
+    <span>
+      <a href="articles.html">All articles</a> ·
+      <a href="resources.html">Decks</a> ·
+      <a href="mailto:tmoore@sapcodemonkey.com">tmoore@sapcodemonkey.com</a>
+    </span>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

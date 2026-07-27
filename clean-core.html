@@ -173,6 +173,8 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
     <nav>
       <a href="index.html#shifts">What's changing</a>
       <a href="archive.html">Archive</a>
+      <a href="articles.html">Articles</a>
+      <a href="resources.html">Decks &amp; guides</a>
       <a href="fiori-spotlight.html">Fiori spotlight</a>
       <a href="clean-core.html" aria-current="page">Clean Core</a>
     </nav>
@@ -183,7 +185,7 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
 <header class="top">
   <div class="wrap">
     <p class="eyebrow">Explainer · Clean Core &amp; ABAP Cloud</p>
-    <h1>Clean core isn't <span class="hl">no customisation</span>. It's customisation that survives the upgrade.</h1>
+    <h1>Clean core isn't <span class="hl">no customization</span>. It's customization that survives the upgrade.</h1>
     <p class="sub">The phrase gets used as if it means "stop building things." It doesn't. It means building them where the next release can't break them — and SAP now has a four-level scale for telling the difference. Here's the whole model, including the part most explainers haven't caught up with.</p>
   </div>
 </header>
@@ -199,7 +201,7 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
       <div class="pbox good">
         <span class="n">What changes</span>
         <h3>Extensions that hold a contract</h3>
-        <p>Build against interfaces SAP has formally committed to keeping stable, and your extension keeps working across releases. Build against internal objects, and you own the risk every time SAP ships. The difference isn't whether you customise — it's what you customise against.</p>
+        <p>Build against interfaces SAP has formally committed to keeping stable, and your extension keeps working across releases. Build against internal objects, and you own the risk every time SAP ships. The difference isn't whether you customize — it's what you customize against.</p>
       </div>
     </div>
   </div>
@@ -285,7 +287,7 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
         <p class="eyebrow">Practical</p>
         <h2>What to do about it</h2>
       </div>
-      <p class="sec-intro">Not a transformation programme. Five things that move the needle.</p>
+      <p class="sec-intro">Not a transformation program. Five things that move the needle.</p>
     </div>
     <div class="steps">
       <div class="step">
@@ -336,7 +338,7 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
     <div class="band">
       <div>
         <h2>The migration wave behind all this</h2>
-        <p>Custom code remediation is years of work for a lot of organisations, and it's the most reliably paid SAP skill of the next few years. The channel covers the practical end of it — what to grade, what to fix, what to delete.</p>
+        <p>Custom code remediation is years of work for a lot of organizations, and it's the most reliably paid SAP skill of the next few years. The channel covers the practical end of it — what to grade, what to fix, what to delete.</p>
       </div>
       <a class="btn" href="https://www.youtube.com/@SAPCodeMonkey-803?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
     </div>
@@ -362,14 +364,14 @@ footer{padding:40px 0 54px;border-top:1px solid var(--line)}
 {"id":"b","letter":"B","cls":"b","title":"Classic but documented APIs","sml":"Stable in practice. Acceptable with governance.",
  "risk":"Upgrade risk: low","riskbg":"#FDF3E3","riskfg":"#8A5410",
  "what":"Extensions using classic SAP APIs that are documented and generally stable, but without the formal release contract that Level A interfaces carry.",
- "how":["Documented classic APIs and interfaces","Recognised extension points with stated behaviour","Recorded as a governance decision, not an accident"],
+ "how":["Documented classic APIs and interfaces","Recognized extension points with stated behavior","Recorded as a governance decision, not an accident"],
  "verdict":"Workable with sign-off and monitoring. The important discipline is that it's a decision someone made and recorded, rather than a default nobody noticed — otherwise B quietly becomes the whole estate.",
  "vbg":"#FDF3E3","vfg":"#7A4A12"},
 
 {"id":"c","letter":"C","cls":"c","title":"Internal SAP objects","sml":"Real risk. Needs a remediation roadmap.",
  "risk":"Upgrade risk: meaningful","riskbg":"#FBEDE4","riskfg":"#A0491A",
  "what":"Extensions reaching into SAP objects never intended for external consumption. They work, they may have worked for years, and SAP has made no commitment to keeping them as they are.",
- "how":["Calls into unreleased classes, function modules or internal CDS views","Reads from tables with no released equivalent","Dependencies on behaviour that isn't contractual"],
+ "how":["Calls into unreleased classes, function modules or internal CDS views","Reads from tables with no released equivalent","Dependencies on behavior that isn't contractual"],
  "verdict":"Belongs on a documented remediation roadmap, not in the permanent architecture. Isolate behind a wrapper so the dependency sits in one place, and track SAP's object changelogs so incompatible changes surface before an upgrade does.",
  "vbg":"#FBEDE4","vfg":"#8A3D14"},
 
