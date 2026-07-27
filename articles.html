@@ -44,8 +44,16 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);f
 .hero .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo);margin:0 0 18px}
 .hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.04;letter-spacing:-.03em;margin:0 0 18px}
 .hero p{font-size:1.18rem;color:var(--ink-2);max-width:640px;margin:0}
-.filters{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 8px;align-items:center}
+.searchbar{position:relative;margin:30px 0 4px}
+.searchbar svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted);pointer-events:none}
+.searchbar input{width:100%;box-sizing:border-box;padding:14px 16px 14px 44px;font-family:var(--body);font-size:16px;color:var(--ink);background:var(--white);border:1.5px solid var(--line);border-radius:12px;transition:.15s}
+.searchbar input:focus{outline:none;border-color:var(--indigo);box-shadow:0 0 0 3px rgba(74,58,255,.12)}
+.searchbar input::placeholder{color:var(--muted)}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 8px;align-items:center}
 .filters .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.result-note{font-family:var(--mono);font-size:12px;color:var(--muted);margin:18px 0 -8px}
+.no-hits{padding:40px 4px;color:var(--muted);font-size:15px}
+.no-hits b{color:var(--ink);font-weight:600}
 .chip{font-family:var(--body);font-size:14px;font-weight:500;padding:7px 15px;border-radius:999px;border:1.5px solid var(--line);background:var(--white);color:var(--ink-2);cursor:pointer;transition:.15s}
 .chip:hover{border-color:var(--indigo);color:var(--indigo)}
 .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -99,6 +107,10 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);f
 </section>
 
 <div class="wrap">
+  <div class="searchbar">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+    <input id="q" type="search" placeholder="Search articles — topic, module, keyword…" autocomplete="off" aria-label="Search articles">
+  </div>
   <div class="filters" id="filters">
     <span class="lbl">Filter</span>
     <button class="chip on" data-f="all">All</button>
@@ -107,6 +119,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);f
     <button class="chip" data-f="tech">Technology &amp; development</button>
     <button class="chip" data-f="arch">Architecture &amp; governance</button>
   </div>
+  <p class="result-note" id="note"></p>
   <div class="grid" id="grid"></div>
 </div>
 
@@ -124,34 +137,65 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);f
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 const T={career:'Career',config:'Config',tech:'Tech',arch:'Architecture'};
+// feat = featured rank (1 = top). The 9 lowest numbers show by default as "Most read".
+// Reorder anytime by changing these numbers — or swap in real analytics counts later.
 const A=[
- {t:"How SAP Skills Change by Role",s:"article-skills-by-role.html",k:"career",r:8,b:"Three forces hit SAP work at once. What they do to your week depends on your seat — with a twelve-month path for each."},
- {t:"One SAP HCM Deadline Already Passed",s:"article-hcm-deadlines.html",k:"career",r:7,b:"You've heard 2027 until it stopped registering. But one deadline already passed — and a runway to 2040 is more dangerous than it looks."},
- {t:"Your SRM Skills Have an Expiry Date",s:"article-srm-ivalua.html",k:"career",r:8,b:"SRM maintenance ends 2027/2030. Three successor paths, an honest look at Ivalua, and which of your skills survive."},
- {t:"Clean Core & ABAP Cloud, Explained",s:"article-clean-core.html",k:"config",r:6,b:"Not 'stop customizing' — customizing in a way that survives the upgrade. The A–D levels and the grading rule that catches people out."},
- {t:"What Changed in Treasury on S/4HANA",s:"article-treasury.html",k:"config",r:7,b:"The data model moved, ownership moved, posting rules got stricter. Why one missing ledger assignment stops the whole close."},
- {t:"The Future of SAP Workflow",s:"article-workflow-future.html",k:"config",r:7,b:"Classic workflow wasn't deprecated — Workflow Management was. Three worlds coexist, and 'agentic' means less than the headlines."},
- {t:"The Workflow Administrator Transition",s:"article-workflow-admin.html",k:"config",r:8,b:"Your transactions still work. A five-phase plan to govern several engines — plus the SAP_WFRT gotcha that stops workflow dead."},
- {t:"Your SAP Security Roles Are Already Broken",s:"article-security-admin.html",k:"config",r:9,b:"Legacy roles aren't dated — they're structurally invalid. Two-layer auth, the 500-role SoD trap, and why SU24 discipline compounds."},
- {t:"The Payment Run in S/4HANA (F110)",s:"article-f110-payment-run.html",k:"config",r:7,b:"F110 barely changed — almost everything around it did. The Fiori gaps, the advice trap, and the Payment Medium Workbench underneath."},
- {t:"What S/4HANA Changes for Public Sector",s:"article-public-sector.html",k:"config",r:9,b:"The public-sector view: the mandatory BCS gate, Funds Management in ACDOCA, the US federal ledger change, and the grants wins to lead with."},
- {t:"Claude vs Joule for ABAP",s:"article-claude-vs-joule.html",k:"tech",r:5,b:"Not which AI is better — which one for what. SAP-native depth versus general-model breadth, and the data line you shouldn't cross."},
- {t:"BTP Governance After Clean Core",s:"article-btp-governance.html",k:"arch",r:8,b:"You did clean core properly and subaccounts sprawled. Why your account model is your governance model — cheap to make, costly to change."},
+ {t:"How SAP Skills Change by Role",s:"article-skills-by-role.html",k:"career",r:8,feat:1,b:"Three forces hit SAP work at once. What they do to your week depends on your seat — with a twelve-month path for each."},
+ {t:"Clean Core & ABAP Cloud, Explained",s:"article-clean-core.html",k:"config",r:6,feat:2,b:"Not 'stop customizing' — customizing in a way that survives the upgrade. The A–D levels and the grading rule that catches people out."},
+ {t:"Your SAP Security Roles Are Already Broken",s:"article-security-admin.html",k:"config",r:9,feat:3,b:"Legacy roles aren't dated — they're structurally invalid. Two-layer auth, the 500-role SoD trap, and why SU24 discipline compounds."},
+ {t:"One SAP HCM Deadline Already Passed",s:"article-hcm-deadlines.html",k:"career",r:7,feat:4,b:"You've heard 2027 until it stopped registering. But one deadline already passed — and a runway to 2040 is more dangerous than it looks."},
+ {t:"The Future of SAP Workflow",s:"article-workflow-future.html",k:"config",r:7,feat:5,b:"Classic workflow wasn't deprecated — Workflow Management was. Three worlds coexist, and 'agentic' means less than the headlines."},
+ {t:"What S/4HANA Changes for Public Sector",s:"article-public-sector.html",k:"config",r:9,feat:6,b:"The public-sector view: the mandatory BCS gate, Funds Management in ACDOCA, the US federal ledger change, and the grants wins to lead with."},
+ {t:"What Changed in Treasury on S/4HANA",s:"article-treasury.html",k:"config",r:7,feat:7,b:"The data model moved, ownership moved, posting rules got stricter. Why one missing ledger assignment stops the whole close."},
+ {t:"BTP Governance After Clean Core",s:"article-btp-governance.html",k:"arch",r:8,feat:8,b:"You did clean core properly and subaccounts sprawled. Why your account model is your governance model — cheap to make, costly to change."},
+ {t:"The Payment Run in S/4HANA (F110)",s:"article-f110-payment-run.html",k:"config",r:7,feat:9,b:"F110 barely changed — almost everything around it did. The Fiori gaps, the advice trap, and the Payment Medium Workbench underneath."},
+ {t:"Your SRM Skills Have an Expiry Date",s:"article-srm-ivalua.html",k:"career",r:8,feat:10,b:"SRM maintenance ends 2027/2030. Three successor paths, an honest look at Ivalua, and which of your skills survive."},
+ {t:"The Workflow Administrator Transition",s:"article-workflow-admin.html",k:"config",r:8,feat:11,b:"Your transactions still work. A five-phase plan to govern several engines — plus the SAP_WFRT gotcha that stops workflow dead."},
+ {t:"Claude vs Joule for ABAP",s:"article-claude-vs-joule.html",k:"tech",r:5,feat:12,b:"Not which AI is better — which one for what. SAP-native depth versus general-model breadth, and the data line you shouldn't cross."},
 ];
+const TOPN=9;
 const grid=document.getElementById('grid');
-let active='all';
-function render(){
-  const list=active==='all'?A:A.filter(a=>a.k===active);
-  grid.innerHTML=list.map(a=>'<a class="card" href="'+a.s+'">'
+const note=document.getElementById('note');
+const qbox=document.getElementById('q');
+let active='all', query='';
+
+function card(a){
+  return '<a class="card" href="'+a.s+'">'
     +'<div class="top"><span class="tag t-'+a.k+'">'+T[a.k]+'</span><span class="read">'+a.r+' min read</span></div>'
-    +'<h3>'+a.t+'</h3><p>'+a.b+'</p></a>').join('');
+    +'<h3>'+a.t+'</h3><p>'+a.b+'</p></a>';
 }
+function render(){
+  const q=query.trim().toLowerCase();
+  const searching = q.length>0 || active!=='all';
+
+  // filter by track + free-text (title + blurb)
+  let list=A.filter(a=>(active==='all'||a.k===active)
+    && (q===''|| (a.t+' '+a.b).toLowerCase().includes(q)));
+
+  if(searching){
+    // searching/filtering: show ALL matches, ordered by featured rank
+    list=list.slice().sort((x,y)=>x.feat-y.feat);
+    if(list.length===0){
+      grid.innerHTML='';
+      note.innerHTML='<div class="no-hits">No articles match <b>“'+qbox.value+'”</b>. Try a broader term, or clear the search to see the most-read articles.</div>';
+      return;
+    }
+    note.textContent=list.length+(list.length===1?' article':' articles')+' matching';
+  } else {
+    // default view: top 9 by featured rank
+    list=A.slice().sort((x,y)=>x.feat-y.feat).slice(0,TOPN);
+    note.textContent='Most read — top '+TOPN+' of '+A.length+'. Search above to find any article.';
+  }
+  grid.innerHTML=list.map(card).join('');
+}
+
 document.getElementById('filters').addEventListener('click',e=>{
   const b=e.target.closest('.chip');if(!b)return;
   active=b.dataset.f;
   document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===b));
   render();
 });
+qbox.addEventListener('input',e=>{ query=e.target.value; render(); });
 render();
 </script>
 </body>
