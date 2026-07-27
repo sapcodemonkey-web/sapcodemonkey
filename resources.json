@@ -111,6 +111,14 @@
    "track": "tech",
    "blurb": "CDS and OData for both developers and functional consultants — the stack, RAP, the no-code Fiori tools, and a learning path for each track.",
    "video": ""
+  },
+  {
+   "title": "Next-Generation ABAP Development",
+   "file": "decks/next-gen-abap-deck.pptx",
+   "slides": 9,
+   "track": "tech",
+   "blurb": "The new ABAP toolchain — Language Server, MCP Server, VS Code, agentic AI, and the custom-code migration agent. What shipped vs roadmap, and what it means for developers.",
+   "video": ""
   }
  ]
 }

@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CDS & OData for Functional Consultants — SAPCodeMonkey</title>
-<meta name="description" content="You don't need to write CDS — but on S/4HANA you need to read it and build on it. Plain-language concepts plus the no-code Fiori tools (View Browser, Custom Analytical Queries, Manage KPIs) that put real reporting power in your hands.">
-<link rel="canonical" href="https://sapcodemonkey.com/article-cds-odata-functional.html">
+<title>Next-Generation ABAP Development — SAPCodeMonkey</title>
+<meta name="description" content="ABAP changed more in two years than in the prior twenty. The Language Server and MCP Server, VS Code alongside Eclipse, Joule going agentic, and the custom-code migration agent — what has shipped, what is roadmap, and what it means for developers.">
+<link rel="canonical" href="https://sapcodemonkey.com/article-next-gen-abap.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="SAPCodeMonkey">
-<meta property="og:url" content="https://sapcodemonkey.com/article-cds-odata-functional.html">
-<meta property="og:title" content="CDS & OData for Functional Consultants">
-<meta property="og:description" content="You don't need to write CDS — but on S/4HANA you need to read it and build on it. Plain-language concepts plus the no-code Fiori tools (View Browser, Custom Analytical Queries, Manage KPIs) that put real reporting power in your hands.">
+<meta property="og:url" content="https://sapcodemonkey.com/article-next-gen-abap.html">
+<meta property="og:title" content="Next-Generation ABAP Development">
+<meta property="og:description" content="ABAP changed more in two years than in the prior twenty. The Language Server and MCP Server, VS Code alongside Eclipse, Joule going agentic, and the custom-code migration agent — what has shipped, what is roadmap, and what it means for developers.">
 <meta property="og:image" content="https://sapcodemonkey.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CDS & OData for Functional Consultants">
-<meta name="twitter:description" content="You don't need to write CDS — but on S/4HANA you need to read it and build on it. Plain-language concepts plus the no-code Fiori tools (View Browser, Custom Analytical Queries, Manage KPIs) that put real reporting power in your hands.">
+<meta name="twitter:title" content="Next-Generation ABAP Development">
+<meta name="twitter:description" content="ABAP changed more in two years than in the prior twenty. The Language Server and MCP Server, VS Code alongside Eclipse, Joule going agentic, and the custom-code migration agent — what has shipped, what is roadmap, and what it means for developers.">
 <meta name="twitter:image" content="https://sapcodemonkey.com/og-image.png">
 <meta name="theme-color" content="#4A3AFF">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"CDS & OData for Functional Consultants","description":"You don't need to write CDS — but on S/4HANA you need to read it and build on it. Plain-language concepts plus the no-code Fiori tools (View Browser, Custom Analytical Queries, Manage KPIs) that put real reporting power in your hands.","author":{"@type":"Person","name":"Tim Moore"},"publisher":{"@type":"Organization","name":"SAPCodeMonkey"},"mainEntityOfPage":"https://sapcodemonkey.com/article-cds-odata-functional.html","image":"https://sapcodemonkey.com/og-image.png"}
+{"@context":"https://schema.org","@type":"Article","headline":"Next-Generation ABAP Development","description":"ABAP changed more in two years than in the prior twenty. The Language Server and MCP Server, VS Code alongside Eclipse, Joule going agentic, and the custom-code migration agent — what has shipped, what is roadmap, and what it means for developers.","author":{"@type":"Person","name":"Tim Moore"},"publisher":{"@type":"Organization","name":"SAPCodeMonkey"},"mainEntityOfPage":"https://sapcodemonkey.com/article-next-gen-abap.html","image":"https://sapcodemonkey.com/og-image.png"}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,6 +98,9 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3rem);l
 .fig svg{width:100%;height:auto;display:block}
 .fig figcaption{font-size:13.5px;color:var(--muted);margin-top:14px;text-align:center;font-family:var(--body)}
 .stat{display:flex;align-items:baseline;gap:18px;background:var(--ink);color:#fff;border-radius:14px;padding:26px 28px;margin:30px 0}
+.ht-note{background:var(--lilac);border-left:4px solid var(--indigo);border-radius:8px;padding:15px 18px;margin:26px 0;font-size:15.5px;line-height:1.55}
+.ht-warn{background:#FBEEE4;border-left:4px solid #C4551D;border-radius:8px;padding:15px 18px;margin:26px 0;font-size:15.5px;line-height:1.55}
+article code{font-family:var(--mono);font-size:0.88em;background:var(--mist);padding:1px 6px;border-radius:5px;color:var(--ink)}
 .stat .n{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,7vw,3.4rem);line-height:1;letter-spacing:-.03em;color:#9FE1CB;white-space:nowrap}
 .stat .t{font-size:1.05rem;line-height:1.4;color:#C9C5E8}
 .stat.indigo .n{color:#B7AEFF}
@@ -152,82 +155,107 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3rem);l
 
 <article>
   <div class="rd ahead">
-    <div class="crumbs"><a href="index.html">Home</a> → <a href="articles.html">Articles</a> → CDS & OData (functional)</div>
-    <span class="tag t-config">Configuration &amp; functional</span>
-    <h1>CDS & OData for Functional Consultants</h1>
-    <p class="standfirst">You don't need to write CDS to work with it — but you increasingly need to read it and build on it. The no-code Fiori tools that turn the data model into reports and KPIs, without a developer.</p>
+    <div class="crumbs"><a href="index.html">Home</a> → <a href="articles.html">Articles</a> → Next-gen ABAP</div>
+    <span class="tag t-tech">Technology &amp; development</span>
+    <h1>Next-Generation ABAP Development</h1>
+    <p class="standfirst">ABAP development changed more in the last two years than the prior twenty. Here's what 'next generation' actually means — the new toolchain, agentic AI, the migration agent — with a clear line between what has shipped and what is still roadmap.</p>
     <div class="meta">
-      <span class="read">5 min read</span>
+      <span class="read">6 min read</span>
       <span>By Tim Moore · Independent SAP consultant</span>
     </div>
   </div>
 
   <div class="rd">
-    <div class="hero-fig"><svg viewBox="0 0 1120 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CDS &amp; OData for functional teams"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141330"/><stop offset="1" stop-color="#241f45"/></linearGradient></defs><rect width="1120" height="300" fill="url(#hg)"/><text x="64" y="72" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="3" fill="#8F8AB8">CONFIGURATION &amp; FUNCTIONAL</text><text x="64" y="130" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">CDS &amp; OData</text><text x="64" y="178" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">for functional teams</text><rect x="922" y="96" width="120" height="74" rx="13" fill="#0e2f2e" stroke="#0E7C7B" stroke-width="1.5"/><text x="982.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">no</text><text x="982.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">code</text><rect x="788" y="96" width="120" height="74" rx="13" fill="#2E3A14" stroke="#85B11E" stroke-width="1.5"/><text x="848.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">read</text><text x="848.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">not write</text><rect x="0" y="292" width="1120" height="8" fill="#0E7C7B"/></svg></div>
+    <div class="hero-fig"><svg viewBox="0 0 1120 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Next-generation ABAP development"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141330"/><stop offset="1" stop-color="#241f45"/></linearGradient></defs><rect width="1120" height="300" fill="url(#hg)"/><text x="64" y="72" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="3" fill="#8F8AB8">TECHNOLOGY &amp; DEVELOPMENT</text><text x="64" y="130" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">Next-generation</text><text x="64" y="178" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">ABAP development</text><rect x="922" y="96" width="120" height="74" rx="13" fill="#0e2f2e" stroke="#0E7C7B" stroke-width="1.5"/><text x="982.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">IDE</text><text x="982.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">your choice</text><rect x="788" y="96" width="120" height="74" rx="13" fill="#26215C" stroke="#4A3AFF" stroke-width="1.5"/><text x="848.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">AI</text><text x="848.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">agentic</text><rect x="0" y="292" width="1120" height="8" fill="#4A3AFF"/></svg></div>
   </div>
 
   <div class="rd body">
 
-<p>You do not need to write CDS to work with it — but on S/4HANA you increasingly need to <em>read</em> it, reason about it, and in many cases build on it without a developer. This guide is for functional consultants and analysts: what CDS and OData are in plain terms, why they matter to your work, and the no-code Fiori tools that put real capability in your hands. It is concept-first, with a learning path rather than code.</p>
+<p>For twenty years, ABAP development changed slowly. The last two years have not been slow. Between the arrival of ABAP Cloud, the AI tooling now built into the development environment, and — most recently — agentic development going generally available, the way ABAP is written is being reshaped faster than at any point in its history. This article maps what “next generation” actually means in concrete terms, separates what has shipped from what is still roadmap, and is honest about what changes for the people who do this work. As always, verify specifics and dates against SAP’s current roadmap before you plan around them — this space moves fast.</p>
 
-<h2>Why this is your concern now</h2>
-<p>In ECC, when a customer wanted a report that standard did not provide, the answer was usually a custom development or Report Painter — and real-time data often was not reachable at all. On S/4HANA that changed. A wide range of analytical data is exposed through CDS views, and there are Fiori apps that let you build reports, KPIs and calculated columns on top of them <strong>without writing code</strong>. The work that used to require a developer and a transport now often sits with a power user in a Fiori app. That is leverage — if you know the tools exist.</p>
+<h2>The foundation: an architecture ABAP never had</h2>
+<p>The quiet but pivotal change underneath everything else is structural. SAP built two components — the <strong>ABAP Language Server</strong> and, on top of it, the <strong>ABAP MCP Server</strong> — that together do something ABAP could not do before: separate the development capabilities from the IDE. The Language Server is the abstraction layer through which a tool talks to the backend; the MCP Server (MCP being the Model Context Protocol, an open standard) exposes ABAP to the wider ecosystem of AI agents and tools.</p>
+<figure class="fig"><svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The ABAP Language Server and MCP Server open ABAP to any IDE and agent">
+<!-- backend -->
+<rect x="200" y="222" width="280" height="46" rx="11" fill="#141330"/>
+<text x="340" y="250" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="14" fill="#fff" text-anchor="middle">ABAP backend (S/4HANA)</text>
+<!-- language server -->
+<rect x="220" y="158" width="240" height="44" rx="10" fill="#EFF6DE" stroke="#6E9E14" stroke-width="1.5"/>
+<text x="340" y="180" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="13.5" fill="#4F7A0F" text-anchor="middle">ABAP Language Server</text>
+<text x="340" y="196" font-family="Inter Tight,sans-serif" font-size="10.5" fill="#6B8B2E" text-anchor="middle">IDE-independent abstraction layer</text>
+<!-- MCP server -->
+<rect x="220" y="98" width="240" height="44" rx="10" fill="#E5F7F4" stroke="#0E7C7B" stroke-width="1.5"/>
+<text x="340" y="120" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="13.5" fill="#0A5E5D" text-anchor="middle">ABAP MCP Server</text>
+<text x="340" y="136" font-family="Inter Tight,sans-serif" font-size="10.5" fill="#2E7C77" text-anchor="middle">opens ABAP to the AI-agent ecosystem</text>
+<!-- connectors up -->
+<line x1="340" y1="202" x2="340" y2="222" stroke="#9AA6B2" stroke-width="2"/>
+<line x1="340" y1="142" x2="340" y2="158" stroke="#9AA6B2" stroke-width="2"/>
+<!-- top row: IDEs + agents -->
+<g font-family="Inter Tight,sans-serif" font-size="11.5" text-anchor="middle">
+<rect x="40" y="30" width="120" height="42" rx="9" fill="#EEEDFB" stroke="#4A3AFF"/><text x="100" y="50" font-weight="600" fill="#3225D6">Eclipse (ADT)</text><text x="100" y="64" font-size="9.5" fill="#6E7396">full development</text>
+<rect x="180" y="30" width="120" height="42" rx="9" fill="#EEEDFB" stroke="#4A3AFF"/><text x="240" y="50" font-weight="600" fill="#3225D6">VS Code</text><text x="240" y="64" font-size="9.5" fill="#6E7396">GA Q2 2026</text>
+<rect x="380" y="30" width="120" height="42" rx="9" fill="#E5F7F4" stroke="#0E7C7B"/><text x="440" y="50" font-weight="600" fill="#0A5E5D">Copilot</text><text x="440" y="64" font-size="9.5" fill="#6E7396">coding agent</text>
+<rect x="520" y="30" width="120" height="42" rx="9" fill="#E5F7F4" stroke="#0E7C7B"/><text x="580" y="50" font-weight="600" fill="#0A5E5D">Amazon Q</text><text x="580" y="64" font-size="9.5" fill="#6E7396">coding agent</text>
+</g>
+<g stroke="#C7CBDD" stroke-width="1.5">
+<line x1="100" y1="72" x2="250" y2="98"/><line x1="240" y1="72" x2="290" y2="98"/>
+<line x1="440" y1="72" x2="410" y2="98"/><line x1="580" y1="72" x2="450" y2="98"/>
+</g>
+<text x="340" y="16" font-family="JetBrains Mono,monospace" font-size="10.5" letter-spacing="1.5" fill="#6E7396" text-anchor="middle">YOUR CHOICE OF IDE + AGENT</text>
+</svg><figcaption>The Language Server and MCP Server separate ABAP's capabilities from any single IDE — opening it to your choice of editor and agent.</figcaption></figure>
+<p>This is architecture that other development ecosystems have had for years. The real news is that it is arriving for ABAP at all — and what it unlocks: your choice of IDE, and your choice of AI agent, rather than one fixed toolchain.</p>
 
-<h2>CDS and OData in plain terms</h2>
-<p>Think of a <strong>CDS view</strong> as a prepared, meaningful slice of data — the right fields, joined correctly, with business meaning attached, sitting ready on top of the raw tables. SAP ships thousands of them (the virtual data model), and they are the foundation of every analytical app in the system. <strong>OData</strong> is simply how that data travels to where it is consumed — a Fiori tile, SAP Analytics Cloud, or another system calling it as an API. You will rarely touch OData directly; you just need to know that when you expose a query “as OData,” you are making it available elsewhere.</p>
+<h2>VS Code joins Eclipse</h2>
+<p>The most visible consequence is that ABAP Development Tools are becoming available for <strong>Visual Studio Code</strong>, not just Eclipse. This matters beyond preference. VS Code is one of the most widely used editors in the world, with a deep ecosystem of AI extensions, and bringing ABAP into it gives developers direct access to modern coding agents. The honest framing SAP itself uses: Eclipse remains the environment for full-fledged ABAP development until VS Code reaches feature parity, and the initial VS Code scope focuses on Fiori app development with more object types to follow. Both share the same Language Server and MCP Server underneath. So this is a real widening of choice, not a wholesale switch — yet.</p>
 
-<h2>Who builds what</h2>
-<p>The most useful mental model is a ladder. The same CDS foundation serves everyone, but the tool changes as you move from writing code to consuming a report.</p>
-<figure class="fig"><svg viewBox="0 0 680 268" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Who builds what on CDS, from developer to end user"><rect x="8" y="10" width="664" height="56" rx="11" fill="#EEF0FB" stroke="#4A3AFF" stroke-width="1.25"/><text x="28" y="34" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#232F38">Developer</text><text x="28" y="54" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#4A3AFF">ECLIPSE / ADT</text><text x="250" y="44" font-family="Inter Tight,sans-serif" font-size="13.5" fill="#3B3E63">Builds CDS views &amp; RAP services in code</text><rect x="8" y="74" width="664" height="56" rx="11" fill="#EFF6DE" stroke="#6E9E14" stroke-width="1.25"/><text x="28" y="98" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#232F38">Key user</text><text x="28" y="118" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#6E9E14">CUSTOM CDS VIEW APP</text><text x="250" y="108" font-family="Inter Tight,sans-serif" font-size="13.5" fill="#3B3E63">Extends &amp; creates views via Fiori — no Eclipse</text><rect x="8" y="138" width="664" height="56" rx="11" fill="#E5F7F4" stroke="#0E7C7B" stroke-width="1.25"/><text x="28" y="162" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#232F38">Power user</text><text x="28" y="182" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#0E7C7B">CUSTOM ANALYTICAL QUERIES</text><text x="250" y="172" font-family="Inter Tight,sans-serif" font-size="13.5" fill="#3B3E63">Builds reports, KPIs, calculated columns</text><rect x="8" y="202" width="664" height="56" rx="11" fill="#F1F3F6" stroke="#7A8590" stroke-width="1.25"/><text x="28" y="226" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#232F38">End user</text><text x="28" y="246" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#7A8590">QUERY / VIEW BROWSER</text><text x="250" y="236" font-family="Inter Tight,sans-serif" font-size="13.5" fill="#3B3E63">Runs and slices what others built</text></svg><figcaption>The same CDS foundation, four different tools — the higher you sit, the less code and the more configuration.</figcaption></figure>
-<p>The developer builds views in Eclipse. But a <strong>key user</strong> can extend and create views through the Custom CDS View Fiori app — no Eclipse required — choosing a data source, adding associations, marking whether it should be exposed as OData, and setting field properties that are the equivalent of the annotations a developer would write in code. A <strong>power user</strong> uses Custom Analytical Queries to turn those views into reports, KPIs and calculated columns. And <strong>end users</strong> run and slice the result through the Query Browser and View Browser. You can sit at whichever rung your work needs.</p>
+<h2>Joule for Developers: from autocomplete to collaborator</h2>
+<p>AI in ABAP started as assistance — explain this legacy code, generate a RAP object, write the unit tests. That is already useful and already shipping: context-aware suggestions that understand clean-core patterns, plain-language explanation of ABAP and CDS so nobody has to reverse-engineer an undocumented report, and instant test generation. There is also an ABAP-specific language model, trained on a large body of ABAP and CDS code, for analysis and explanation.</p>
+<p>The shift now underway is from <em>assistance</em> to <em>agency</em>. The stated direction for 2026 is agentic AI, where the tooling does not just explain or generate on request but acts as a more autonomous collaborator that can own a whole task. That is a meaningful line to cross, and it is worth being precise about where it has actually been crossed — which brings us to the one place it clearly has.</p>
 
-<h2>The tools worth knowing by name</h2>
-<p>Four Fiori apps cover most of what a functional consultant needs. <strong>View Browser</strong> lets you search the thousands of delivered CDS views to find what already exists — the single most valuable habit, because it stops you specifying a custom build for something standard already provides. <strong>Custom Analytical Queries</strong> is where you build a report or KPI on top of a view, adding calculated columns and restricted measures, then publish it. <strong>Manage KPIs and Reports</strong> turns a query into a Smart Business tile with thresholds, targets and semantic coloring. And the <strong>Custom CDS View</strong> app lets you create or extend a view graphically when the delivered ones do not have quite the fields you need.</p>
+<h2>The killer application: custom-code migration</h2>
+<p>If you want the single most consequential piece of next-generation ABAP, it is not a feature — it is an agent aimed at the industry’s most expensive problem. S/4HANA migrations rarely fail on infrastructure; they bog down in <strong>custom code</strong> — business logic grown over years, often undocumented, tightly coupled to SAP standard objects, that has to be understood, adapted and validated one object at a time. That work is slow, costly, and the reason many migrations run long.</p>
+<p>The Custom Code Migration agent turns that from a mostly manual effort into a supervised loop.</p>
+<figure class="fig"><svg viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The four-stage custom code migration agent loop"><rect x="8" y="30" width="150" height="98" rx="12" fill="#EEEDFB" stroke="#4A3AFF" stroke-width="1.5"/><circle cx="34" cy="56" r="14" fill="#4A3AFF"/><text x="34" y="61" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="13" fill="#fff" text-anchor="middle">1</text><text x="56" y="61" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="14" fill="#232F38">Understand</text><text x="24" y="86" font-family="Inter Tight,sans-serif" font-size="11" fill="#3B3E63">read &amp; explain the</text><text x="24" y="101" font-family="Inter Tight,sans-serif" font-size="11" fill="#3B3E63">legacy code first</text><path d="M158 79 l14 0 m-6 -5 l6 5 l-6 5" stroke="#4A3AFF" stroke-width="2" fill="none"/><rect x="174" y="30" width="150" height="98" rx="12" fill="#E5F7F4" stroke="#0E7C7B" stroke-width="1.5"/><circle cx="200" cy="56" r="14" fill="#0E7C7B"/><text x="200" y="61" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="13" fill="#fff" text-anchor="middle">2</text><text x="222" y="61" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="14" fill="#232F38">Analyze</text><text x="190" y="86" font-family="Inter Tight,sans-serif" font-size="11" fill="#3B3E63">run ATC readiness</text><text x="190" y="101" font-family="Inter Tight,sans-serif" font-size="11" fill="#3B3E63">checks, categorize by</text><text x="190" y="116" font-family="Inter Tight,sans-serif" font-size="11" fill="#3B3E63">complexity</text><path d="M324 79 l14 0 m-6 -5 l6 5 l-6 5" stroke="#0E7C7B" stroke-width="2" fill="none"/><rect x="340" y="30" width="150" height="98" rx="12" fill="#EFF6DE" stroke="#6E9E14" stroke-width="1.5"/><circle cx="366" cy="56" r="14" fill="#6E9E14"/><text x="366" y="61" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="13" fill="#fff" text-anchor="middle">3</text><text x="388" y="61" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="14" fill="#232F38">Transform</text><text x="356" y="86" font-family="Inter Tight,sans-serif" font-size="11" fill="#3B3E63">apply deterministic</text><text x="356" y="101" font-family="Inter Tight,sans-serif" font-size="11" fill="#3B3E63">quick fixes, then AI</text><text x="356" y="116" font-family="Inter Tight,sans-serif" font-size="11" fill="#3B3E63">fixes</text><path d="M490 79 l14 0 m-6 -5 l6 5 l-6 5" stroke="#6E9E14" stroke-width="2" fill="none"/><rect x="506" y="30" width="150" height="98" rx="12" fill="#FBEEE4" stroke="#C4551D" stroke-width="1.5"/><circle cx="532" cy="56" r="14" fill="#C4551D"/><text x="532" y="61" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="13" fill="#fff" text-anchor="middle">4</text><text x="554" y="61" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="14" fill="#232F38">Review</text><text x="522" y="86" font-family="Inter Tight,sans-serif" font-size="11" fill="#3B3E63">human signs off —</text><text x="522" y="101" font-family="Inter Tight,sans-serif" font-size="11" fill="#3B3E63">governance &amp; edge</text><text x="522" y="116" font-family="Inter Tight,sans-serif" font-size="11" fill="#3B3E63">cases</text><text x="340" y="18" font-family="JetBrains Mono,monospace" font-size="10.5" letter-spacing="1.5" fill="#6E7396" text-anchor="middle">AGENT RUNS THE LOOP — HUMAN OWNS THE SIGN-OFF</text></svg><figcaption>The migration agent runs the routine loop; the developer owns review, governance and the edge cases.</figcaption></figure>
+<p>SAP states a design principle worth holding them to: each agent should first understand and explain the existing code before proposing changes. The loop runs the S/4HANA readiness checks in the ABAP Test Cockpit, interprets and categorizes the findings by complexity, applies the deterministic quick fixes automatically, and then applies AI-generated fixes — with the developer moving to review, governance and the cases the agent should not decide alone. SAP is targeting a 40% efficiency gain in custom-code transformation work. Even discounted, that is the difference between a migration that drags and one that moves.</p>
 
-<h2>One rule that saves projects</h2>
-<p>You cannot edit SAP-delivered KPIs, reports or stories directly — and you should not want to, because changes get overwritten at the next update. The correct pattern is always to copy first, then adapt the copy. And only content based on released CDS views or analytical queries can be copied safely. Building on released objects is the functional-side equivalent of clean core: work with what SAP commits to keeping stable, and your report survives the upgrade.</p>
+<h2>What has shipped, and what is still roadmap</h2>
+<p>Being precise here matters, because the marketing and the reality are close but not identical, and dates slip. Broadly: the AI <em>skills</em> — explain, generate, test — have been shipping since 2025. The <em>agentic</em> layer, the MCP Server, VS Code tooling and the custom-code migration agent are 2026 deliverables, several targeted for the middle of the year, some tied to specific S/4HANA Cloud Private Edition releases from 2021 onward. There is also a commercial change: the AI capabilities move to consumption-based pricing on “AI units,” activated through SAP for Me. The free promotional period was extended for a time, but the destination is a metered model. Check the current roadmap and your own licensing before you build a business case on any single date.</p>
 
-<h2>A learning path without code</h2>
-<p><strong>Start by browsing.</strong> Open the View Browser and explore the delivered views in your area — finance, logistics, whatever you know. Getting a feel for what already exists is the highest-value hour you can spend, and it immediately makes you better at scoping.</p>
-<p><strong>Then build a report.</strong> Use Custom Analytical Queries to create a simple report on a delivered view: pick the view, choose dimensions and measures, add one calculated column, and publish it to a tile. You have now done the thing that used to need a developer.</p>
-<p><strong>Then a KPI.</strong> Use Manage KPIs and Reports to turn a query into a Smart Business tile with a target and thresholds, so a number on the launchpad tells someone whether they are on track.</p>
-<p><strong>Then extend a view.</strong> When a delivered view is missing a field, use the Custom CDS View app to create or extend one graphically — and notice that the properties you are setting (aggregation, semantics, associations) are exactly what a developer sets in code. At that point you understand CDS from the inside, without having written a line of it.</p>
-
-<h2>The honest framing</h2>
-<p>None of this makes you a developer, and it does not need to. The value is that you can now read the data model, find what exists, and build a large class of reports and KPIs yourself — faster than raising a development request, and on released objects that survive the upgrade. The scarce person in the functional seat is the one who knows what standard already provides and can build on it directly. Knowing CDS and OData well enough to reason about them, even without coding, is a core part of that.</p>
+<h2>What it means if you write ABAP</h2>
+<p>The reflex fear is that this automates the developer away. It does not — but it does move the job, and pretending otherwise helps no one. What shrinks is the routine transformation work: the manual readiness-check remediation, the boilerplate generation, the line-by-line adaptation that agents now do faster. What grows is everything the agent explicitly hands back to a human: reviewing generated code for correctness and upgrade safety, governing what an autonomous agent is allowed to change, and owning the edge cases and the accountability. The agent runs the loop; someone still has to own the sign-off, and that someone needs to understand ABAP deeply enough to know when the agent is confidently wrong.</p>
+<p>There is also a genuine opportunity in the timing. New projects starting now can be planned on ABAP Cloud with a modern IDE from day one, avoiding the accumulation of fresh technical debt — and the developer who learns the agentic toolchain early becomes the person who supervises it, rather than the person it outpaces. That is the same pattern playing out across SAP: the value moves from producing the work to judging it. In ABAP, that shift now has a name, a toolchain, and a shipping date.</p>
 
 
     <section class="sources">
       <h2>Sources &amp; further reading</h2>
       <ul>
-        <li><a href="https://learning.sap.com/courses/analytics-with-sap-solutions/exploring-the-modeling-tools-of-sap-s-4hana-embedded-analytics_e23de159-d397-4c08-9a8a-ad6abdd24fb4">SAP Learning — Modeling tools of S/4HANA embedded analytics</a><span class="src-note">The Custom CDS View and Analytical Query apps, and the graphical (no-code) modeling approach. Verified live.</span></li>
-        <li><a href="https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-public-edition/describing-embedded-analytics">SAP Learning — Describing Embedded Analytics</a><span class="src-note">Manage KPIs and Reports, and the copy-before-edit rule for released CDS views. Verified live.</span></li>
-        <li><a href="https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-members/how-to-use-custom-analytical-queries-in-sap-s-4hana-embedded-analytics/ba-p/13541501">SAP Community — Using Custom Analytical Queries</a><span class="src-note">Step-by-step for building a report on a CDS view without code. Verified live.</span></li>
+        <li><a href="https://community.sap.com/t5/technology-blog-posts-by-sap/entering-the-new-era-of-agentic-ai-for-abap-development/ba-p/14394643">SAP Community — Entering the New Era of Agentic AI for ABAP</a><span class="src-note">The Language Server, MCP Server, VS Code GA, the migration agent and consumption pricing. Verified live.</span></li>
+        <li><a href="https://community.sap.com/t5/technology-blog-posts-by-sap/introducing-the-next-era-of-abap-development/ba-p/14260522">SAP Community — Introducing the Next Era of ABAP Development</a><span class="src-note">The TechEd 2025 framing: IDE-agnostic, agentic, AI-infused ABAP. Verified live.</span></li>
+        <li><a href="https://community.sap.com/t5/technology-blog-posts-by-sap/s-4hana-custom-code-migration-agent-accelerating-ecc-to-sap-s-4hana/ba-p/14418929">SAP Community — S/4HANA Custom Code Migration Agent</a><span class="src-note">The four-stage agentic loop, ATC integration and the human-oversight design. Verified live.</span></li>
+        <li><a href="https://community.sap.com/t5/technology-blog-posts-by-sap/our-2026-roadmap-for-joule-for-developers-abap-ai-capabilities/ba-p/14360358">SAP Community — 2026 Roadmap for Joule for Developers</a><span class="src-note">The move from explain/generate to autonomous collaborator, and the built-in ABAP MCP server. Verified live.</span></li>
       </ul>
     </section>
 
     <div class="assets">
-      <a class="asset" href="decks/cds-odata-skills-deck.pptx" download>
+      <a class="asset" href="decks/next-gen-abap-deck.pptx" download>
         <span class="k">Companion deck</span>
-        <span class="h">CDS & OData for Functional Consultants</span>
-        <span class="s">12 slides · free PowerPoint download</span>
+        <span class="h">Next-Generation ABAP Development</span>
+        <span class="s">11 slides · free PowerPoint download</span>
       </a>
       <a class="asset" href="https://www.youtube.com/@SAPCodeMonkey-803">
         <span class="k">Watch instead</span>
-        <span class="h">CDS & OData for Functional Consultants</span>
+        <span class="h">Next-Generation ABAP Development</span>
         <span class="s">The video version on YouTube</span>
       </a>
     </div>
 
-    <p class="verify">Syntax, app availability and released-object scope vary by release and edition. Verify against SAP Help and the Fiori apps reference library for yours. This article is independent commentary and is not affiliated with SAP.</p>
+    <p class="verify">AI capabilities, IDE feature parity, availability dates and pricing are changing quickly and several items are roadmap rather than shipped. Verify against SAP's current roadmap and your own licensing before planning. This article is independent commentary and is not affiliated with SAP.</p>
 
     <div class="related">
       <p class="k">Keep reading</p>
+      <a href="article-claude-vs-joule.html">Claude vs Joule for ABAP →</a>
+      <a href="article-clean-core.html">Clean Core &amp; ABAP Cloud explained →</a>
       <a href="article-cds-odata-developer.html">CDS &amp; OData for developers →</a>
-      <a href="article-how-to-analytical-query.html">How to build a custom analytical query →</a>
-      <a href="try-query-builder.html">Try it: interactive query builder →</a>
-      <a href="article-fiori.html">The Fiori frontend transition →</a>
-      <a href="article-skills-by-role.html">How SAP skills change by role →</a>
     </div>
   </div>
 </article>
