@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Payment Run in S/4HANA (F110) — SAPCodeMonkey</title>
-<meta name="description" content="F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.">
-<link rel="canonical" href="https://sapcodemonkey.com/article-f110-payment-run.html">
+<title>CDS & OData for Functional Consultants — SAPCodeMonkey</title>
+<meta name="description" content="You don't need to write CDS — but on S/4HANA you need to read it and build on it. Plain-language concepts plus the no-code Fiori tools (View Browser, Custom Analytical Queries, Manage KPIs) that put real reporting power in your hands.">
+<link rel="canonical" href="https://sapcodemonkey.com/article-cds-odata-functional.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="SAPCodeMonkey">
-<meta property="og:url" content="https://sapcodemonkey.com/article-f110-payment-run.html">
-<meta property="og:title" content="The Payment Run in S/4HANA (F110)">
-<meta property="og:description" content="F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.">
+<meta property="og:url" content="https://sapcodemonkey.com/article-cds-odata-functional.html">
+<meta property="og:title" content="CDS & OData for Functional Consultants">
+<meta property="og:description" content="You don't need to write CDS — but on S/4HANA you need to read it and build on it. Plain-language concepts plus the no-code Fiori tools (View Browser, Custom Analytical Queries, Manage KPIs) that put real reporting power in your hands.">
 <meta property="og:image" content="https://sapcodemonkey.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Payment Run in S/4HANA (F110)">
-<meta name="twitter:description" content="F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.">
+<meta name="twitter:title" content="CDS & OData for Functional Consultants">
+<meta name="twitter:description" content="You don't need to write CDS — but on S/4HANA you need to read it and build on it. Plain-language concepts plus the no-code Fiori tools (View Browser, Custom Analytical Queries, Manage KPIs) that put real reporting power in your hands.">
 <meta name="twitter:image" content="https://sapcodemonkey.com/og-image.png">
 <meta name="theme-color" content="#4A3AFF">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"The Payment Run in S/4HANA (F110)","description":"F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.","author":{"@type":"Person","name":"Tim Moore"},"publisher":{"@type":"Organization","name":"SAPCodeMonkey"},"mainEntityOfPage":"https://sapcodemonkey.com/article-f110-payment-run.html","image":"https://sapcodemonkey.com/og-image.png"}
+{"@context":"https://schema.org","@type":"Article","headline":"CDS & OData for Functional Consultants","description":"You don't need to write CDS — but on S/4HANA you need to read it and build on it. Plain-language concepts plus the no-code Fiori tools (View Browser, Custom Analytical Queries, Manage KPIs) that put real reporting power in your hands.","author":{"@type":"Person","name":"Tim Moore"},"publisher":{"@type":"Organization","name":"SAPCodeMonkey"},"mainEntityOfPage":"https://sapcodemonkey.com/article-cds-odata-functional.html","image":"https://sapcodemonkey.com/og-image.png"}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,91 +152,79 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3rem);l
 
 <article>
   <div class="rd ahead">
-    <div class="crumbs"><a href="index.html">Home</a> → <a href="articles.html">Articles</a> → Payment run</div>
+    <div class="crumbs"><a href="index.html">Home</a> → <a href="articles.html">Articles</a> → CDS & OData (functional)</div>
     <span class="tag t-config">Configuration &amp; functional</span>
-    <h1>The Payment Run in S/4HANA (F110)</h1>
-    <p class="standfirst">F110 itself barely changed on S/4HANA — but almost everything around it did. Migrations that scope this as a UI swap find the payment-medium layer during testing.</p>
+    <h1>CDS & OData for Functional Consultants</h1>
+    <p class="standfirst">You don't need to write CDS to work with it — but you increasingly need to read it and build on it. The no-code Fiori tools that turn the data model into reports and KPIs, without a developer.</p>
     <div class="meta">
-      <span class="read">4 min read</span>
+      <span class="read">5 min read</span>
       <span>By Tim Moore · Independent SAP consultant</span>
     </div>
   </div>
 
   <div class="rd">
-    <div class="hero-fig"><svg viewBox="0 0 1120 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The payment run in S/4HANA"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141330"/><stop offset="1" stop-color="#241f45"/></linearGradient></defs><rect width="1120" height="300" fill="url(#hg)"/><text x="64" y="72" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="3" fill="#8F8AB8">CONFIGURATION &amp; FUNCTIONAL</text><text x="64" y="130" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">The payment run</text><text x="64" y="178" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">in S/4HANA</text><rect x="922" y="96" width="120" height="74" rx="13" fill="#3a2814" stroke="#B5651D" stroke-width="1.5"/><text x="982.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">PMW</text><text x="982.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">changed</text><rect x="788" y="96" width="120" height="74" rx="13" fill="#26304a" stroke="#40617A" stroke-width="1.5"/><text x="848.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">F110</text><text x="848.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">kept</text><rect x="0" y="292" width="1120" height="8" fill="#B5651D"/></svg></div>
+    <div class="hero-fig"><svg viewBox="0 0 1120 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CDS &amp; OData for functional teams"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141330"/><stop offset="1" stop-color="#241f45"/></linearGradient></defs><rect width="1120" height="300" fill="url(#hg)"/><text x="64" y="72" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="3" fill="#8F8AB8">CONFIGURATION &amp; FUNCTIONAL</text><text x="64" y="130" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">CDS &amp; OData</text><text x="64" y="178" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">for functional teams</text><rect x="922" y="96" width="120" height="74" rx="13" fill="#0e2f2e" stroke="#0E7C7B" stroke-width="1.5"/><text x="982.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">no</text><text x="982.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">code</text><rect x="788" y="96" width="120" height="74" rx="13" fill="#2E3A14" stroke="#85B11E" stroke-width="1.5"/><text x="848.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">read</text><text x="848.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">not write</text><rect x="0" y="292" width="1120" height="8" fill="#0E7C7B"/></svg></div>
   </div>
 
   <div class="rd body">
 
-<p>Ask whether the payment run changed on S/4HANA and the honest answer is: F110 itself barely changed, but almost everything around it did. Migrations that scope this as a user-interface swap find the payment-medium layer during testing. The transaction was never the hard part.</p>
+<p>You do not need to write CDS to work with it — but on S/4HANA you increasingly need to <em>read</em> it, reason about it, and in many cases build on it without a developer. This guide is for functional consultants and analysts: what CDS and OData are in plain terms, why they matter to your work, and the no-code Fiori tools that put real capability in your hands. It is concept-first, with a learning path rather than code.</p>
 
-<h2>F110 wasn't deprecated — it was deployed out of reach</h2>
-<p>In S/4HANA on-premise, F110 still works: the same four tabs, the same proposal-then-run rhythm, full drill-down into the payment proposal. What removes it is not SAP retiring it but where you run. In public cloud, F110 is not available — not because it was deprecated, but because SAP GUI is not there. On-premise you get to choose; in public cloud the decision is already made for you, and the Fiori gaps below become mandatory rather than optional.</p>
+<h2>Why this is your concern now</h2>
+<p>In ECC, when a customer wanted a report that standard did not provide, the answer was usually a custom development or Report Painter — and real-time data often was not reachable at all. On S/4HANA that changed. A wide range of analytical data is exposed through CDS views, and there are Fiori apps that let you build reports, KPIs and calculated columns on top of them <strong>without writing code</strong>. The work that used to require a developer and a transport now often sits with a power user in a Fiori app. That is leverage — if you know the tools exist.</p>
 
-<h2>Manage Automatic Payments, and its two gaps</h2>
-<p>The Fiori equivalent is Manage Automatic Payments (app F0770), and it is genuinely better in the ways people notice first: one screen for every selection option, where F110 makes you walk four tabs. But it has two real gaps you must plan around. First, there is no Printout / data-medium tab — you cannot select program variants at all. Second, there is no drill-down on the proposal: you see one payment and two exceptions without being able to see which documents sit behind them. That second gap is why plenty of AP teams keep using F110 on-premise, and it is a genuine decision rather than resistance to change. Ask your AP team how often they drill into a proposal before you migrate them.</p>
+<h2>CDS and OData in plain terms</h2>
+<p>Think of a <strong>CDS view</strong> as a prepared, meaningful slice of data — the right fields, joined correctly, with business meaning attached, sitting ready on top of the raw tables. SAP ships thousands of them (the virtual data model), and they are the foundation of every analytical app in the system. <strong>OData</strong> is simply how that data travels to where it is consumed — a Fiori tile, SAP Analytics Cloud, or another system calling it as an API. You will rarely touch OData directly; you just need to know that when you expose a query “as OData,” you are making it available elsewhere.</p>
 
-<h2>The payment advice trap</h2>
-<p>Because the Printout tab is gone, SAP hardcoded the app to look for a specific variant name under program RFFOAVIS_FPAYM. If that variant is not in your system, payment advices will not generate — no matter what else you try. It is a silent failure with no obvious error, which is the worst category. KBAs 2863917 and 2794915 cover the scenarios and a workaround involving a BAdI and a template payment run created in SAP GUI. Create the variant and test that advices actually generate before a user reports that suppliers stopped receiving them.</p>
+<h2>Who builds what</h2>
+<p>The most useful mental model is a ladder. The same CDS foundation serves everyone, but the tool changes as you move from writing code to consuming a report.</p>
+<figure class="fig"><svg viewBox="0 0 680 268" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Who builds what on CDS, from developer to end user"><rect x="8" y="10" width="664" height="56" rx="11" fill="#EEF0FB" stroke="#4A3AFF" stroke-width="1.25"/><text x="28" y="34" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#232F38">Developer</text><text x="28" y="54" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#4A3AFF">ECLIPSE / ADT</text><text x="250" y="44" font-family="Inter Tight,sans-serif" font-size="13.5" fill="#3B3E63">Builds CDS views &amp; RAP services in code</text><rect x="8" y="74" width="664" height="56" rx="11" fill="#EFF6DE" stroke="#6E9E14" stroke-width="1.25"/><text x="28" y="98" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#232F38">Key user</text><text x="28" y="118" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#6E9E14">CUSTOM CDS VIEW APP</text><text x="250" y="108" font-family="Inter Tight,sans-serif" font-size="13.5" fill="#3B3E63">Extends &amp; creates views via Fiori — no Eclipse</text><rect x="8" y="138" width="664" height="56" rx="11" fill="#E5F7F4" stroke="#0E7C7B" stroke-width="1.25"/><text x="28" y="162" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#232F38">Power user</text><text x="28" y="182" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#0E7C7B">CUSTOM ANALYTICAL QUERIES</text><text x="250" y="172" font-family="Inter Tight,sans-serif" font-size="13.5" fill="#3B3E63">Builds reports, KPIs, calculated columns</text><rect x="8" y="202" width="664" height="56" rx="11" fill="#F1F3F6" stroke="#7A8590" stroke-width="1.25"/><text x="28" y="226" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#232F38">End user</text><text x="28" y="246" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#7A8590">QUERY / VIEW BROWSER</text><text x="250" y="236" font-family="Inter Tight,sans-serif" font-size="13.5" fill="#3B3E63">Runs and slices what others built</text></svg><figcaption>The same CDS foundation, four different tools — the higher you sit, the less code and the more configuration.</figcaption></figure>
+<p>The developer builds views in Eclipse. But a <strong>key user</strong> can extend and create views through the Custom CDS View Fiori app — no Eclipse required — choosing a data source, adding associations, marking whether it should be exposed as OData, and setting field properties that are the equivalent of the annotations a developer would write in code. A <strong>power user</strong> uses Custom Analytical Queries to turn those views into reports, KPIs and calculated columns. And <strong>end users</strong> run and slice the result through the Query Browser and View Browser. You can sit at whichever rung your work needs.</p>
 
-<h2>The real change is underneath</h2>
-<p>The substantive change is not the transaction but the payment-medium layer. The classic payment medium programs — the RFFO* family — are effectively obsolete; the standard formats are now delivered through the Payment Medium Workbench. Data-medium creation is configured in OBPM4, with DMEE and DMEEX for bank-specific format work, and with a PMW payment method F110 launches SAPFPAYM_SCHEDULE rather than a dedicated program per method. The process flow is fundamentally different, which is why this is a conversion workstream rather than a configuration tweak.</p>
-<figure class="fig"><svg viewBox="0 0 680 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="F110 kept, payment medium changed">
-<rect x="8" y="14" width="322" height="182" rx="12" fill="#ECEEF5" stroke="#40617A" stroke-width="1.25"/>
-<text x="30" y="44" font-family="JetBrains Mono,monospace" font-size="10.5" letter-spacing="1.5" fill="#2C4759">BARELY CHANGED</text>
-<text x="30" y="76" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="26" fill="#232F38">F110</text>
-<g font-family="Inter Tight,sans-serif" font-size="12.5" fill="#3B3E63">
-<text x="30" y="106">Same four tabs, same rhythm</text>
-<text x="30" y="128">Full proposal drill-down</text>
-<text x="30" y="150">On-premise only</text>
-<text x="30" y="172">Absent in public cloud (no GUI)</text>
-</g>
-<rect x="350" y="14" width="322" height="182" rx="12" fill="#FBF0E2" stroke="#B5651D" stroke-width="1.5"/>
-<text x="372" y="44" font-family="JetBrains Mono,monospace" font-size="10.5" letter-spacing="1.5" fill="#8A4C13">THE REAL CHANGE</text>
-<text x="372" y="76" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="26" fill="#232F38">PMW</text>
-<g font-family="Inter Tight,sans-serif" font-size="12.5" fill="#3B3E63">
-<text x="372" y="106">RFFO* programs obsolete</text>
-<text x="372" y="128">Config moves to OBPM4</text>
-<text x="372" y="150">DMEE / DMEEX for formats</text>
-<text x="372" y="172">Bank determination → BAM</text>
-</g>
-</svg><figcaption>The transaction barely moved. The payment-medium layer underneath it is the real change.</figcaption></figure>
+<h2>The tools worth knowing by name</h2>
+<p>Four Fiori apps cover most of what a functional consultant needs. <strong>View Browser</strong> lets you search the thousands of delivered CDS views to find what already exists — the single most valuable habit, because it stops you specifying a custom build for something standard already provides. <strong>Custom Analytical Queries</strong> is where you build a report or KPI on top of a view, adding calculated columns and restricted measures, then publish it. <strong>Manage KPIs and Reports</strong> turns a query into a Smart Business tile with thresholds, targets and semantic coloring. And the <strong>Custom CDS View</strong> app lets you create or extend a view graphically when the delivered ones do not have quite the fields you need.</p>
 
-<h2>Bank determination moved house</h2>
-<p>Bank determination is still configuration, but it now resolves against bank accounts that are no longer configuration — they are Bank Account Management master data, maintained in production and owned by Treasury, with workflow approval and an audit trail. Which means a payment-run failure can now originate in a bank-account change a Treasury user made in production, without a transport.</p>
+<h2>One rule that saves projects</h2>
+<p>You cannot edit SAP-delivered KPIs, reports or stories directly — and you should not want to, because changes get overwritten at the next update. The correct pattern is always to copy first, then adapt the copy. And only content based on released CDS views or analytical queries can be copied safely. Building on released objects is the functional-side equivalent of clean core: work with what SAP commits to keeping stable, and your report survives the upgrade.</p>
 
-<h2>What to budget for</h2>
-<p>Not “learning the new payment run.” Budget for the PMW conversion, which is the substantive workstream; the payment-advice variant, created and tested; the proposal drill-down decision, made with your AP team rather than for them; and cross-module ownership of bank master data — who owns it, who approves changes, and how AP finds out when one happens.</p>
+<h2>A learning path without code</h2>
+<p><strong>Start by browsing.</strong> Open the View Browser and explore the delivered views in your area — finance, logistics, whatever you know. Getting a feel for what already exists is the highest-value hour you can spend, and it immediately makes you better at scoping.</p>
+<p><strong>Then build a report.</strong> Use Custom Analytical Queries to create a simple report on a delivered view: pick the view, choose dimensions and measures, add one calculated column, and publish it to a tile. You have now done the thing that used to need a developer.</p>
+<p><strong>Then a KPI.</strong> Use Manage KPIs and Reports to turn a query into a Smart Business tile with a target and thresholds, so a number on the launchpad tells someone whether they are on track.</p>
+<p><strong>Then extend a view.</strong> When a delivered view is missing a field, use the Custom CDS View app to create or extend one graphically — and notice that the properties you are setting (aggregation, semantics, associations) are exactly what a developer sets in code. At that point you understand CDS from the inside, without having written a line of it.</p>
+
+<h2>The honest framing</h2>
+<p>None of this makes you a developer, and it does not need to. The value is that you can now read the data model, find what exists, and build a large class of reports and KPIs yourself — faster than raising a development request, and on released objects that survive the upgrade. The scarce person in the functional seat is the one who knows what standard already provides and can build on it directly. Knowing CDS and OData well enough to reason about them, even without coding, is a core part of that.</p>
 
 
     <section class="sources">
       <h2>Sources &amp; further reading</h2>
       <ul>
-        <li><a href="https://me.sap.com/notes/2863917">SAP KBA 2863917 — payment advice scenarios (RFFOAVIS_FPAYM)</a><span class="src-note">The hardcoded variant behavior that silently stops advices. Login required; KBA number verified in context. [Verify.]</span></li>
-        <li><a href="https://me.sap.com/notes/2794915">SAP KBA 2794915 — missing Printout tab workaround</a><span class="src-note">The BAdI and template-run workaround for the missing tab. Login required; KBA number verified in context. [Verify.]</span></li>
-        <li><a href="https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE">SAP Help — Payment Medium Workbench &amp; Manage Automatic Payments</a><span class="src-note">The PMW, OBPM4 configuration and the F0770 app. Landing hub verified live; search 'Manage Automatic Payments' for the app page.</span></li>
+        <li><a href="https://learning.sap.com/courses/analytics-with-sap-solutions/exploring-the-modeling-tools-of-sap-s-4hana-embedded-analytics_e23de159-d397-4c08-9a8a-ad6abdd24fb4">SAP Learning — Modeling tools of S/4HANA embedded analytics</a><span class="src-note">The Custom CDS View and Analytical Query apps, and the graphical (no-code) modeling approach. Verified live.</span></li>
+        <li><a href="https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-public-edition/describing-embedded-analytics">SAP Learning — Describing Embedded Analytics</a><span class="src-note">Manage KPIs and Reports, and the copy-before-edit rule for released CDS views. Verified live.</span></li>
+        <li><a href="https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-members/how-to-use-custom-analytical-queries-in-sap-s-4hana-embedded-analytics/ba-p/13541501">SAP Community — Using Custom Analytical Queries</a><span class="src-note">Step-by-step for building a report on a CDS view without code. Verified live.</span></li>
       </ul>
     </section>
 
     <div class="assets">
-      <a class="asset" href="decks/f110-payment-run-deck.pptx" download>
+      <a class="asset" href="decks/cds-odata-skills-deck.pptx" download>
         <span class="k">Companion deck</span>
-        <span class="h">The Payment Run in S/4HANA (F110)</span>
-        <span class="s">9 slides · free PowerPoint download</span>
+        <span class="h">CDS & OData for Functional Consultants</span>
+        <span class="s">12 slides · free PowerPoint download</span>
       </a>
       <a class="asset" href="https://www.youtube.com/@SAPCodeMonkey-803">
         <span class="k">Watch instead</span>
-        <span class="h">The Payment Run in S/4HANA (F110)</span>
+        <span class="h">CDS & OData for Functional Consultants</span>
         <span class="s">The video version on YouTube</span>
       </a>
     </div>
 
-    <p class="verify">App availability, KBA content and PMW scope vary by release. Verify against SAP Help and the referenced KBAs for yours. SAP guidance, transaction availability and dates change between releases and editions. Verify anything here against SAP Help for your own situation before you commit to it. This article is independent commentary and is not affiliated with SAP or any implementation partner.</p>
+    <p class="verify">Syntax, app availability and released-object scope vary by release and edition. Verify against SAP Help and the Fiori apps reference library for yours. This article is independent commentary and is not affiliated with SAP.</p>
 
     <div class="related">
       <p class="k">Keep reading</p>
-      <a href="article-treasury.html">What changed in Treasury on S/4HANA →</a>
-      <a href="article-security-admin.html">Security admin in S/4HANA →</a>
+      <a href="article-cds-odata-developer.html">CDS &amp; OData for developers →</a>
+      <a href="article-fiori.html">The Fiori frontend transition →</a>
       <a href="article-skills-by-role.html">How SAP skills change by role →</a>
     </div>
   </div>
@@ -247,8 +235,6 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3rem);l
     <span>© <span id="yr"></span> SAPCodeMonkey · Independent SAP commentary</span>
     <span>
       <a href="articles.html">All articles</a> ·
-      <a href="article-fiori.html">Fiori spotlight</a> ·
-      <a href="article-clean-core.html">Clean Core</a> ·
       <a href="resources.html">Decks</a> ·
       <a href="mailto:tmoore@sapcodemonkey.com">tmoore@sapcodemonkey.com</a>
     </span>

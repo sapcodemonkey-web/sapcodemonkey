@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Payment Run in S/4HANA (F110) — SAPCodeMonkey</title>
-<meta name="description" content="F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.">
-<link rel="canonical" href="https://sapcodemonkey.com/article-f110-payment-run.html">
+<title>CDS & OData for Developers: A Learning Path — SAPCodeMonkey</title>
+<meta name="description" content="CDS and OData are the baseline for modern ABAP. What each one is, how RAP ties them together, and a concept-first six-month learning path that ends each phase with something that works.">
+<link rel="canonical" href="https://sapcodemonkey.com/article-cds-odata-developer.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="SAPCodeMonkey">
-<meta property="og:url" content="https://sapcodemonkey.com/article-f110-payment-run.html">
-<meta property="og:title" content="The Payment Run in S/4HANA (F110)">
-<meta property="og:description" content="F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.">
+<meta property="og:url" content="https://sapcodemonkey.com/article-cds-odata-developer.html">
+<meta property="og:title" content="CDS & OData for Developers: A Learning Path">
+<meta property="og:description" content="CDS and OData are the baseline for modern ABAP. What each one is, how RAP ties them together, and a concept-first six-month learning path that ends each phase with something that works.">
 <meta property="og:image" content="https://sapcodemonkey.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Payment Run in S/4HANA (F110)">
-<meta name="twitter:description" content="F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.">
+<meta name="twitter:title" content="CDS & OData for Developers: A Learning Path">
+<meta name="twitter:description" content="CDS and OData are the baseline for modern ABAP. What each one is, how RAP ties them together, and a concept-first six-month learning path that ends each phase with something that works.">
 <meta name="twitter:image" content="https://sapcodemonkey.com/og-image.png">
 <meta name="theme-color" content="#4A3AFF">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"The Payment Run in S/4HANA (F110)","description":"F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.","author":{"@type":"Person","name":"Tim Moore"},"publisher":{"@type":"Organization","name":"SAPCodeMonkey"},"mainEntityOfPage":"https://sapcodemonkey.com/article-f110-payment-run.html","image":"https://sapcodemonkey.com/og-image.png"}
+{"@context":"https://schema.org","@type":"Article","headline":"CDS & OData for Developers: A Learning Path","description":"CDS and OData are the baseline for modern ABAP. What each one is, how RAP ties them together, and a concept-first six-month learning path that ends each phase with something that works.","author":{"@type":"Person","name":"Tim Moore"},"publisher":{"@type":"Organization","name":"SAPCodeMonkey"},"mainEntityOfPage":"https://sapcodemonkey.com/article-cds-odata-developer.html","image":"https://sapcodemonkey.com/og-image.png"}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,91 +152,78 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3rem);l
 
 <article>
   <div class="rd ahead">
-    <div class="crumbs"><a href="index.html">Home</a> → <a href="articles.html">Articles</a> → Payment run</div>
-    <span class="tag t-config">Configuration &amp; functional</span>
-    <h1>The Payment Run in S/4HANA (F110)</h1>
-    <p class="standfirst">F110 itself barely changed on S/4HANA — but almost everything around it did. Migrations that scope this as a UI swap find the payment-medium layer during testing.</p>
+    <div class="crumbs"><a href="index.html">Home</a> → <a href="articles.html">Articles</a> → CDS & OData (dev)</div>
+    <span class="tag t-tech">Technology &amp; development</span>
+    <h1>CDS & OData for Developers: A Learning Path</h1>
+    <p class="standfirst">For an ABAP developer, CDS and OData are no longer optional vocabulary. Here's what each is, how RAP ties them together, and the order to learn them in — concept-first, light on code.</p>
     <div class="meta">
-      <span class="read">4 min read</span>
+      <span class="read">5 min read</span>
       <span>By Tim Moore · Independent SAP consultant</span>
     </div>
   </div>
 
   <div class="rd">
-    <div class="hero-fig"><svg viewBox="0 0 1120 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The payment run in S/4HANA"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141330"/><stop offset="1" stop-color="#241f45"/></linearGradient></defs><rect width="1120" height="300" fill="url(#hg)"/><text x="64" y="72" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="3" fill="#8F8AB8">CONFIGURATION &amp; FUNCTIONAL</text><text x="64" y="130" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">The payment run</text><text x="64" y="178" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">in S/4HANA</text><rect x="922" y="96" width="120" height="74" rx="13" fill="#3a2814" stroke="#B5651D" stroke-width="1.5"/><text x="982.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">PMW</text><text x="982.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">changed</text><rect x="788" y="96" width="120" height="74" rx="13" fill="#26304a" stroke="#40617A" stroke-width="1.5"/><text x="848.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">F110</text><text x="848.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">kept</text><rect x="0" y="292" width="1120" height="8" fill="#B5651D"/></svg></div>
+    <div class="hero-fig"><svg viewBox="0 0 1120 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CDS &amp; OData for developers"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141330"/><stop offset="1" stop-color="#241f45"/></linearGradient></defs><rect width="1120" height="300" fill="url(#hg)"/><text x="64" y="72" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="3" fill="#8F8AB8">TECHNOLOGY &amp; DEVELOPMENT</text><text x="64" y="130" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">CDS &amp; OData</text><text x="64" y="178" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">for developers</text><rect x="922" y="96" width="120" height="74" rx="13" fill="#26215C" stroke="#4A3AFF" stroke-width="1.5"/><text x="982.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">OData</text><text x="982.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">expose</text><rect x="788" y="96" width="120" height="74" rx="13" fill="#2E3A14" stroke="#85B11E" stroke-width="1.5"/><text x="848.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">CDS</text><text x="848.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">model</text><rect x="0" y="292" width="1120" height="8" fill="#4A3AFF"/></svg></div>
   </div>
 
   <div class="rd body">
 
-<p>Ask whether the payment run changed on S/4HANA and the honest answer is: F110 itself barely changed, but almost everything around it did. Migrations that scope this as a user-interface swap find the payment-medium layer during testing. The transaction was never the hard part.</p>
+<p>If you are an ABAP developer, CDS and OData are no longer optional vocabulary — they are the baseline. CDS is where you model data in modern ABAP, and OData is how that model reaches a Fiori app or an external system. Together with RAP, they are the core of ABAP Cloud and the clean-core way of building. This guide is a concept-first orientation with a learning path, not a code tutorial: enough to understand what each piece is, how they fit, and the order to learn them in.</p>
 
-<h2>F110 wasn't deprecated — it was deployed out of reach</h2>
-<p>In S/4HANA on-premise, F110 still works: the same four tabs, the same proposal-then-run rhythm, full drill-down into the payment proposal. What removes it is not SAP retiring it but where you run. In public cloud, F110 is not available — not because it was deprecated, but because SAP GUI is not there. On-premise you get to choose; in public cloud the decision is already made for you, and the Fiori gaps below become mandatory rather than optional.</p>
+<h2>The one-sentence version</h2>
+<p>You model business data as a <strong>CDS view</strong>, you expose it as an <strong>OData service</strong>, and a Fiori app or API consumes it. Everything else is detail on top of that spine.</p>
+<figure class="fig"><svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The CDS and OData stack from table to tile"><rect x="60" y="14" width="560" height="58" rx="11" fill="#E5F7F4" stroke="#0E7C7B" stroke-width="1.5"/><text x="82" y="40" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="16" fill="#0A5E5D">SAP Fiori app / analytical tile</text><text x="82" y="60" font-family="Inter Tight,sans-serif" font-size="12.5" fill="#5A6570">what the user sees</text><path d="M340 72 l0 12 m-6 -6 l6 6 l6 -6" stroke="#9AA6B2" stroke-width="2" fill="none"/><rect x="60" y="84" width="560" height="58" rx="11" fill="#EEF0FB" stroke="#4A3AFF" stroke-width="1.5"/><text x="82" y="110" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="16" fill="#3225D6">OData service (V2 / V4)</text><text x="82" y="130" font-family="Inter Tight,sans-serif" font-size="12.5" fill="#5A6570">the exposure — how the app reaches the data</text><path d="M340 142 l0 12 m-6 -6 l6 6 l6 -6" stroke="#9AA6B2" stroke-width="2" fill="none"/><rect x="60" y="154" width="560" height="58" rx="11" fill="#EFF6DE" stroke="#6E9E14" stroke-width="1.5"/><text x="82" y="180" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="16" fill="#4F7A0F">CDS view</text><text x="82" y="200" font-family="Inter Tight,sans-serif" font-size="12.5" fill="#5A6570">the model — meaning, associations, annotations</text><path d="M340 212 l0 12 m-6 -6 l6 6 l6 -6" stroke="#9AA6B2" stroke-width="2" fill="none"/><rect x="60" y="224" width="560" height="58" rx="11" fill="#F1F3F6" stroke="#9AA6B2" stroke-width="1.5"/><text x="82" y="250" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="16" fill="#5B6672">SAP HANA tables</text><text x="82" y="270" font-family="Inter Tight,sans-serif" font-size="12.5" fill="#5A6570">the raw data</text><text x="636" y="44" font-family="JetBrains Mono,monospace" font-size="10" fill="#8A94A0" text-anchor="end" transform="rotate(90 636 44)">CONSUMED</text></svg><figcaption>The spine: HANA tables at the bottom, a CDS model over them, an OData service exposing it, a Fiori app on top.</figcaption></figure>
 
-<h2>Manage Automatic Payments, and its two gaps</h2>
-<p>The Fiori equivalent is Manage Automatic Payments (app F0770), and it is genuinely better in the ways people notice first: one screen for every selection option, where F110 makes you walk four tabs. But it has two real gaps you must plan around. First, there is no Printout / data-medium tab — you cannot select program variants at all. Second, there is no drill-down on the proposal: you see one payment and two exceptions without being able to see which documents sit behind them. That second gap is why plenty of AP teams keep using F110 on-premise, and it is a genuine decision rather than resistance to change. Ask your AP team how often they drill into a proposal before you migrate them.</p>
+<h2>What CDS actually is</h2>
+<p>Core Data Services is a way to define data models using a SQL-like DDL syntax, written in the ABAP Development Tools (ADT) in Eclipse rather than in SE80. The reason it matters is not the syntax but two properties classic reports never had. First, <strong>pushdown</strong>: CDS moves data-intensive work down to the HANA database layer instead of pulling rows up into the application server and looping, which is often the single biggest performance win available. Second, <strong>reusability with meaning</strong>: a CDS view is a standalone, named object that any program, OData service or other view can reference, and it carries annotations that Fiori, analytics and API frameworks understand automatically. A classic report encapsulates logic that cannot be reused; a CDS view is a building block that can.</p>
+<p>This is why CDS is now described as a baseline competency: the entire virtual data model in S/4HANA — thousands of SAP-delivered views — is built this way, and your own work sits alongside it.</p>
 
-<h2>The payment advice trap</h2>
-<p>Because the Printout tab is gone, SAP hardcoded the app to look for a specific variant name under program RFFOAVIS_FPAYM. If that variant is not in your system, payment advices will not generate — no matter what else you try. It is a silent failure with no obvious error, which is the worst category. KBAs 2863917 and 2794915 cover the scenarios and a workaround involving a BAdI and a template payment run created in SAP GUI. Create the variant and test that advices actually generate before a user reports that suppliers stopped receiving them.</p>
+<h2>What OData adds</h2>
+<p>A CDS view models the data; it does not, by itself, make it reachable from a browser or another system. OData is the protocol that does. When you expose a CDS view as an OData service, a Fiori app can read and (with RAP) write to it, and external systems can call it as an API. There are two versions in play — V2 and the newer V4 — and modern RAP-based development targets V4. The practical point for a learner: you rarely hand-build the plumbing anymore. You model the CDS view correctly, and the framework generates the service.</p>
 
-<h2>The real change is underneath</h2>
-<p>The substantive change is not the transaction but the payment-medium layer. The classic payment medium programs — the RFFO* family — are effectively obsolete; the standard formats are now delivered through the Payment Medium Workbench. Data-medium creation is configured in OBPM4, with DMEE and DMEEX for bank-specific format work, and with a PMW payment method F110 launches SAPFPAYM_SCHEDULE rather than a dedicated program per method. The process flow is fundamentally different, which is why this is a conversion workstream rather than a configuration tweak.</p>
-<figure class="fig"><svg viewBox="0 0 680 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="F110 kept, payment medium changed">
-<rect x="8" y="14" width="322" height="182" rx="12" fill="#ECEEF5" stroke="#40617A" stroke-width="1.25"/>
-<text x="30" y="44" font-family="JetBrains Mono,monospace" font-size="10.5" letter-spacing="1.5" fill="#2C4759">BARELY CHANGED</text>
-<text x="30" y="76" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="26" fill="#232F38">F110</text>
-<g font-family="Inter Tight,sans-serif" font-size="12.5" fill="#3B3E63">
-<text x="30" y="106">Same four tabs, same rhythm</text>
-<text x="30" y="128">Full proposal drill-down</text>
-<text x="30" y="150">On-premise only</text>
-<text x="30" y="172">Absent in public cloud (no GUI)</text>
-</g>
-<rect x="350" y="14" width="322" height="182" rx="12" fill="#FBF0E2" stroke="#B5651D" stroke-width="1.5"/>
-<text x="372" y="44" font-family="JetBrains Mono,monospace" font-size="10.5" letter-spacing="1.5" fill="#8A4C13">THE REAL CHANGE</text>
-<text x="372" y="76" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="26" fill="#232F38">PMW</text>
-<g font-family="Inter Tight,sans-serif" font-size="12.5" fill="#3B3E63">
-<text x="372" y="106">RFFO* programs obsolete</text>
-<text x="372" y="128">Config moves to OBPM4</text>
-<text x="372" y="150">DMEE / DMEEX for formats</text>
-<text x="372" y="172">Bank determination → BAM</text>
-</g>
-</svg><figcaption>The transaction barely moved. The payment-medium layer underneath it is the real change.</figcaption></figure>
+<h2>Where RAP fits</h2>
+<p>RAP — the ABAP RESTful Application Programming Model — is the framework that ties it together for transactional apps. Its own structure tells you what to learn: CDS views for the data model, a <strong>behavior definition</strong> for what create, update and delete are allowed to do, a behavior implementation where the actual ABAP logic lives, and a service definition and binding that expose the whole thing as OData. The framework handles the boilerplate — the OData protocol, buffering, transaction handling — so you write business logic, not plumbing. SAP calls business services the most future-proof option, and RAP is where SAP is investing.</p>
 
-<h2>Bank determination moved house</h2>
-<p>Bank determination is still configuration, but it now resolves against bank accounts that are no longer configuration — they are Bank Account Management master data, maintained in production and owned by Treasury, with workflow approval and an audit trail. Which means a payment-run failure can now originate in a bank-account change a Treasury user made in production, without a transport.</p>
+<h2>A six-month learning path</h2>
+<p>This mirrors the path SAP practitioners actually recommend, and each phase ends with something that works.</p>
+<p><strong>Months 1–2 — foundations.</strong> Get ADT (Eclipse) working against a system or a BTP trial. Refresh modern ABAP syntax and object orientation; refactor one classic report into clean OO as a warm-up. The goal is to be comfortable in the modern toolchain, because none of the rest happens in SE80.</p>
+<p><strong>Month 3 — CDS proper.</strong> Build several CDS views of different types. Learn associations (how views relate), calculated fields, and the annotations that drive UI and OData exposure. Convert one loop-heavy classic report to a pushdown CDS approach and measure the before and after — that measurement is the moment it clicks.</p>
+<p><strong>Month 4 — OData exposure.</strong> Expose your CDS views as OData services and test them. Inspect the metadata and run create/read/update/delete against a tool like the SAP Gateway client or Postman. The skill here is confidence that the service does what you think it does.</p>
+<p><strong>Month 5 — RAP fundamentals.</strong> Build one managed business object end to end: CDS root and projection views, a behavior definition with validations, and a Fiori Elements UI on top. Even read-only, seeing the list report appear from your own model is the milestone. Then add draft support and full CRUD.</p>
+<p><strong>Month 6 — clean-core practice.</strong> Package it properly, add tests, and make sure everything uses released APIs rather than internal objects — run the ATC clean-core and ABAP Cloud readiness checks against your own code. Finish with a small mini-project that ties model, service and UI together.</p>
 
-<h2>What to budget for</h2>
-<p>Not “learning the new payment run.” Budget for the PMW conversion, which is the substantive workstream; the payment-advice variant, created and tested; the proposal drill-down decision, made with your AP team rather than for them; and cross-module ownership of bank master data — who owns it, who approves changes, and how AP finds out when one happens.</p>
+<h2>The honest framing</h2>
+<p>The test SAP practitioners use to know you have arrived is simple: can you create a CDS consumption view and expose it as an OData service? If yes, you can build the modern equivalent of most of what you used to write. What changed is not that ABAP died — classic ABAP is still used, especially in maintenance — but that the value moved from writing procedural code to modeling data well and letting the framework generate the rest. The scarce skill is judgment: knowing what to model, what to reuse from the thousands of delivered views, and whether the generated result is correct and upgrade-safe. That is the same shift happening everywhere in SAP, expressed in code.</p>
 
 
     <section class="sources">
       <h2>Sources &amp; further reading</h2>
       <ul>
-        <li><a href="https://me.sap.com/notes/2863917">SAP KBA 2863917 — payment advice scenarios (RFFOAVIS_FPAYM)</a><span class="src-note">The hardcoded variant behavior that silently stops advices. Login required; KBA number verified in context. [Verify.]</span></li>
-        <li><a href="https://me.sap.com/notes/2794915">SAP KBA 2794915 — missing Printout tab workaround</a><span class="src-note">The BAdI and template-run workaround for the missing tab. Login required; KBA number verified in context. [Verify.]</span></li>
-        <li><a href="https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE">SAP Help — Payment Medium Workbench &amp; Manage Automatic Payments</a><span class="src-note">The PMW, OBPM4 configuration and the F0770 app. Landing hub verified live; search 'Manage Automatic Payments' for the app page.</span></li>
+        <li><a href="https://pages.community.sap.com/topics/abap/rap">SAP Community — ABAP RESTful Application Programming Model (RAP)</a><span class="src-note">SAP's own hub: RAP as the heart of ABAP Cloud, built on CDS and exposed as OData. Verified live.</span></li>
+        <li><a href="https://learning.sap.com/courses/building-odata-services-with-sap-gateway/explaining-sap-gateway-services-based-on-cds-views">SAP Learning — OData services based on CDS views</a><span class="src-note">How CDS views become OData services, and why business services (RAP) are the future-proof route. Verified live.</span></li>
+        <li><a href="https://help.sap.com/docs/abap-cloud">SAP Help — ABAP Cloud</a><span class="src-note">The released-API model and ATC readiness checks referenced in the path. [Verify link.]</span></li>
       </ul>
     </section>
 
     <div class="assets">
-      <a class="asset" href="decks/f110-payment-run-deck.pptx" download>
+      <a class="asset" href="decks/cds-odata-skills-deck.pptx" download>
         <span class="k">Companion deck</span>
-        <span class="h">The Payment Run in S/4HANA (F110)</span>
-        <span class="s">9 slides · free PowerPoint download</span>
+        <span class="h">CDS & OData for Developers: A Learning Path</span>
+        <span class="s">12 slides · free PowerPoint download</span>
       </a>
       <a class="asset" href="https://www.youtube.com/@SAPCodeMonkey-803">
         <span class="k">Watch instead</span>
-        <span class="h">The Payment Run in S/4HANA (F110)</span>
+        <span class="h">CDS & OData for Developers: A Learning Path</span>
         <span class="s">The video version on YouTube</span>
       </a>
     </div>
 
-    <p class="verify">App availability, KBA content and PMW scope vary by release. Verify against SAP Help and the referenced KBAs for yours. SAP guidance, transaction availability and dates change between releases and editions. Verify anything here against SAP Help for your own situation before you commit to it. This article is independent commentary and is not affiliated with SAP or any implementation partner.</p>
+    <p class="verify">Syntax, app availability and released-object scope vary by release and edition. Verify against SAP Help and the Fiori apps reference library for yours. This article is independent commentary and is not affiliated with SAP.</p>
 
     <div class="related">
       <p class="k">Keep reading</p>
-      <a href="article-treasury.html">What changed in Treasury on S/4HANA →</a>
-      <a href="article-security-admin.html">Security admin in S/4HANA →</a>
+      <a href="article-cds-odata-functional.html">CDS &amp; OData for functional consultants →</a>
+      <a href="article-clean-core.html">Clean Core &amp; ABAP Cloud explained →</a>
       <a href="article-skills-by-role.html">How SAP skills change by role →</a>
     </div>
   </div>
@@ -247,8 +234,6 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3rem);l
     <span>© <span id="yr"></span> SAPCodeMonkey · Independent SAP commentary</span>
     <span>
       <a href="articles.html">All articles</a> ·
-      <a href="article-fiori.html">Fiori spotlight</a> ·
-      <a href="article-clean-core.html">Clean Core</a> ·
       <a href="resources.html">Decks</a> ·
       <a href="mailto:tmoore@sapcodemonkey.com">tmoore@sapcodemonkey.com</a>
     </span>

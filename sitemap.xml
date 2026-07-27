@@ -4,8 +4,6 @@
   <url><loc>https://sapcodemonkey.com/archive.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://sapcodemonkey.com/articles.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://sapcodemonkey.com/resources.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://sapcodemonkey.com/fiori-spotlight.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://sapcodemonkey.com/clean-core.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://sapcodemonkey.com/article-btp-governance.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://sapcodemonkey.com/article-claude-vs-joule.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://sapcodemonkey.com/article-clean-core.html</loc><changefreq>monthly</changefreq></url>
@@ -18,4 +16,7 @@
   <url><loc>https://sapcodemonkey.com/article-workflow-admin.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://sapcodemonkey.com/article-workflow-future.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://sapcodemonkey.com/article-public-sector.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-fiori.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-cds-odata-developer.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://sapcodemonkey.com/article-cds-odata-functional.html</loc><changefreq>monthly</changefreq></url>
 </urlset>

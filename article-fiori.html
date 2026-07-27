@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Payment Run in S/4HANA (F110) — SAPCodeMonkey</title>
-<meta name="description" content="F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.">
-<link rel="canonical" href="https://sapcodemonkey.com/article-f110-payment-run.html">
+<title>The Fiori Frontend Transition — SAPCodeMonkey</title>
+<meta name="description" content="Fiori looks like a coat of paint — transaction codes become tiles. But the frontend move shifted a large support workload onto whoever runs the system: catalogs, spaces, role-driven launchpads, and a blank tile with four possible causes.">
+<link rel="canonical" href="https://sapcodemonkey.com/article-fiori.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="SAPCodeMonkey">
-<meta property="og:url" content="https://sapcodemonkey.com/article-f110-payment-run.html">
-<meta property="og:title" content="The Payment Run in S/4HANA (F110)">
-<meta property="og:description" content="F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.">
+<meta property="og:url" content="https://sapcodemonkey.com/article-fiori.html">
+<meta property="og:title" content="The Fiori Frontend Transition">
+<meta property="og:description" content="Fiori looks like a coat of paint — transaction codes become tiles. But the frontend move shifted a large support workload onto whoever runs the system: catalogs, spaces, role-driven launchpads, and a blank tile with four possible causes.">
 <meta property="og:image" content="https://sapcodemonkey.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Payment Run in S/4HANA (F110)">
-<meta name="twitter:description" content="F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.">
+<meta name="twitter:title" content="The Fiori Frontend Transition">
+<meta name="twitter:description" content="Fiori looks like a coat of paint — transaction codes become tiles. But the frontend move shifted a large support workload onto whoever runs the system: catalogs, spaces, role-driven launchpads, and a blank tile with four possible causes.">
 <meta name="twitter:image" content="https://sapcodemonkey.com/og-image.png">
 <meta name="theme-color" content="#4A3AFF">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"The Payment Run in S/4HANA (F110)","description":"F110 barely changed — almost everything around it did. The Fiori gaps, the payment-advice trap under RFFOAVIS_FPAYM, and the Payment Medium Workbench that is the real change.","author":{"@type":"Person","name":"Tim Moore"},"publisher":{"@type":"Organization","name":"SAPCodeMonkey"},"mainEntityOfPage":"https://sapcodemonkey.com/article-f110-payment-run.html","image":"https://sapcodemonkey.com/og-image.png"}
+{"@context":"https://schema.org","@type":"Article","headline":"The Fiori Frontend Transition","description":"Fiori looks like a coat of paint — transaction codes become tiles. But the frontend move shifted a large support workload onto whoever runs the system: catalogs, spaces, role-driven launchpads, and a blank tile with four possible causes.","author":{"@type":"Person","name":"Tim Moore"},"publisher":{"@type":"Organization","name":"SAPCodeMonkey"},"mainEntityOfPage":"https://sapcodemonkey.com/article-fiori.html","image":"https://sapcodemonkey.com/og-image.png"}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,10 +152,10 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3rem);l
 
 <article>
   <div class="rd ahead">
-    <div class="crumbs"><a href="index.html">Home</a> → <a href="articles.html">Articles</a> → Payment run</div>
+    <div class="crumbs"><a href="index.html">Home</a> → <a href="articles.html">Articles</a> → Fiori transition</div>
     <span class="tag t-config">Configuration &amp; functional</span>
-    <h1>The Payment Run in S/4HANA (F110)</h1>
-    <p class="standfirst">F110 itself barely changed on S/4HANA — but almost everything around it did. Migrations that scope this as a UI swap find the payment-medium layer during testing.</p>
+    <h1>The Fiori Frontend Transition</h1>
+    <p class="standfirst">The Fiori transition looks like a training exercise for end users. It is really a shift of work — out of the user's hands and onto the desk of whoever supports the system.</p>
     <div class="meta">
       <span class="read">4 min read</span>
       <span>By Tim Moore · Independent SAP consultant</span>
@@ -163,81 +163,61 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3rem);l
   </div>
 
   <div class="rd">
-    <div class="hero-fig"><svg viewBox="0 0 1120 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The payment run in S/4HANA"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141330"/><stop offset="1" stop-color="#241f45"/></linearGradient></defs><rect width="1120" height="300" fill="url(#hg)"/><text x="64" y="72" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="3" fill="#8F8AB8">CONFIGURATION &amp; FUNCTIONAL</text><text x="64" y="130" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">The payment run</text><text x="64" y="178" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">in S/4HANA</text><rect x="922" y="96" width="120" height="74" rx="13" fill="#3a2814" stroke="#B5651D" stroke-width="1.5"/><text x="982.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">PMW</text><text x="982.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">changed</text><rect x="788" y="96" width="120" height="74" rx="13" fill="#26304a" stroke="#40617A" stroke-width="1.5"/><text x="848.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">F110</text><text x="848.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">kept</text><rect x="0" y="292" width="1120" height="8" fill="#B5651D"/></svg></div>
+    <div class="hero-fig"><svg viewBox="0 0 1120 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Fiori frontend transition"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141330"/><stop offset="1" stop-color="#241f45"/></linearGradient></defs><rect width="1120" height="300" fill="url(#hg)"/><text x="64" y="72" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="3" fill="#8F8AB8">CONFIGURATION &amp; FUNCTIONAL</text><text x="64" y="130" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">The Fiori frontend</text><text x="64" y="178" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#FFFFFF" letter-spacing="-1.5">transition</text><rect x="922" y="96" width="120" height="74" rx="13" fill="#0e2f2e" stroke="#0E7C7B" stroke-width="1.5"/><text x="982.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">tiles</text><text x="982.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">now</text><rect x="788" y="96" width="120" height="74" rx="13" fill="#26304a" stroke="#40617A" stroke-width="1.5"/><text x="848.0" y="134" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" text-anchor="middle">GUI</text><text x="848.0" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#B9C9D6" text-anchor="middle">was</text><rect x="0" y="292" width="1120" height="8" fill="#0E7C7B"/></svg></div>
   </div>
 
   <div class="rd body">
 
-<p>Ask whether the payment run changed on S/4HANA and the honest answer is: F110 itself barely changed, but almost everything around it did. Migrations that scope this as a user-interface swap find the payment-medium layer during testing. The transaction was never the hard part.</p>
+<p>The Fiori transition is easy to underestimate because it looks like a coat of paint. Transaction codes become tiles, the screens get friendlier, and the assumption is that this is a training exercise for end users. It is not. When the frontend moved from SAP GUI to the Fiori launchpad, a large amount of work moved with it — out of the user's hands and onto the desk of whoever supports the system. This article is about where that work went.</p>
 
-<h2>F110 wasn't deprecated — it was deployed out of reach</h2>
-<p>In S/4HANA on-premise, F110 still works: the same four tabs, the same proposal-then-run rhythm, full drill-down into the payment proposal. What removes it is not SAP retiring it but where you run. In public cloud, F110 is not available — not because it was deprecated, but because SAP GUI is not there. On-premise you get to choose; in public cloud the decision is already made for you, and the Fiori gaps below become mandatory rather than optional.</p>
+<h2>What actually changed</h2>
+<p>In the classic world, a user ran a transaction code and the screen either worked or it did not, and support was largely about the data behind it. In the Fiori world, a tile sits on a launchpad, the launchpad is assembled from catalogs and groups or spaces, and each app calls services that have to be active and authorized before anything appears. The user sees a clean tile; behind it sits a chain of configuration that did not exist before. When something goes wrong, the failure often has nothing to do with the data and everything to do with that chain.</p>
 
-<h2>Manage Automatic Payments, and its two gaps</h2>
-<p>The Fiori equivalent is Manage Automatic Payments (app F0770), and it is genuinely better in the ways people notice first: one screen for every selection option, where F110 makes you walk four tabs. But it has two real gaps you must plan around. First, there is no Printout / data-medium tab — you cannot select program variants at all. Second, there is no drill-down on the proposal: you see one payment and two exceptions without being able to see which documents sit behind them. That second gap is why plenty of AP teams keep using F110 on-premise, and it is a genuine decision rather than resistance to change. Ask your AP team how often they drill into a proposal before you migrate them.</p>
+<h2>Five things that land on your desk instead</h2>
+<p>The frontend moved, and the support workload moved with it — into configuration you now own. Five shifts in particular show up quickly.</p>
+<figure class="fig"><svg viewBox="0 0 680 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The four-place Fiori diagnosis path"><text x="340" y="26" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="2" fill="#0A5E5D" text-anchor="middle">WHERE THERE USED TO BE ONE PLACE TO LOOK, NOW THERE ARE FOUR</text><rect x="14" y="52" width="150" height="88" rx="12" fill="#E5F7F4" stroke="#0E7C7B" stroke-width="1.25"/><circle cx="42" cy="80" r="15" fill="#0E7C7B"/><text x="42" y="85" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#fff" text-anchor="middle">1</text><text x="66" y="85" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="15" fill="#0A5E5D">App</text><text x="30" y="112" font-family="Inter Tight,sans-serif" font-size="12" fill="#2B2A33">assigned to a</text><text x="30" y="128" font-family="Inter Tight,sans-serif" font-size="12" fill="#2B2A33">catalog?</text><path d="M164 96 l14 0 m-6 -5 l6 5 l-6 5" stroke="#0E7C7B" stroke-width="2" fill="none"/><rect x="178" y="52" width="150" height="88" rx="12" fill="#E5F7F4" stroke="#0E7C7B" stroke-width="1.25"/><circle cx="206" cy="80" r="15" fill="#0E7C7B"/><text x="206" y="85" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#fff" text-anchor="middle">2</text><text x="230" y="85" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="15" fill="#0A5E5D">Catalog</text><text x="194" y="112" font-family="Inter Tight,sans-serif" font-size="12" fill="#2B2A33">in a group or</text><text x="194" y="128" font-family="Inter Tight,sans-serif" font-size="12" fill="#2B2A33">space?</text><path d="M328 96 l14 0 m-6 -5 l6 5 l-6 5" stroke="#0E7C7B" stroke-width="2" fill="none"/><rect x="342" y="52" width="150" height="88" rx="12" fill="#E5F7F4" stroke="#0E7C7B" stroke-width="1.25"/><circle cx="370" cy="80" r="15" fill="#0E7C7B"/><text x="370" y="85" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#fff" text-anchor="middle">3</text><text x="394" y="85" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="15" fill="#0A5E5D">Group</text><text x="358" y="112" font-family="Inter Tight,sans-serif" font-size="12" fill="#2B2A33">assigned to the</text><text x="358" y="128" font-family="Inter Tight,sans-serif" font-size="12" fill="#2B2A33">role?</text><path d="M492 96 l14 0 m-6 -5 l6 5 l-6 5" stroke="#0E7C7B" stroke-width="2" fill="none"/><rect x="506" y="52" width="150" height="88" rx="12" fill="#E5F7F4" stroke="#0E7C7B" stroke-width="1.25"/><circle cx="534" cy="80" r="15" fill="#0E7C7B"/><text x="534" y="85" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#fff" text-anchor="middle">4</text><text x="558" y="85" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="15" fill="#0A5E5D">Auth</text><text x="522" y="112" font-family="Inter Tight,sans-serif" font-size="12" fill="#2B2A33">does it still</text><text x="522" y="128" font-family="Inter Tight,sans-serif" font-size="12" fill="#2B2A33">hold?</text></svg><figcaption>A blank tile now has four possible causes, in four different places.</figcaption></figure>
+<p>The <strong>diagnosis path is new</strong>. When a tile does not work, the question is no longer just “is the data right.” It is: is the app assigned to a catalog, is the catalog in a group or space, is the group assigned to the role, and does the underlying authorization still hold? Four places to look where there used to be one.</p>
+<p><strong>Role building became a user-experience decision.</strong> Classic role building was about what someone could execute. Now it also determines what they can see and how their day is laid out. Business catalogs and role assignment quietly became a design choice made by IT — and a badly designed one produces a launchpad that technically works and is miserable to use.</p>
+<p><strong>A new layer of failure modes appeared.</strong> Gateway services, OData activation, caching, browser behavior and theming now sit between the user and the data. “The app is blank” has causes that never existed in a GUI-only landscape, and diagnosing them needs skills the classic support playbook never required.</p>
+<p><strong>Launchpad organization decides whether the project is judged a success.</strong> If the launchpad is badly organized, people quietly fall back to whatever classic access still works — and the business concludes the migration failed. How tiles are grouped genuinely affects perception, which means information architecture is now part of the support remit.</p>
+<p><strong>It is never finished.</strong> New and changed apps ship with every release, so the launchpad is a living thing. Reviewing what changed, and deciding what to expose to whom, becomes a recurring task rather than a one-off project activity.</p>
 
-<h2>The payment advice trap</h2>
-<p>Because the Printout tab is gone, SAP hardcoded the app to look for a specific variant name under program RFFOAVIS_FPAYM. If that variant is not in your system, payment advices will not generate — no matter what else you try. It is a silent failure with no obvious error, which is the worst category. KBAs 2863917 and 2794915 cover the scenarios and a workaround involving a BAdI and a template payment run created in SAP GUI. Create the variant and test that advices actually generate before a user reports that suppliers stopped receiving them.</p>
+<h2>The honest caveat before you rely on any mapping</h2>
+<p>App names, tile catalogs and which classic transactions an app actually supersedes all shift between S/4HANA releases — and some transactions still exist alongside their Fiori equivalent rather than being replaced by them. Any “this app replaces that transaction” table is a snapshot, not a rule. Check the SAP Fiori apps reference library and the simplification item list for your target release before you commit a mapping to a design document or a training deck.</p>
 
-<h2>The real change is underneath</h2>
-<p>The substantive change is not the transaction but the payment-medium layer. The classic payment medium programs — the RFFO* family — are effectively obsolete; the standard formats are now delivered through the Payment Medium Workbench. Data-medium creation is configured in OBPM4, with DMEE and DMEEX for bank-specific format work, and with a PMW payment method F110 launches SAPFPAYM_SCHEDULE rather than a dedicated program per method. The process flow is fundamentally different, which is why this is a conversion workstream rather than a configuration tweak.</p>
-<figure class="fig"><svg viewBox="0 0 680 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="F110 kept, payment medium changed">
-<rect x="8" y="14" width="322" height="182" rx="12" fill="#ECEEF5" stroke="#40617A" stroke-width="1.25"/>
-<text x="30" y="44" font-family="JetBrains Mono,monospace" font-size="10.5" letter-spacing="1.5" fill="#2C4759">BARELY CHANGED</text>
-<text x="30" y="76" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="26" fill="#232F38">F110</text>
-<g font-family="Inter Tight,sans-serif" font-size="12.5" fill="#3B3E63">
-<text x="30" y="106">Same four tabs, same rhythm</text>
-<text x="30" y="128">Full proposal drill-down</text>
-<text x="30" y="150">On-premise only</text>
-<text x="30" y="172">Absent in public cloud (no GUI)</text>
-</g>
-<rect x="350" y="14" width="322" height="182" rx="12" fill="#FBF0E2" stroke="#B5651D" stroke-width="1.5"/>
-<text x="372" y="44" font-family="JetBrains Mono,monospace" font-size="10.5" letter-spacing="1.5" fill="#8A4C13">THE REAL CHANGE</text>
-<text x="372" y="76" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="26" fill="#232F38">PMW</text>
-<g font-family="Inter Tight,sans-serif" font-size="12.5" fill="#3B3E63">
-<text x="372" y="106">RFFO* programs obsolete</text>
-<text x="372" y="128">Config moves to OBPM4</text>
-<text x="372" y="150">DMEE / DMEEX for formats</text>
-<text x="372" y="172">Bank determination → BAM</text>
-</g>
-</svg><figcaption>The transaction barely moved. The payment-medium layer underneath it is the real change.</figcaption></figure>
-
-<h2>Bank determination moved house</h2>
-<p>Bank determination is still configuration, but it now resolves against bank accounts that are no longer configuration — they are Bank Account Management master data, maintained in production and owned by Treasury, with workflow approval and an audit trail. Which means a payment-run failure can now originate in a bank-account change a Treasury user made in production, without a transport.</p>
-
-<h2>What to budget for</h2>
-<p>Not “learning the new payment run.” Budget for the PMW conversion, which is the substantive workstream; the payment-advice variant, created and tested; the proposal drill-down decision, made with your AP team rather than for them; and cross-module ownership of bank master data — who owns it, who approves changes, and how AP finds out when one happens.</p>
+<h2>Why this is a series, not a footnote</h2>
+<p>Tile troubleshooting, catalog and space design, role migration, and how to run an adoption review are all learnable, practical skills — and immediately useful to anyone supporting S/4HANA today. The career point is the familiar one: the frontend transition does not eliminate the support role, it moves it up a layer. The person who understands the launchpad chain, can diagnose a blank tile in four places, and can design a catalog that people actually adopt is doing work that did not exist a few years ago and is not going away. The tiles change every release; the judgment about how to organize them does not.</p>
 
 
     <section class="sources">
       <h2>Sources &amp; further reading</h2>
       <ul>
-        <li><a href="https://me.sap.com/notes/2863917">SAP KBA 2863917 — payment advice scenarios (RFFOAVIS_FPAYM)</a><span class="src-note">The hardcoded variant behavior that silently stops advices. Login required; KBA number verified in context. [Verify.]</span></li>
-        <li><a href="https://me.sap.com/notes/2794915">SAP KBA 2794915 — missing Printout tab workaround</a><span class="src-note">The BAdI and template-run workaround for the missing tab. Login required; KBA number verified in context. [Verify.]</span></li>
-        <li><a href="https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE">SAP Help — Payment Medium Workbench &amp; Manage Automatic Payments</a><span class="src-note">The PMW, OBPM4 configuration and the F0770 app. Landing hub verified live; search 'Manage Automatic Payments' for the app page.</span></li>
+        <li><a href="https://help.sap.com/docs/SAP_FIORI_APPS_REFERENCE_LIBRARY">SAP Fiori apps reference library</a><span class="src-note">The authoritative list of apps and the classic transactions they relate to, per release. [Verify link — reference-library URLs shift.]</span></li>
+        <li><a href="https://community.sap.com/t5/technology-blog-posts-by-sap/sap-fiori-for-sap-s-4hana-understanding-sap-business-roles/ba-p/13470385">SAP Community — Understanding SAP Business Roles</a><span class="src-note">How business catalogs, groups/spaces and roles assemble the launchpad. Verified live.</span></li>
+        <li><a href="https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE">SAP Help — S/4HANA (simplification item list)</a><span class="src-note">Which transactions are replaced, retained, or changed for your target release. Verified live.</span></li>
       </ul>
     </section>
 
     <div class="assets">
-      <a class="asset" href="decks/f110-payment-run-deck.pptx" download>
+      <a class="asset" href="decks/s4hana-security-admin-deck.pptx" download>
         <span class="k">Companion deck</span>
-        <span class="h">The Payment Run in S/4HANA (F110)</span>
-        <span class="s">9 slides · free PowerPoint download</span>
+        <span class="h">The Fiori Frontend Transition</span>
+        <span class="s">10 slides · free PowerPoint download</span>
       </a>
       <a class="asset" href="https://www.youtube.com/@SAPCodeMonkey-803">
         <span class="k">Watch instead</span>
-        <span class="h">The Payment Run in S/4HANA (F110)</span>
+        <span class="h">The Fiori Frontend Transition</span>
         <span class="s">The video version on YouTube</span>
       </a>
     </div>
 
-    <p class="verify">App availability, KBA content and PMW scope vary by release. Verify against SAP Help and the referenced KBAs for yours. SAP guidance, transaction availability and dates change between releases and editions. Verify anything here against SAP Help for your own situation before you commit to it. This article is independent commentary and is not affiliated with SAP or any implementation partner.</p>
+    <p class="verify">Fiori app availability, catalog structure and transaction mappings vary by release and edition — many classic transactions still exist alongside their Fiori equivalents. Verify against the Fiori apps reference library and the simplification item list for your release. This article is independent commentary and is not affiliated with SAP or any implementation partner.</p>
 
     <div class="related">
       <p class="k">Keep reading</p>
-      <a href="article-treasury.html">What changed in Treasury on S/4HANA →</a>
       <a href="article-security-admin.html">Security admin in S/4HANA →</a>
       <a href="article-skills-by-role.html">How SAP skills change by role →</a>
+      <a href="article-clean-core.html">Clean Core &amp; ABAP Cloud explained →</a>
     </div>
   </div>
 </article>
@@ -247,8 +227,6 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3rem);l
     <span>© <span id="yr"></span> SAPCodeMonkey · Independent SAP commentary</span>
     <span>
       <a href="articles.html">All articles</a> ·
-      <a href="article-fiori.html">Fiori spotlight</a> ·
-      <a href="article-clean-core.html">Clean Core</a> ·
       <a href="resources.html">Decks</a> ·
       <a href="mailto:tmoore@sapcodemonkey.com">tmoore@sapcodemonkey.com</a>
     </span>

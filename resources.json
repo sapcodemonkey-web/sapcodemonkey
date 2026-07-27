@@ -103,6 +103,14 @@
    "track": "config",
    "blurb": "Fund accounting, grants and budgeting on S/4HANA — the mandatory BCS gate, Funds Management in ACDOCA, the US federal ledger change, and the grants wins.",
    "video": ""
+  },
+  {
+   "title": "CDS & OData: A Skills Guide",
+   "file": "decks/cds-odata-skills-deck.pptx",
+   "slides": 10,
+   "track": "tech",
+   "blurb": "CDS and OData for both developers and functional consultants — the stack, RAP, the no-code Fiori tools, and a learning path for each track.",
+   "video": ""
   }
  ]
 }
